@@ -35,7 +35,7 @@ int main(){
     u2.Display();
     // u1의 userCount와 u2의 userCount는 공유된다. 
 
-    int currUser = User.returnUserCount(); // 정적 맴버 함수의 경우 클래스명.함수이름()으로 호출한다. 
+    int currUser = User::returnUserCount(); // 정적 맴버 함수의 경우 클래스명.함수이름()으로 호출한다. 
 
 }
 
