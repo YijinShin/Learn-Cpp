@@ -42,21 +42,23 @@ template <> void Swap<double>(double&, double&); // 명시적 특수화 원형
 //클래스 탬플릿 선언 
 template  <typename C>
 class Data{
-    template  <typename D>
-    class Inner{
-        private:
-            D idata_;
-        public:
-            Inner(D at);
-            D get_data();
-            void InnerFunc(){cout<<"Inner class"<<endl;}
-    };
     private:
         C data_;
     public:
         Data(C dt);
         C get_data();
         void OuterFunc(){cout<<"Outer class"<<endl;}
+        
+        //nested class template public에 선언해야지 메인에서 막 부를 수 잇다. 
+        template  <typename D>
+        class Inner{
+            private:
+                D idata_;
+            public:
+                Inner(D at);
+                D get_data();
+                void InnerFunc(){cout<<"Inner class"<<endl;}
+        };
 };
 
 int main(){
@@ -89,9 +91,6 @@ int main(){
     idt.InnerFunc();
     cout<<"Outer_data: "<< dt.get_data()<<endl; 
     cout<<"Inner_data: "<< idt.get_data()<<endl; 
-
-    
-    
 }
 
 //클래스 탬플릿
