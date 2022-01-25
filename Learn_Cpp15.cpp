@@ -39,7 +39,7 @@ int main(){
     d.Cry();
 }
 
-
+// 재정의한 순수가상함수 Animal
 void Dog::Cry(){
     cout<< "멍멍"<<endl;
 }
