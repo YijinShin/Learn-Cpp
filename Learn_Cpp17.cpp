@@ -5,6 +5,13 @@ class template
     - 클래스 템플릿을 기초 클래스로 해서 상속 가능 
         일반 클래스가 파생클래스가 되어 템플릿 베이스 클래스 상속받기 가능
         템플릿 베이스 클래스가 파생클래스가 되어 또 다른 템플릿 베이스 클래스 상속받기 가능 
+    
+    - 클래스 템플릿의 명시적 특수화
+        - 모든 매개변수를 특수화 할 수 있고
+        - 일부 매개변수만 특수화 할 수 있다
+        - C++11부터 템플릿 특수화를 위한 새로운 이름 붙일 수 있다. 
+
+
 */
 
 #include <iostream>
@@ -20,6 +27,24 @@ class FirstClass{
         FirstClass(A a, B b);
         void ShowFirstData();
 };
+//4. 클래스 함수 명시적 특수화 <double, double 한에서> // 이거는 모든 템플릿 매개변수들에 대해 특수화 한 경우 
+template <> class FirstClass<double, double>{
+    private:
+        double a_;
+        double b_;
+    public:
+        FirstClass(double a, double b){a_ = a; b_ = b;}
+        double get_data(){ return a_+b_;}
+};
+// 위에서 한 명시적 특수화에 이름을 붙인것 
+typedef FirstClass<double, double> DoubleFirstClass;
+
+//5. 부분 특수화(partial specialization) A,B중에서 B에대해서 double인 경우 특수화 
+template <typename A> class FirstClass<A, double>{
+    public:
+        FirstClass(A a, double b){cout<<"partial specialization"<<endl;}
+};
+
 
 // 2. 디폴트 템플릿 인수 명시 가능
 template <typename C, typename D =int> //이거 디폴트 매개변수를 쓰려면 순서를끝에 둬야하는듯..
@@ -31,7 +56,7 @@ class SecondClass{
         SecondClass(C c,D d);
         void ShowSecondData();
 };
-
+ 
 template <typename E, typename A, typename B>
 class ThirdClass: public FirstClass<A,B>{
     private:
@@ -47,6 +72,13 @@ int main(){
     ThirdClass<string, string, int> tc("third data", "first data", 12); // 이렇게 하면 객체 생성 (FirstClass 생성자, ThridClass 생성자 )실행됨. 
     tc.ShowFirstData();
     tc.ShowThirdData();
+
+    // 전부 명시적 특수화 
+    FirstClass<double, double> fc(1.1,1.4);
+    cout<<"double double: "<<fc.get_data()<<endl;
+
+    // 부분 특수화
+    FirstClass<string, double> fc_partial("partial", 1.3);
 }
 
 //First class
