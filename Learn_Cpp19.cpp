@@ -13,22 +13,22 @@ int main(){
 
     char ch;
     char chArr[5]; 
-    char *chPo = new char[5];
+    char *chPo = new char[10];
     string str;
 
-    //sizeof는 바이트 단위 
-    cout <<  "chArr size: "<<sizeof(chArr)<<endl; 
-    cout <<  "numArr size: "<<sizeof(numArr)<<endl;
-
     // cin
-    cin >> n; cout << "n: " << n << endl;
-    // cin >> numArr; cout << numArr << endl; int 배열은 cin>>으로 입력받을 수 없다. 
-    cin >> ch; cout << "ch: " << ch << endl;
-    cin >> chArr; cout <<"chArr: " <<  chArr << endl;
-    for(int i=0;i<10;i++) cout<<  "chArr" <<"["<<i<<"] : "<< chArr[i]<<endl;
+    //getline(cin, str, 'a');
+    cout <<"input a: ";
+    cin >> n;
+    if(cin.fail() == 1){
+        printf("error\n");
+        cin.clear();
+        cin.ignore();
+    }
+    cout <<"input ch: ";
+    cin >> ch;
 
-
-    cin >> chPo; cout << "chPo: " << chPo << endl;
-    cin >> str; cout << "str: " << str << endl;
+    cout << "a: "<<n<<endl;
+    cout << "ch: "<<ch<<endl;
 
 }
