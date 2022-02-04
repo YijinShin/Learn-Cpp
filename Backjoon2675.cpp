@@ -1,4 +1,3 @@
-//start 8:55 - end:
 
 #include <iostream>
 using namespace std;

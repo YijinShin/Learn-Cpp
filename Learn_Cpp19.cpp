@@ -7,28 +7,7 @@ char = 1 / int,long = 4,
 using namespace std;
 
 int main(){
-    int n;
-    int numArr[5];
-    int *numPo = new int[5];
-
-    char ch;
-    char chArr[5]; 
-    char *chPo = new char[10];
-    string str;
-
-    // cin
-    //getline(cin, str, 'a');
-    cout <<"input a: ";
-    cin >> n;
-    if(cin.fail() == 1){
-        printf("error\n");
-        cin.clear();
-        cin.ignore();
-    }
-    cout <<"input ch: ";
-    cin >> ch;
-
-    cout << "a: "<<n<<endl;
-    cout << "ch: "<<ch<<endl;
-
+   int num[5];
+   fill_n(num,3,1);
+   for(int i=0;i<5;i++) cout<<num[i]<<" / ";
 }
