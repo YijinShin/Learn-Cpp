@@ -15,6 +15,7 @@ int main(){
     
     QuickSort(arr,0,MAXSIZE-1);
 
+    cout<<endl << "sortted!"<<endl;
     for(int i=0;i<MAXSIZE;i++){
         cout << arr[i] << " . ";
     }
@@ -32,7 +33,13 @@ void QuickSort(int* arr, int start, int end){
     while(i <= j){
         while( i <= end  && arr[i] <= arr[pivot]){ i++;}
         while( j > start && arr[j] >= arr[pivot]) { j--;}
-        if(i >= j) Swap(arr,j,pivot);
+        if(i > j){
+            Swap(arr,j,pivot);
+            cout << "(i,j):"<<i<<","<<j<<endl;
+            cout << "pivot swap:";
+            for(int k=start;k<=end;k++) cout << arr[k]<<" . "; 
+            cout<<endl;
+        }
         else Swap(arr,i,j);
     }
     

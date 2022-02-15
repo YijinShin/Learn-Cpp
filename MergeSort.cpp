@@ -51,9 +51,7 @@ void Merge(int* arr, int left, int mid, int right){
 
     // 좌, 우 대소비교 해서 넣기 
     while(l <= mid && r <= right){
-        //sortedArr[index++] = (arr[l] <= arr[r]) ? arr[l++] : arr[r++];
-        if(arr[l] <= arr[r]) sortedArr[index++] = arr[l++];
-        else sortedArr[index++] = arr[r++];
+        sortedArr[index++] = (arr[l] <= arr[r]) ? arr[l++] : arr[r++];
     }
 
     //남은 data 마저 넣기 
@@ -67,15 +65,10 @@ void Merge(int* arr, int left, int mid, int right){
     for(int i=0;i<=9;i++) cout << arr[i]<<",";
     cout<<endl;
 
-    cout<<"sorted:";
-    for(int i=left;i<=right;i++) cout << sortedArr[i]<<",";
-    cout<<endl;
-
     // 정렬한 부분 리스트를 원래 배열에 복사하기 
     for(int i=left;i<=right;i++) arr[i] = sortedArr[i];
+
     cout<<"a arr:";
     for(int i=0;i<=9;i++) cout << arr[i]<<",";
-    cout << endl;
-    for(int i=left;i<=right;i++) cout << arr[i]<<",";
     cout << endl;
 }
