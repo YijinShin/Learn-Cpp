@@ -28,6 +28,7 @@ class AdjList{
             cout << " Add edge [start vertex, end vertex]: ";
             cin >> start_v >> end_v;
             adjList[start_v].push_back(end_v); 
+            // adjList[start_v].push_back(end_v); //undirected graph의 경우 쌍방에 모두 추가해야한다. 
         }   
         
         void RemoveEdge(){
