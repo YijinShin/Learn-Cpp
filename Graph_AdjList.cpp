@@ -17,8 +17,16 @@ int main(){
         if(menu==1) adjList.AddEdge();
         else if(menu==2) adjList.RemoveEdge();
         else if(menu==3) adjList.ShowAdjList();
-        else if(menu==4) adjList.BFS();
-        else if(menu==5) {adjList.DFS(1); cout << endl;}
+        else if(menu==4) {
+            adjList.BFS(1);
+            adjList.InitiateVisitedList();
+            cout << endl;
+        }
+        else if(menu==5) {
+            adjList.DFS(1); 
+            adjList.InitiateVisitedList();
+            cout << endl;
+        }
         else break;
     }
     return 0;

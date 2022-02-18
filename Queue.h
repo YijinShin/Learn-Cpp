@@ -43,13 +43,13 @@ namespace Que{
                 else{
                     rear = (rear+1)%MAXSIZE;
                     list[rear] = data;
-                    cout << "F:" << front << ", R: "<<rear<<endl;
-                    cout << "Inqueue: " << list[rear] <<endl<<endl;
+                    //cout << "F:" << front << ", R: "<<rear<<endl;
+                    //cout << "Inqueue: " << list[rear] <<endl<<endl;
                     IsFull();
                     IsEmpty();
                 }
             }
-
+            /*
             void Dequeue(){
                 if(!isEmpty){
                     front = (front+1)%MAXSIZE;
@@ -62,6 +62,23 @@ namespace Que{
                 IsFull();
                 IsEmpty();
             }
+            */
+            
+            // DFS 용 dequeue
+            int Dequeue(){
+                if(!isEmpty){
+                    front = (front+1)%MAXSIZE;
+                    //cout << "F:" << front << ", R: "<<rear<<endl;
+                    //cout << "Dequeue: "<< list[front]<<endl<<endl;
+                }
+                else{
+                    cout << "No data! "<<endl<<endl;
+                }
+                IsFull();
+                IsEmpty();
+                return list[front];
+            }
+
 
             void ShowList(){
                 int lastIndex;
@@ -76,7 +93,12 @@ namespace Que{
                     }
                 }
                 cout << endl << endl;
-            }            
+            }        
+
+            //DFS때문에 추가함
+            bool ReturnIsEmpty(){
+                return isEmpty;
+            }    
             
     };
 }
