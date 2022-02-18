@@ -14,25 +14,19 @@ int main(){
     int menu;
     while(true){
         menu = ShowMenu();
-        if(menu==1){
-            //AddEdge(adjList);
-            adjList.AddEdge();
-        }
-        else if(menu==2){
-            //RemoveEdge(adjList);
-            adjList.RemoveEdge();
-        }
-        else if(menu==3){
-            //ShowAdjList(adjList, V);
-            adjList.ShowAdjList();
-        }else break;
+        if(menu==1) adjList.AddEdge();
+        else if(menu==2) adjList.RemoveEdge();
+        else if(menu==3) adjList.ShowAdjList();
+        else if(menu==4) adjList.BFS();
+        else if(menu==5) {adjList.DFS(1); cout << endl;}
+        else break;
     }
     return 0;
 }
 
 int ShowMenu(){
     int menu;
-    cout << "1. Add Edge" << endl << "2. Remove Edge" << endl << "3. Show List" << endl << "4. Quit" << endl << "menu: ";
+    cout << "\n1. Add Edge \n2. Remove Edge \n3. Show List \n4. BFS \n5. DFS \n6. Quit \nmenu: ";
     cin >> menu;
     cout << endl;
     return menu;
