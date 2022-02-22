@@ -17,7 +17,7 @@ void Merge(User userList[] ,int start, int mid, int end);
 User sorted[MAXSIZE];
 
 int main(){
-    //ios_base::sync_with_stdio(false);
+    ios_base::sync_with_stdio(false);
 
     int userNum;
     cin >> userNum;
