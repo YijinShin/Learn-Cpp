@@ -24,16 +24,17 @@ class Queue{
             rear = (rear+1)%MAXSIZE;
             list[rear] = data;
             size++;
-            if(size>0) isEmpty = true;
+            if(size>0) isEmpty = false;
+            //cout << "size:"<<size<<endl;
         }
         void Pop(){
             if(isEmpty) cout << "-1\n";
             else{
+                front = (front+1)%MAXSIZE;
                 cout << list[front]<<"\n";
                 size--;
-                front = (front+1)%MAXSIZE;
             } 
-            if(size<=0) isEmpty = false;
+            if(size<=0) isEmpty = true;
         }
         void Size(){cout << size<<"\n";}
         void Empty(){
@@ -59,24 +60,16 @@ struct Command{
 int main(){
 
     Queue queue;
-
     int commandNum;
-    string cmd;
-    istringstream ss(cmd);
-    vector<string> x;
-    string stringbuf;
+    char cmd[50];
+    string command;
 
     cin >> commandNum;
     Command commandList[commandNum];
     
     for(int i=0;i<commandNum;i++){
-        getline(cin, cmd);
-        stringstream ss(cmd);
-        ss.str(cmd);
-        ss >> commandList[i].command;
-        if(ss >> commandList[i].data){};
-
-        cout << i<<":" <<commandList[i].command<<","<<commandList[i].data<<endl;
+        cin >> commandList[i].command;
+        if(commandList[i].command == "push") scanf("%d",&commandList[i].data);
     }
 
     for(int i=0;i<commandNum;i++){
@@ -87,7 +80,6 @@ int main(){
         else if(commandList[i].command == "front") queue.Front();
         else if(commandList[i].command == "back") queue.Back();
     }
-
     
     return 0;
 }
