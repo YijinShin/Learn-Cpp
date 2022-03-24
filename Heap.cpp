@@ -27,8 +27,6 @@ int main(){
             heapSize = Push(heap, data, heapSize);
         }
         else if(menu == 2){
-            cout << endl << "Delete data: ";
-            cin >> data;
             heapSize = Pop(heap, heapSize);
             
         }
@@ -47,9 +45,10 @@ int main(){
 int Push(int* heap, int data,  int heapsize){
     // 마지막 노드에 데이터 넣기 
     int size = heapsize + 1; 
-    int current = size;
-    int parent = size/2;
     heap[size] = data;
+
+    int current = size;
+    int parent = current/2;
     
     while(parent >= 1){
         if(heap[current] > heap[parent]){
@@ -59,8 +58,7 @@ int Push(int* heap, int data,  int heapsize){
         }
         else break;   
     }
-    // heapify 
-    //Heapify(heap, heapsize);
+
     ShowHeap(heap, size);
     cout << endl;
 
@@ -69,24 +67,24 @@ int Push(int* heap, int data,  int heapsize){
 
 int Pop(int* heap, int heapsize){
     // root data pop
-    int current = 1;
-    int child =  current*2;
-
     int rootData = heap[1];
     cout << "Pop: " << rootData << endl;
     swap(heap, 1, heapsize);
     int size = heapsize - 1; 
     
-    while(child <= heapsize){
+    int current = 1;
+    int child =  current*2;
+    // 주의: pop 할때는 heapify처럼 양쪽 child 중 큰쪽과 바꿔야함.
+    if(child+1 <=size) child = (heap[child+1] > heap[child])? child+1:child;
+    while(child <= size){
         if(heap[current] < heap[child]){
             swap(heap, current, child);
             current = child;
             child = current *2;
+            if(child+1 <=size) child = (heap[child+1] > heap[child])? child+1:child;
         }
+        else break;
     }
-
-    // heapify 
-    //Heapify(heap, heapsize);
     ShowHeap(heap, size);
     cout << endl;
 
@@ -94,36 +92,34 @@ int Pop(int* heap, int heapsize){
 }
 
 void Heapify(int* heap, int heapsize){
-    int size = heapsize;
     int current = 1;
-    int l_child = current * 2;
-    int r_child = current * 2 + 1;
-    int swap_child = current;
+    int child = current*2;
+    int last = heapsize;
 
-    while(size != 0){ // O(n)
-        // swap root and last node 
+    //last == root일때까지 반복
+    while(last > 1){
+        //swap(root, last)
         current = 1;
-        swap(heap, current, heapsize);
-        size --;
-        // last node 제외하고 정렬
-        while(l_child <= heapsize){// O(lgn)
-            // root 를 조건에 맞는 자녀와 바꾸기 
-            if(heap[r_child] > heap[current]){
-                swap(heap, current, r_child);
-                swap_child = l_child;
+        child = current*2;
+        swap(heap, 1, last);
+        last --;
+        //sort
+        while(child <= last){
+            //더 큰 child 정하기 
+            if(child+1 <= last) child = (heap[child+1] > heap[child])? child+1:child;
+            // 비교하기
+            if(heap[child] > heap[current]){
+                // swap
+                swap(heap, current, child);
+                // current, chilld 갱신
+                current = child;
+                child = current*2;
             }
-            if(heap[l_child] > heap[current]){
-                swap(heap, current, l_child);
-                swap_child = r_child;
-            }
-            cout << "Change : "<<current <<","<<swap_child<<endl; 
-
-            if(swap_child == current) break;
-            current = swap_child;
-            l_child = current * 2;
-            r_child = current * 2 + 1;
+            else break;
         }
+        ShowHeap(heap, heapsize);
     }
+
 }
 
 int ShowMenu(){
