@@ -1,6 +1,3 @@
-﻿  study_25_27.cpp
-C:\GitHub\Learn-Cpp\CppStudy_2023\CppStudy_2023\study_25_27.cpp(38,16): warning C4101: 'ptr5' :참조되지 않은 지역 변수입니다.
-C:\GitHub\Learn-Cpp\CppStudy_2023\CppStudy_2023\study_25_27.cpp(37,14): warning C4101: 'ptr3' :참조되지 않은 지역 변수입니다.
-C:\GitHub\Learn-Cpp\CppStudy_2023\CppStudy_2023\study_25_27.cpp(38,8): warning C4101: 'ptr4' :참조되지 않은 지역 변수입니다.
-C:\GitHub\Learn-Cpp\CppStudy_2023\CppStudy_2023\study_25_27.cpp(37,8): warning C4101: 'ptr2' :참조되지 않은 지역 변수입니다.
+﻿  class20230111.cpp
+C:\GitHub\Learn-Cpp\CppStudy_2023\CppStudy_2023\class20230111.cpp(11,18): warning C4305: '초기화 중': 'float'에서 'bool'(으)로 잘립니다.
   CppStudy_2023.vcxproj -> C:\GitHub\Learn-Cpp\CppStudy_2023\x64\Debug\CppStudy_2023.exe
