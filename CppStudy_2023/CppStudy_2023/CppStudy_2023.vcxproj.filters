@@ -57,7 +57,10 @@
     <ClCompile Include="study_38.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="study_39.cpp">
+    <ClCompile Include="study_39_41.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="study_42_.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
