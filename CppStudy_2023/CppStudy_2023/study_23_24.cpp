@@ -1,4 +1,4 @@
-/* [ C++ study with TCP school 20~22part]
+/* [ C++ study with TCP school 23~24part]
 topic : 배열 ( 헷갈리는 포인트만 정리함 )
 
 * 배열

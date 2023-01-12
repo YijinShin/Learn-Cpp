@@ -1,4 +1,4 @@
-/* [ C++ study with TCP school 12~19part ]
+/* [ C++ study with TCP school 33part ]
 topic : 공용체(Union) / 열거체 (Enum)
 
 * 공용체(Union)란?

@@ -1,4 +1,4 @@
-/* [ C++ study with TCP school 25~27part]
+/* [ C++ study with TCP school 25~26part]
 topic : 배열과 포인터
 
 * 주소값 

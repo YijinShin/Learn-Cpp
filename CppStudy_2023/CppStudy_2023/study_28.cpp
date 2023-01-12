@@ -1,4 +1,4 @@
-/* [ C++ study with TCP school 20~22part]
+/* [ C++ study with TCP school 28part]
 topic : 문자열 <문자형 배열 사용> -> cin(), cin.get(), cin.get().ignore()
 		문자열 <string>			-> getline()
 

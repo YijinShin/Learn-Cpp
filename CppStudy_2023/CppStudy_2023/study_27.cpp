@@ -1,4 +1,4 @@
-/* [ C++ study with TCP school 12~19part ]
+/* [ C++ study with TCP school 27part ]
 topic : 메모리 동적 할당
 
 * 메모리 영역
