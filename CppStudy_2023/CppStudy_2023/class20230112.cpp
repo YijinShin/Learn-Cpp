@@ -22,7 +22,7 @@ int main() {
 		cout << bitset<8>(iTest << 2) << endl;
 	}
 	
-
+	// [ 축약 연산자였나 여튼 ]
 	{
 		int iTest = 10;
 
@@ -30,4 +30,5 @@ int main() {
 		//(iTest++)++; // 불가능. R-value가 없으니까 
 	}
 	
+	// [분기문 if else if else ]
 }
