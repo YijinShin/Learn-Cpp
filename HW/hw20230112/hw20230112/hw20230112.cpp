@@ -8,7 +8,7 @@ int main() {
 	int iE_Score = 0; // english score
 	int iM_Score = 0; // math score
 	int iTotal = 0;
-	float iAvg = 0;
+	float iAvg = 0.f; // float이니까 초기화 할거면 0.f로 하자. 0이 아니라.
 
 	//get input
 	while (1){
@@ -41,12 +41,13 @@ int main() {
 
 	//Calc avg
 	iTotal = iK_Score + iE_Score + iM_Score;
-	iAvg = iTotal / 3.0f;
+	iAvg = iTotal / 3.0f;	// 이건 묵시적인데 이왕이면 명시적으로 하는게 좋음
+	iAvg = (float)iTotal / 3.0f;
 	
 
 	// output
 	cout << endl << "당신의 총점은 " << iTotal << "점 입니다. " << endl;
-	cout << "당신의 평균은 " << iAvg << "점 으로,  ";
+	cout << "당신의 평균은 " << iAvg << "점으로,  ";
 	if (iAvg >= 90 && iAvg <= 100) {
 		cout << "A 학점입니다." << endl;
 	}
