@@ -1,6 +1,7 @@
 /*content
 class 연습 : 책들 중 더 두꺼운 책을 반환*/
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Book{
