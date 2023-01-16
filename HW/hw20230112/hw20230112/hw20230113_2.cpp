@@ -15,10 +15,10 @@ int main() {
 	cin.ignore();
 	cout << endl;
 
-	while (!isEnd) {
+	while (1) {
 
 		// clear console
-		system("cls");
+		//system("cls");
 
 
 		// get input menu
@@ -71,6 +71,7 @@ int main() {
 				break;
 		}
 
+		if (isEnd) break;
 
 		// pause console
 		system("pause");

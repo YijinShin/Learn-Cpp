@@ -10,6 +10,8 @@ int main() {
 	bool isGameEnd(false);
 	int iChooseMenu(0);
 
+srand(unsigned(time(nullptr))); // ì´ê±° ë„£ì–´ì£¼ëŠ”ê²Œ ìˆ˜ì—… í’€ì´ 
+
 	while (1) {
 
 		// clear console
@@ -23,8 +25,8 @@ int main() {
 
 
 			// choose menu
-			cout << "["<<i<<"ROUND]   ³­¼ö°¡ »ı¼ºµÇ¾ú½À´Ï´Ù!" << endl;
-			cout << "È¦ÀÏ±î¿ä Â¦ÀÏ±î¿ä?  (1.È¦ 2.Â¦ 3.Á¾·á) : ";
+			cout << "["<<i<<"ROUND]   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!" << endl;
+			cout << "È¦ï¿½Ï±ï¿½ï¿½ Â¦ï¿½Ï±ï¿½ï¿½?  (1.È¦ 2.Â¦ 3.ï¿½ï¿½ï¿½ï¿½) : ";
 
 			while (1) {
 
@@ -40,11 +42,11 @@ int main() {
 					case 1:
 						if (isOdd) {
 							iWinCnt++;
-							cout << "YOU WIN! ³­¼ö´Â " << iRandNum << "¿´½À´Ï´Ù!" << endl;
+							cout << "YOU WIN! ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ " << iRandNum << "ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!" << endl;
 						}
 						else {
 							iLoseCnt++;
-							cout << "YOU LOSE ³­¼ö´Â " << iRandNum << "¿´½À´Ï´Ù!" << endl;
+							cout << "YOU LOSE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ " << iRandNum << "ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!" << endl;
 						}
 						break;
 
@@ -52,24 +54,24 @@ int main() {
 					case 2:
 						if (isOdd) {
 							iLoseCnt++;
-							cout << "YOU LOSE ³­¼ö´Â " << iRandNum << "¿´½À´Ï´Ù!" << endl;
+							cout << "YOU LOSE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ " << iRandNum << "ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!" << endl;
 						}
 						else {
 							iWinCnt++;
-							cout << "YOU WIN! ³­¼ö´Â " << iRandNum << "¿´½À´Ï´Ù!" << endl;
+							cout << "YOU WIN! ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ " << iRandNum << "ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!" << endl;
 						}
 						break;
 
 						// player end game
 					case 3:
 						isGameEnd = true;
-						cout << "°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù." << endl;
+						cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." << endl;
 						break;
 
 						// unexpected input
 					default:
 						isWrongInput = true;
-						cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ´ÙÀ½ ¸Ş´º Áß ¼±ÅÃÇØÁÖ¼¼¿ä (1.È¦ 2.Â¦ 3.Á¾·á): " << endl;
+						cout << "ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½Ş´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ (1.È¦ 2.Â¦ 3.ï¿½ï¿½ï¿½ï¿½): " << endl;
 						break;
 				}
 
@@ -82,7 +84,7 @@ int main() {
 		cout << endl;
 
 		// if Game end
-		cout << "°ÔÀÓÀÌ Á¾·áµÇ¾ú½À´Ï´Ù. (½Â:" << iWinCnt << ", ÆĞ:" << iLoseCnt << ")" << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. (ï¿½ï¿½:" << iWinCnt << ", ï¿½ï¿½:" << iLoseCnt << ")" << endl;
 		if (isGameEnd) break;
 
 		//clear LoseCnt, WinCnt
