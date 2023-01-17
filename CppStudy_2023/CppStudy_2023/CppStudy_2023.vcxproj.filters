@@ -75,10 +75,22 @@
     <ClCompile Include="study_47.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="study_48.cpp">
+    <ClCompile Include="class20230116.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="class20230116.cpp">
+    <ClCompile Include="class20230117.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="study_52_53.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="study_48_51.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="study_54_55.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="study_56.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

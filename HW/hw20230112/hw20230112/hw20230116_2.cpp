@@ -10,7 +10,7 @@ int main() {
 	cin >> iLevel;
 	cin.ignore();
 
-	cout << "곱을 입력하게요:";
+	cout << "곱을 입력하세요:";
 	cin >> iTimes;
 	cin.ignore();
 
