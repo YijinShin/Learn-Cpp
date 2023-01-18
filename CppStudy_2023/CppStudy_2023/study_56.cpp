@@ -21,5 +21,5 @@ topic: Á¤Àû ¸É¹ö / »ó¼ö ¸É¹ö
 using namespace std;
 
 int main() {
-
+	cout << "hello world" << endl;
 }

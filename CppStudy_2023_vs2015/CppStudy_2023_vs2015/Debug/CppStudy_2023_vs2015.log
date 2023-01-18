@@ -1,0 +1,4 @@
+﻿  study_56.cpp
+study_56.obj : error LNK2001: unresolved external symbol "public: static int A::public_static_v_" (?public_static_v_@A@@2HA)
+study_56_2.obj : error LNK2001: unresolved external symbol "public: static int B::public_static_v_" (?public_static_v_@B@@2HA)
+C:\GitHub\Learn-Cpp\CppStudy_2023_vs2015\Debug\CppStudy_2023_vs2015.exe : fatal error LNK1120: 2 unresolved externals
