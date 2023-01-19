@@ -1,6 +1,2 @@
-<<<<<<< Updated upstream
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.Cpp.Platform.targets(57,5): error MSB8020: The build tools for v143 (Platform Toolset = 'v143') cannot be found. To build using the v143 build tools, please install v143 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".
-=======
-﻿  hw20230118.cpp
+﻿  hw20230119_2.cpp
   hw20230112.vcxproj -> C:\GitHub\Learn-Cpp\HW\hw20230112\x64\Debug\hw20230112.exe
->>>>>>> Stashed changes

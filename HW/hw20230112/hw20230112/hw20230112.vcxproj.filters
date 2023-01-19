@@ -39,5 +39,11 @@
     <ClCompile Include="hw20230118.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="hw20230119_1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="hw20230119_2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

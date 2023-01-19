@@ -21,5 +21,8 @@
     <ClCompile Include="study_56_2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="class20230119cpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
