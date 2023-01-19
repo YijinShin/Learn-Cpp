@@ -24,10 +24,16 @@
     <ClCompile Include="class20230119cpp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="study_staticVariablePlus_1.cpp">
+    <ClCompile Include="study_staticVariablePlus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="study_staticMemberPlus.cpp">
+    <ClCompile Include="study_57_58.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="study_59.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="study_60.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
