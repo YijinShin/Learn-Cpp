@@ -69,7 +69,7 @@ void B::B_public_func_linkToPrivate() {
 	++B_private_static_v_;
 }
 void B::B_public_static_func_linkToPrivate() {
-	//++private_v_;								-> !!!!!static 맴버 함수는 static 맴버 변수만 사용가능!!!! 
+	//++private_v_;								-> !!!! static 맴버 함수는 static 맴버 변수만 사용가능 !!!! 
 	++B_private_static_v_;
 }
 

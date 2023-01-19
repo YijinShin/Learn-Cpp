@@ -113,11 +113,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="class20230119cpp.cpp" />
-    <ClCompile Include="study_56.cpp" />
+    <ClCompile Include="class20230119cpp.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="study_56.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="study_56_2.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="study_staticMemberPlus.cpp" />
+    <ClCompile Include="study_staticVariablePlus_1.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="study_staticMemberPlus.h" />
+    <ClInclude Include="study_staticVariablePlus.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

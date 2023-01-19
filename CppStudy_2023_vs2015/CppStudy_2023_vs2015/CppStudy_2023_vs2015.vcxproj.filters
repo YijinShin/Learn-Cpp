@@ -24,5 +24,19 @@
     <ClCompile Include="class20230119cpp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="study_staticVariablePlus_1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="study_staticMemberPlus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="study_staticVariablePlus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="study_staticMemberPlus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

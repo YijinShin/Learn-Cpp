@@ -45,7 +45,3 @@ voud << iDest << '/t' << iScr // 20,10이 나와야함
 
 */
 
-#include <iostream>
-
-using namespace std;
-
