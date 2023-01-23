@@ -20,15 +20,10 @@ TOPIC: 가상 함수 (virtual function) / 동적 바인딩
 							=> 이걸 동적바인딩, 지연바인딩(late binding)이라고 함. 
 
 							
-	* 
+* 가상함수 동작원리 
+	- 
+
+
 */
 
 
-
-#include <iostream>
-
-using namespace std;
-
-int main() {
-	
-}
