@@ -48,5 +48,11 @@
     <ClCompile Include="hw20230120.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="hw20230125_1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="hw20230125_2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

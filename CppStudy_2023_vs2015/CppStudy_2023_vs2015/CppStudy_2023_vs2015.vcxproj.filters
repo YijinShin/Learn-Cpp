@@ -39,6 +39,9 @@
     <ClCompile Include="class20230120.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="class20230125.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="study_staticVariablePlus.h">
