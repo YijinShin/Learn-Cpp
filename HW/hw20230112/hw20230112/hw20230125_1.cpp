@@ -8,8 +8,6 @@ void Swap(int* iData, int* iSrc);
 
 int main() {
 	int iArray[3][3];
-
-
 	
 	//initialize
 	int iData = 1;
