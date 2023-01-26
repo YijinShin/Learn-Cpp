@@ -22,7 +22,7 @@ int main() {
 
 	// create answer
 	for (int j = 0; j < 3; j++) {
-		iAnswerArray[j] = rand() % 9 + 1;
+		iAnswerArray[j] = iArray[j];
 	}
 	cout << "Á¤´ä: " << iAnswerArray[0] << "," << iAnswerArray[1] << "," << iAnswerArray[2] << endl;
 

@@ -90,7 +90,7 @@
     <ClCompile Include="study_54_55.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="study_56.cpp">
+    <ClCompile Include="study_20230126.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="class20230118.cpp">
@@ -100,6 +100,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="study_20230125_2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="class20230126.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -59,6 +59,8 @@ public:
 
 	void Overriding_TestFunc_ver1();	// 이거를 부르고 싶으면 ::사용해야함 
 	void Overriding_TestFunc_ver2();
+	int getP_privat_v_() { return P_private_v_; }
+	void setP_privat_v_(int iSrc) { P_private_v_ = iSrc; }
 
 };
 
@@ -150,6 +152,10 @@ Child::~Child() { cout << "**Child 소멸자 호출" << endl; }
 
 
 void Child::Display_Child() {
+	Display_Parent();
+	//	cout << "Parent: " << P_private_v_;
+		cout <<" , " << P_public_v_ << endl;
+
 	cout << "Child: " << C_private_v_ << " , " << C_public_v_ << endl;
 }
 
