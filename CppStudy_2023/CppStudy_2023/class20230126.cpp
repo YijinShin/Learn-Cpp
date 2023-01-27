@@ -59,7 +59,7 @@ int main() {
 
 		char szTemp[6] = "jusin";
 		char szArray[16] = "serewerwrewr";
-		errno_t strcpy_s()
+		
 	}
 }
 

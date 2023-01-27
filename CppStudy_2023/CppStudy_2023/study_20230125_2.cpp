@@ -81,16 +81,20 @@ public:
 };
 
 
-// 초기화 리스트 없이 생성자에서 "대입" 을 통해 초기화 하는 경우
+// reference 맴버를 가지고있는 경우 
 class Test7 {
-private:
-	int private_mem;
 public:
-	int public_mem;
-	Test7(){
-		cout << "디폴트 생성자로 초기화" << endl;
-		public_mem = 0;
-		private_mem = 0;
+	int mem;
+	int& ref_mem;
+	Test7(int iData, int& iValue):ref_mem(iValue), mem(0){
+		cout << "member1: " << mem << ", "
+			<< "member2: " << ref_mem << endl;
+
+		mem = iData;
+		ref_mem = iValue;
+
+		cout << "member1: " << mem << ", "
+			<< "member2: " << ref_mem << endl;
 	}
 
 };
@@ -98,20 +102,24 @@ public:
 // 초기화 리스트 없이 생성자에서 "대입" 을 통해 초기화 하는 경우
 class Test8 {
 private:
-	int private_mem;
 public:
-	int public_mem;
-	Test8() {
-		cout << "디폴트 생성자로 초기화(대입으로 초기화)" << endl;
-		public_mem = 0;
-		private_mem = 0;
-	}
+	int member1;
+	int member2;
+	Test8(int iData, int iSrc) :member1(10), member2(10) {
+		cout << "member1: " << member1 << ", "
+			<< "member2: " << member2 << endl;
 
-	Test8():private_mem(0), public_mem(0)  {
-		cout << " 초기화 리스트로 초기화" << endl;
+		member1 = iData;
+		member2 = iSrc;
+
+		cout << "member1: " << member1 <<  ", "
+			<< "member2: " << member2 << endl;
 	}
 
 };
+
+
+
 
 int main() {
 
@@ -196,9 +204,16 @@ int main() {
 		t2.Display();
 
 	}
-
+	cout << endl;
+	
 	// 초기화 리스트 사용한 생성자 
 	{
-		Test7 t1;
+		Test8 t1(100,100);
+
+		int ia = 5;
+		int& k = ia;
+
+		Test7 t(100, k);
+
 	}
 }

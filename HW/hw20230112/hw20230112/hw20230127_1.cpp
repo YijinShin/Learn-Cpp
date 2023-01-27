@@ -22,13 +22,14 @@ typedef struct tagStudent {
 
 int GetStringLength(const char* szArr);
 void FlipString(char* szArr);
+const char* FlipString2(const char* szArr);
 STUDENT GetStudentInfo();
 void DisplayStudentInfo(const STUDENT* st);
 void SearchStudent(const STUDENT* students, const char* szName);
 void Swap(char* chData, char* chSrc);
 
 int main() {
-
+	
 	//hw1
 	{
 		char szArr[MAXSIZE];
@@ -94,6 +95,15 @@ int main() {
 		}
 		cout << endl;
 	}
+	cout <<endl;
+
+	// Flipstring2() 테스트 
+	{
+		char szArray[MAXSIZE] = "hello";
+		
+		const char* szFlipedArr = FlipString2(szArray);
+		cout << "뒤집기! : " << szFlipedArr << endl;
+	}
 }
 
 int GetStringLength(const char* szArr) {
@@ -116,6 +126,30 @@ void FlipString(char* szArr) {
 		//cout << "swap("<<i<<" - "<< iSize-i-1 << "): " << szArr[i] << ", " << szArr[iSize - i-1] << endl;
 	}
 	
+}
+
+const char* FlipString2(const char* szArr) {
+	int iSize = strlen(szArr);	// 문제안됨
+	const int const_iSize = strlen(szArr);
+	//char szFlipedArr[iSize];	// 변수는 배열 크기로 쓸 수없음. 존나 당연함.. 변수잖아 값이 바뀔 수도 있는애잖아 ㅋㅋㅋㅋㅋㅋㅋ 배열의 길이는 무조건 상수여야함. 하고싶으면 const int 변수로 해야함.
+	//char szFlipedArr[const_iSize];	//엥 const 변수도 안됨.. 엇째서 
+	//char szFlipedArr[strlen(szArr)];	// 이것도 상수취급안됨. szArr이 바뀌면 자동으로 값이 달라져서그런듯 
+
+	/* ... 뭐가 다 안된대.. 짜증남 걍 동적할당 ㄱ */
+	char* szFlipedArr = new char[iSize+1];
+	
+	//cout << "size:" << iSize << endl;
+	for (int i = 0; i < iSize; i++) {
+		szFlipedArr[i] = szArr[iSize - i - 1];
+		cout << "->" << i << "에 " << iSize - i - 1 << "대입" << endl;
+	}
+
+	// 마지막에 문자열이 끝났다는 NULL문자 넣어주기 -> 이거 안하면 뒤에 cout으로 szFlipedArr 프린트 할 때, 어디가 문자열의 끝인지 몰라서 쓰레기값까지 다나옴.
+	szFlipedArr[iSize] = NULL;	
+
+	//cout << "결과: " << szFlipedArr << endl;
+
+	return szFlipedArr;
 }
 
 STUDENT GetStudentInfo() {
