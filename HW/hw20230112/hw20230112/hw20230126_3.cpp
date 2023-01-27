@@ -1,70 +1,103 @@
-/* 1번과제의 심화*/
+/* 1번과제의 심화 ver1 사람 vs 사람*/
 #include <iostream>
 
 using namespace std;
 
 void Swap(int* iData, int* iSrc);
-void Display(const int iArray[]);
+void Display(const int iArray_1p[], const int iArray_2p[]);
 int CheckBingoCnt(const int iArray[]);
+void MixArray(int* iArray);
+void InitializeArray(int* iArray);
+void CheckNumber(int* iArray, int iSelectedNum);
 
 int main() {
-	int iArray[25];
+	int iArray_1p[25];
+	int iArray_2p[25];
+	bool iArray_selectedNum[25] = {false};
+	
 	int iInput(0);
-	int iBingoCnt(0);
-	bool isGameEnd(false);
-
+	int iBingoCnt[2] = {0,0};
+	int iTurn(1);	// input 차례
+	int iWinner(0);	//1:1p, 2:2p, 0:무승부 
+	bool isGameEnd = false;
 	srand(unsigned(time(nullptr)));
 
 
 	//init iArray
-	for (int i = 0; i < 25; i++) {
-		iArray[i] = i + 1;
-	}
+	InitializeArray(iArray_1p);
+	InitializeArray(iArray_2p);
 
-	/*
 	// mix iArray
-	for (int i = 0; i < 100; i++) {
-		int iIndex = rand()%24;
-		Swap(&iArray[iIndex], &iArray[iIndex+1]);
-	}
-	*/
+	MixArray(iArray_1p);
+	MixArray(iArray_2p);
 
 	// Display
-	cout << "-----------------[당신의 빙고판]-------------------" << endl;
-	Display(iArray);
+	cout << "-----------[1p 빙고판]-----------\t\t\t\t-----------[2p 빙고판]-----------" << endl;
+	Display(iArray_1p, iArray_2p);
+	cout << endl;
 
 	// game start
 	while (1) {
-
 		// get input
 		while (1) {
-			cout << "[1~25 중 하나의 숫자를 입력하세요.] : ";
+			cout << "["<<iTurn<<"p) 1~25 중 하나의 숫자를 입력하세요.] : ";
 			cin >> iInput;
+
 			if (iInput > 25 || iInput < 1) {
 				cout << "(잘못된 입력입니다)";
+			}
+			else if (iArray_selectedNum[iInput - 1]) {
+				cout << "(이미 제시된 숫자입니다!)";
 			}
 			else break;
 		}
 
-		// check bingo
-		iArray[iInput - 1] = 0;
+		// check the number is selected
+		iArray_selectedNum[iInput - 1] = true;
+		
+		// change turn 
+		if (iTurn == 1) iTurn = 2;
+		else if (iTurn == 2) iTurn = 1;
 
-		// check bingo cnt
-		iBingoCnt = CheckBingoCnt(iArray);
-		Display(iArray);
-		cout << "현재 빙고 개수: " << iBingoCnt << " 빙고!" << endl;
+		// check number on the bingoboard
+		CheckNumber(iArray_1p, iInput);
+		CheckNumber(iArray_2p, iInput);
 
-		// check is game end
-		if (iBingoCnt >= 5) {
+		// check bingo count 
+		iBingoCnt[0] = CheckBingoCnt(iArray_1p);
+		iBingoCnt[1] = CheckBingoCnt(iArray_2p);
+
+		// Display result
+		cout << "-----------[1p 빙고판]-----------\t\t\t\t-----------[2p 빙고판]-----------" << endl;
+		cout << "\t     " << iBingoCnt[0] << "빙고 \t\t\t\t\t\t\t\t" << iBingoCnt[1] << "빙고" << endl;
+		Display(iArray_1p, iArray_2p);
+		cout << endl;
+
+		// check winner 
+		if (iBingoCnt[0] >= 5 && iBingoCnt[1] >= 5) {	// 동시에 5점 이상 난경우
+			if (iBingoCnt[0] > iBingoCnt[1]) {
+				iWinner = 1;
+			}else if (iBingoCnt[0] == iBingoCnt[1]) {
+				iWinner = 0;
+			}else if (iBingoCnt[0] < iBingoCnt[1]) {
+				iWinner = 2;
+			}
 			isGameEnd = true;
-			break;
 		}
+		else if (iBingoCnt[0] >= 5) {
+			iWinner = 1;
+			isGameEnd = true;
+		}
+		else if (iBingoCnt[1] >= 5) {
+			iWinner = 2;
+			isGameEnd = true;
+		}
+
+		//check game end
+		if (isGameEnd) break;
 	}
 
-	if (isGameEnd) {
-		cout << " ~~ YOU WIN ~~" << endl;
-	}
-
+	cout << "~~ " << iWinner << "p 승리! 축하합니다! ~~" << endl;
 }
 
 void Swap(int* iData, int* iSrc) {
@@ -74,13 +107,41 @@ void Swap(int* iData, int* iSrc) {
 	*iSrc = iTemp;
 }
 
-void Display(const int iArray[]) {
-	for (int i = 0; i < 25; i++) {
-		if (iArray[i] == 0)cout << "*\t";
-		else cout << iArray[i] << "\t";
-		if (((i + 1) % 5) == 0) cout << endl;
+void Display(const int iArray_1p[], const int iArray_2p[]) {
+	for (int i = 0; i < 5; i++) {
+		int iIndex = i * 5;
+		for (int j = 0; j < 5; j++) {
+			if (iArray_1p[iIndex + j] == 0) cout << "*\t";
+			else cout << iArray_1p[iIndex + j] << "\t";
+		}
+		cout << "\t\t\t";
+		for (int j = 0; j < 5; j++) {
+			if (iArray_2p[iIndex + j] == 0) cout << "*\t";
+			else cout << iArray_2p[iIndex + j] << "\t";
+		}
+		cout << endl;
 	}
-	cout << endl;
+}
+
+void InitializeArray(int *iArray) {
+	for (int i = 0; i < 25; i++) {
+		iArray[i] = i + 1;
+	}
+}
+
+void MixArray(int* iArray) {
+	for (int i = 0; i < 100; i++) {
+		int iIndex = rand() % 24;
+		Swap(&iArray[iIndex], &iArray[iIndex + 1]);
+	}
+}
+
+void CheckNumber(int *iArray, int iSelectedNum) {
+	for (int i = 0; i < 25; i++) {
+		if (iArray[i] == iSelectedNum) {
+			iArray[i] = 0;
+		}
+	}
 }
 
 int CheckBingoCnt(const int iArray[]) {

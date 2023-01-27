@@ -29,7 +29,7 @@ public:
 	Test3(int iSrc) { iData = iSrc; };
 };
 
-// 디폴트 생성자와 오버라이딩 생성자를 모두 정의한 경우
+// 디폴트 생성자와 오버로딩 생성자를 모두 정의한 경우
 class Test4 {
 public:
 	int iData;
@@ -37,6 +37,7 @@ public:
 	Test4(int iSrc) { iData = iSrc; };
 };
 
+// 복사 생성자를 정의하지 않은 경우
 class Test5 {
 private:
 	int private_mem;
@@ -52,7 +53,7 @@ public:
 		cout << private_mem << "," << public_mem <<"," <<*public_ptr_mem<< endl;
 	}
 };
-
+// 복사 생성자를 오버로딩한 경우
 class Test6 {
 private:
 	int private_mem;
@@ -77,6 +78,39 @@ public:
 	void Display() {
 		cout << private_mem << "," << public_mem << "," << *public_ptr_mem << endl;
 	}
+};
+
+
+// 초기화 리스트 없이 생성자에서 "대입" 을 통해 초기화 하는 경우
+class Test7 {
+private:
+	int private_mem;
+public:
+	int public_mem;
+	Test7(){
+		cout << "디폴트 생성자로 초기화" << endl;
+		public_mem = 0;
+		private_mem = 0;
+	}
+
+};
+
+// 초기화 리스트 없이 생성자에서 "대입" 을 통해 초기화 하는 경우
+class Test8 {
+private:
+	int private_mem;
+public:
+	int public_mem;
+	Test8() {
+		cout << "디폴트 생성자로 초기화(대입으로 초기화)" << endl;
+		public_mem = 0;
+		private_mem = 0;
+	}
+
+	Test8():private_mem(0), public_mem(0)  {
+		cout << " 초기화 리스트로 초기화" << endl;
+	}
+
 };
 
 int main() {
@@ -161,5 +195,10 @@ int main() {
 		t1.Display();
 		t2.Display();
 
+	}
+
+	// 초기화 리스트 사용한 생성자 
+	{
+		Test7 t1;
 	}
 }
