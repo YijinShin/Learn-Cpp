@@ -117,13 +117,19 @@
     <ClCompile Include="study20230129.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Users\nimbu\OneDrive\바탕 화면\구조체.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="study20230130.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="class20230130.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Users\nimbu\OneDrive\바탕 화면\공부 자료\사용자 정의 자료형.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Users\nimbu\OneDrive\바탕 화면\공부 자료\구조체.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Users\nimbu\OneDrive\바탕 화면\공부 자료\동적할당.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

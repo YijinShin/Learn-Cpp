@@ -48,6 +48,8 @@ int main() {
 		cout << &pos << endl;
 		cout << &pos.x << endl;
 
+		pos_ptr->x = 100;
+
 		//근데 이게 배열과는 
 	}
 
