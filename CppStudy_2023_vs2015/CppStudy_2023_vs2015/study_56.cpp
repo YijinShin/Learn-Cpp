@@ -171,10 +171,12 @@ void A::private_func() {
 
 void A::A_private_static_func() {
 	cout << "[A's private_static func]" << endl;
+	//A_private_static_v_ = 10;
 }
 
 void A::public_func() {
 	cout << "[A's public func]" << endl;
+	//A_private_static_v_ = 10;
 }
 
 void A::A_public_static_func() {

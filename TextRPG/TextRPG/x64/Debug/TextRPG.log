@@ -1,3 +1,4 @@
-﻿  Main.cpp
-C:\GitHub\Learn-Cpp\TextRPG\TextRPG\Main.cpp(29,32): warning C4101: 'e' :참조되지 않은 지역 변수입니다.
+﻿  Main_usingStructure_1.cpp
+C:\GitHub\Learn-Cpp\TextRPG\TextRPG\Main_usingStructure_1.cpp(21,11): warning C4101: 'monsyer' :참조되지 않은 지역 변수입니다.
+C:\GitHub\Learn-Cpp\TextRPG\TextRPG\Main_usingStructure_1.cpp(32,32): warning C4101: 'e' :참조되지 않은 지역 변수입니다.
   TextRPG.vcxproj -> C:\GitHub\Learn-Cpp\TextRPG\x64\Debug\TextRPG.exe

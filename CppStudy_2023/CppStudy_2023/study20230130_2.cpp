@@ -2,6 +2,8 @@
 
 using namespace std;
 
+static int* p;
+
 int main() {
     cout << endl;
     int* iData = (int*)malloc(5 * sizeof(int));
@@ -12,4 +14,8 @@ int main() {
     cout << endl<<" calloc으로 할당받음: ";
     for (int i = 0; i < 5; i++) cout << iTemp[i] << ", ";
     cout << endl;
+
+    p = (int*)malloc(sizeof(int));
+    *p = 10;
+    cout << *p;
 }
