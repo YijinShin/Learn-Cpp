@@ -3,7 +3,7 @@
 
 using namespace std;
 
-namespace StackSLLinst {
+namespace StackSLList {
 
 	typedef struct tagNode {
 		int iData;

@@ -98,7 +98,9 @@ void SLList::SingleLinkedList::Delete(PLIST list, int iData) {
 }
 
 void SLList::SingleLinkedList::ShowList(const LIST* list) {	// const PLIST 이렇게 하면 읽기전용 포인터가 아니라 상수 포인터 변수가 되어버림... PLIST이걸 LIST* 로 인식하지 않고 그냥 하나의 타입이라고 인식해버려서 그런듯 
+	
 	const NODE* currNode = list->head;
+	
 	if (currNode == nullptr) {
 		cout << "Notting in the list" << endl;
 		return;
