@@ -18,6 +18,7 @@ typedef struct tagMonsterInfo {
 }MONSTER, *PMONSTER;
 
 void tagMonsterInfo::InitMonster(char szName[], int iLV) {
+	isDead = false;
 	strcpy_s(szName_, sizeof(szName_), szName);
 	iLV_ = iLV;
 	iHP_ = iLV * 30;
