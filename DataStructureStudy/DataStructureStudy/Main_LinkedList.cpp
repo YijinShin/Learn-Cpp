@@ -27,17 +27,15 @@ int main() {
 			cout << "Enter a value to insert :";
 			cin >> iValue;
 			SingleLinkedList::Insert(&list, iValue);
-			SingleLinkedList::ShowList(list);
 			break;
 		case DELETE:
 			cout << "Enter a value to delete :";
 			cin >> iValue;
 			SingleLinkedList::Delete(&list, iValue);
-			SingleLinkedList::ShowList(list);
 			break;
 		case SHOW:
 			cout << "[ Display your list ]" << endl;
-			SingleLinkedList::ShowList(list);
+			SingleLinkedList::ShowList(&list);
 			break;
 		case QUIT:
 			isEnd = true;

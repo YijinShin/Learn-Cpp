@@ -54,6 +54,9 @@
     <ClCompile Include="..\..\..\..\Users\nimbu\OneDrive\바탕 화면\공부 자료\사용자 정의 자료형.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="class20230201.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="study_staticVariablePlus.h">
