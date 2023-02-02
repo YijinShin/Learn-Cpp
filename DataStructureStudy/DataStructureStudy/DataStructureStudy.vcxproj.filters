@@ -24,7 +24,7 @@
     <ClCompile Include="Main_Stack.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Main_CircularQueue.cpp">
+    <ClCompile Include="Main_CircularQueue_Array.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Main_Queue_SLList.cpp">
@@ -44,7 +44,7 @@
     <ClInclude Include="Stack_withSingleLinkedList.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CirculatQueue.h">
+    <ClInclude Include="CirculatQueue_withArray.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Queue_withSingleLinkedList.h">

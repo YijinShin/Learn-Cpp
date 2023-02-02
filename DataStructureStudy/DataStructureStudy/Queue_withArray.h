@@ -5,6 +5,9 @@
 
 using namespace std;
 
+/*이거는 queue를 array를 사용해서 만든건데 이렇게하면 사이즈가 픽스되어있다 그래서 single linked list로 하나 더 구현했다. 
+linkedlist로 하면 inqueue할때마다 새로운 node붙이기 때문에 사이즈를 초반에 정할 필요가 없다. */
+
 namespace QueueArray {
 
 	typedef struct tagQueue {

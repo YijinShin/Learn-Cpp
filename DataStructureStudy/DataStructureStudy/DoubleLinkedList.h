@@ -4,6 +4,8 @@
 
 using namespace std;
 
+/* queue를 single linked list로 구현함. 
+array와는 다르게 처음에 size를 fix할 필요가 없음 */
 
 typedef struct tagNode {
 	int iData;

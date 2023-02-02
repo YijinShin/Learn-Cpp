@@ -30,7 +30,7 @@ int main() {
 			Queue::Inqueue(&queue, iValue);
 			break;
 		case DEQUEUE:
-			cout << "Pop last input value" << endl;
+			cout << "Dequeue last input value" << endl;
 			Queue::Dequeue(&queue);
 			break;
 		case SHOW:
