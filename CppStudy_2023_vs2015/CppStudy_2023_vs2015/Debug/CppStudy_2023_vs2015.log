@@ -1,2 +1,3 @@
-﻿  class20230202.cpp
+﻿  study_structureSize.cpp
+C:\GitHub\Learn-Cpp\CppStudy_2023_vs2015\CppStudy_2023_vs2015\study_structureSize.cpp(43,11): warning C4101: 't1' :참조되지 않은 지역 변수입니다.
   CppStudy_2023_vs2015.vcxproj -> C:\GitHub\Learn-Cpp\CppStudy_2023_vs2015\Debug\CppStudy_2023_vs2015.exe

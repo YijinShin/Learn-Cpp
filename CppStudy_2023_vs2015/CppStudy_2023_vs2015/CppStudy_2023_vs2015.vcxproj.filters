@@ -72,6 +72,21 @@
     <ClCompile Include="class20230202.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Users\nimbu\OneDrive\바탕 화면\공부 자료\숙제풀이2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="study20230202.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Users\nimbu\OneDrive\바탕 화면\공부 자료\매크로.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Users\nimbu\OneDrive\바탕 화면\공부 자료\레퍼런스.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="study_structureSize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="study_staticVariablePlus.h">
