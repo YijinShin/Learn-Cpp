@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream>
+#include "stdafx.h"
 #include "Stack_withSingleLinkedList.h"
 using namespace std;
 

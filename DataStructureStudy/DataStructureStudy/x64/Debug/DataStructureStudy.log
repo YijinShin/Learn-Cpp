@@ -1,7 +1,3 @@
-﻿  Stack_withQueue.cpp
-Stack_withQueue.obj : error LNK2005: "public: static struct QueueSLList::tagQueue __cdecl QueueSLList::Queue::CreateQueue(void)" (?CreateQueue@Queue@QueueSLList@@SA?AUtagQueue@2@XZ)이(가) Main_Stack_withQueue.obj에 이미 정의되어 있습니다.
-Stack_withQueue.obj : error LNK2005: "public: static void __cdecl QueueSLList::Queue::Dequeue(struct QueueSLList::tagQueue *)" (?Dequeue@Queue@QueueSLList@@SAXPEAUtagQueue@2@@Z)이(가) Main_Stack_withQueue.obj에 이미 정의되어 있습니다.
-Stack_withQueue.obj : error LNK2005: "public: static int __cdecl QueueSLList::Queue::Dequeue_re(struct QueueSLList::tagQueue *)" (?Dequeue_re@Queue@QueueSLList@@SAHPEAUtagQueue@2@@Z)이(가) Main_Stack_withQueue.obj에 이미 정의되어 있습니다.
-Stack_withQueue.obj : error LNK2005: "public: static void __cdecl QueueSLList::Queue::Inqueue(struct QueueSLList::tagQueue *,int)" (?Inqueue@Queue@QueueSLList@@SAXPEAUtagQueue@2@H@Z)이(가) Main_Stack_withQueue.obj에 이미 정의되어 있습니다.
-Stack_withQueue.obj : error LNK2005: "public: static void __cdecl QueueSLList::Queue::ShowQueue(struct QueueSLList::tagQueue *)" (?ShowQueue@Queue@QueueSLList@@SAXPEAUtagQueue@2@@Z)이(가) Main_Stack_withQueue.obj에 이미 정의되어 있습니다.
-C:\GitHub\Learn-Cpp\DataStructureStudy\x64\Debug\DataStructureStudy.exe : fatal error LNK1169: 여러 번 정의된 기호가 있습니다.
+﻿  Main_Stack_withQueue.cpp
+  Queue_withSingleLinkedList.cpp
+  DataStructureStudy.vcxproj -> C:\GitHub\Learn-Cpp\DataStructureStudy\x64\Debug\DataStructureStudy.exe

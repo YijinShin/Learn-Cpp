@@ -1,6 +1,6 @@
 #pragma once
 
-#include <iostream>
+#include "stdafx.h"
 #define MAXSIZE 100
 
 using namespace std;

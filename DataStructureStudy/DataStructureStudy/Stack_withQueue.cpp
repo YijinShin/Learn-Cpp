@@ -2,7 +2,6 @@
 #include "Stack_withQueue.h"
 
 using namespace std;
-//using namespace QueueSLList;
 using namespace StackWithQueue;
 
 STACK Stack::CreateStack() {
@@ -29,6 +28,7 @@ void Stack::Pop(PSTACK stack) {
 
 		// dequeue
 		iData = Queue::Dequeue_re(&(stack->queue));
+
 		// inqueue
 		Queue::Inqueue(&(stack->queue), iData);
 	}
@@ -45,5 +45,5 @@ bool Stack::IsEmpty(const STACK* stack) {
 }
 
 void Stack::ShowStack(const STACK* stack) {
-
+	Queue::ShowQueue(&(stack->queue));
 }

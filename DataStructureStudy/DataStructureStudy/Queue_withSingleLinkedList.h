@@ -1,6 +1,6 @@
 #pragma once
 
-#include <iostream>
+#include "stdafx.h"
 
 using namespace std;
 
@@ -23,70 +23,8 @@ namespace QueueSLList {
 		static void Inqueue(PQUEUE queue, int iData);
 		static void Dequeue(PQUEUE queue);
 		static int Dequeue_re(PQUEUE queue);
-		static void ShowQueue(PQUEUE queue);
+		static void ShowQueue(const QUEUE* queue);
 	};
 
-	QUEUE QueueSLList::Queue::CreateQueue() {
-		QUEUE queue{ nullptr, nullptr };
-		return queue;
-	}
-
-	void QueueSLList::Queue::Inqueue(PQUEUE queue, int iData) {
-		PNODE newNode = new NODE{ iData, nullptr };
-
-		// if this is the first node
-		if (queue->head == nullptr) {
-			queue->head = newNode;
-		}
-		// if is not
-		else {
-			queue->last->nextNode = newNode;
-		}
-		queue->last = newNode;
-
-	}
-
-	void QueueSLList::Queue::Dequeue(PQUEUE queue) {
-		PNODE headNode = queue->head;
-
-		if (headNode == nullptr) {
-			cout << "Notting in this queue." << endl;
-			return;
-		}
-
-		queue->head = headNode->nextNode;
-
-		delete headNode;
-		headNode = nullptr;
-	}
-
-	int QueueSLList::Queue::Dequeue_re(PQUEUE queue) {
-		int iData(0);
-		PNODE headNode = queue->head;
-		iData = headNode->iData;
-		if (headNode == nullptr) {
-			cout << "Notting in this queue." << endl;
-			return -1;
-		}
-
-		queue->head = headNode->nextNode;
-
-		delete headNode;
-		headNode = nullptr;
-
-		return iData;
-	}
-
-	void  QueueSLList::Queue::ShowQueue(PQUEUE queue) {
-		const NODE* currNode = queue->head;
-
-		while (1) {
-			if (currNode == nullptr) {
-				cout << " <END>." << endl;
-				break;
-			}
-			cout << currNode->iData << ", ";
-			currNode = currNode->nextNode;
-		}
-	}
+	
 }
