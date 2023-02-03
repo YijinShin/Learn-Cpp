@@ -39,6 +39,16 @@ struct tagInfo4 {
 	// 아무것도 없으면 1바이트
 };
 
+struct tagInfo5 {
+	int& iRef;
+};
+
+struct tagInfo6 {
+	char szName[20];
+	int iData;
+
+};
+
 int main() {
 	tagInfo1 t1;
 	tagInfo2 t2;
@@ -46,7 +56,51 @@ int main() {
 	tagInfo3 t3;
 	tagInfo4 t4;
 
+	tagInfo6 t6;
+
+	int iData = 10;
+	tagInfo5 t5{iData};	// 이건 ref변수가 있어서 무조건 초기화 해야함. 
+						// 초기화는 매개변수가 아니다. 그러니까 상수는 안됨! 
+
 	cout << sizeof(t2) << endl;
 	cout << sizeof(t3) << endl;
 	cout << sizeof(t4) << endl;
+	cout << sizeof(t5) << endl;	// int Ref라서 4byte나옴. 
+	cout << sizeof(t6) << endl;
+
+
+	{
+		char szDest[15] = "xxxxxxxxxxxxx";
+		char szSrc[5] = "aa";
+		strcpy_s(szDest, 3, szSrc);
+
+		cout << szDest << endl;		// 문자열을 인식해서 출력하므로 "aa"까지만 나옴
+
+		for (int i = 0; i < 15; i++) {	// 문자열을 떠나서 그냥 메모리 공간에 접근해서 값 조회해보기
+			cout << szDest[i];
+		}
+	}
+
+	{
+		char szData[20] = "hellohellohello";
+		char szSrc[20] = "bye bye";
+		cout << endl;
+		memcpy(szData, szSrc, 3); // 결과는 byelo
+		cout << szData << endl;
+		memcpy(szData, szSrc, 20); // 결과는 bye b
+		cout << szData << endl;
+	}
+
+	{
+		char szName[5] = { 'C' };
+		cout << szName[3] << endl;
+	}
+
+	{
+		short* sPtr = new short[2] {1,2};
+
+		cout << sPtr << " == "<< &sPtr[0]<<  endl;
+		cout << sPtr + 1 << " == " << &sPtr[1] << endl;
+
+	}
 }

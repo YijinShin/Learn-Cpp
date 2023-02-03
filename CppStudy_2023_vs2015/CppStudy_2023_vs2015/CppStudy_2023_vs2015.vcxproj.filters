@@ -87,6 +87,12 @@
     <ClCompile Include="study_structureSize.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="study_refernce.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="study_aboutHeader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="study_staticVariablePlus.h">
