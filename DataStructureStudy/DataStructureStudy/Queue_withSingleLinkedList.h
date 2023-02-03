@@ -10,18 +10,19 @@ namespace QueueSLList {
 	typedef struct tagNode {
 		int iData;
 		tagNode* nextNode;
-	}NODE, * PNODE;
+	}NODE, *PNODE;
 
 	typedef struct tagQueue {
 		PNODE head;
 		PNODE last;
-	}QUEUE, * PQUEUE;
+	}QUEUE, *PQUEUE;
 
 	class Queue {
 	public:
 		static QUEUE CreateQueue();
 		static void Inqueue(PQUEUE queue, int iData);
 		static void Dequeue(PQUEUE queue);
+		static int Dequeue_re(PQUEUE queue);
 		static void ShowQueue(PQUEUE queue);
 	};
 
@@ -57,6 +58,23 @@ namespace QueueSLList {
 
 		delete headNode;
 		headNode = nullptr;
+	}
+
+	int QueueSLList::Queue::Dequeue_re(PQUEUE queue) {
+		int iData(0);
+		PNODE headNode = queue->head;
+		iData = headNode->iData;
+		if (headNode == nullptr) {
+			cout << "Notting in this queue." << endl;
+			return -1;
+		}
+
+		queue->head = headNode->nextNode;
+
+		delete headNode;
+		headNode = nullptr;
+
+		return iData;
 	}
 
 	void  QueueSLList::Queue::ShowQueue(PQUEUE queue) {
