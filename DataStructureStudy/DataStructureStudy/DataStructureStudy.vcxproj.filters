@@ -24,7 +24,7 @@
     <ClCompile Include="Main_DoubleLinkedList.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Main_Stack.cpp">
+    <ClCompile Include="Main_Stack_withSLList.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Main_CircularQueue_Array.cpp">
@@ -46,6 +46,18 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Stack_withSingleLinkedList.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack_withArray.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_Stack_withArray.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack_withQueue.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_Stack_withQueue.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -73,6 +85,12 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack_withArray.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack_withQueue.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

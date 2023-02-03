@@ -144,11 +144,21 @@
     <ClCompile Include="Main_Queue_SLList.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Main_Queue_withStack.cpp" />
-    <ClCompile Include="Main_Stack.cpp">
+    <ClCompile Include="Main_Queue_withStack.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Main_Stack_withQueue.cpp" />
+    <ClCompile Include="Main_Stack_withSLList.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Main_Stack_withArray.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Queue_withStack.cpp" />
+    <ClCompile Include="Stack_withArray.cpp" />
+    <ClCompile Include="Stack_withQueue.cpp" />
     <ClCompile Include="Stack_withSingleLinkedList.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
@@ -159,6 +169,8 @@
     <ClInclude Include="Queue_withSingleLinkedList.h" />
     <ClInclude Include="Queue_withStack.h" />
     <ClInclude Include="SingleLinkedList.h" />
+    <ClInclude Include="Stack_withArray.h" />
+    <ClInclude Include="Stack_withQueue.h" />
     <ClInclude Include="Stack_withSingleLinkedList.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
