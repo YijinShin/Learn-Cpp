@@ -1,3 +1,11 @@
-﻿  Main_Stack_withQueue.cpp
+﻿  AdjacencyMatrix.cpp
+C:\GitHub\Learn-Cpp\DataStructureStudy\DataStructureStudy\AdjacencyMatrix.h(6,9): warning C4200: 비표준 확장이 사용됨: 구조체/공용 구조체의 배열 크기가 0입니다.
+C:\GitHub\Learn-Cpp\DataStructureStudy\DataStructureStudy\AdjacencyMatrix.h(6,9): message : 이 멤버는 기본값으로 설정된 생성자 또는 복사/이동 대입 연산자에서 무시됩니다.
+C:\GitHub\Learn-Cpp\DataStructureStudy\DataStructureStudy\AdjacencyMatrix.h(7,13): error C2040: 'AM::AMatrix': 'AM::tagAdjacencyMatrix *'의 간접 참조 수준이 'AM::tagAdjacencyMatrix'과(와) 다릅니다.
+  Main_Stack_withQueue.cpp
   Queue_withSingleLinkedList.cpp
-  DataStructureStudy.vcxproj -> C:\GitHub\Learn-Cpp\DataStructureStudy\x64\Debug\DataStructureStudy.exe
+  Queue_withStack.cpp
+  Stack_withArray.cpp
+  Stack_withQueue.cpp
+  Stack_withSingleLinkedList.cpp
+  stdafx.cpp

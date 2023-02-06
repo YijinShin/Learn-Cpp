@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdjacencyMatrix.cpp" />
     <ClCompile Include="Main_CircularQueue_Array.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -164,6 +165,7 @@
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdjacencyMatrix.h" />
     <ClInclude Include="CirculatQueue_withArray.h" />
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="Queue_withArray.h" />
