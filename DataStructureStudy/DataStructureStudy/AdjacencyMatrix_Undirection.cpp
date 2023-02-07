@@ -127,7 +127,7 @@ void AdjacencyMatrix::SearchNodeInfo(const AMatrix* pAmatrix, int iNode) {
 
 bool AdjacencyMatrix::IsCompleteGraphh(const AMatrix* pAmatrix, int iEcnt) {
 	bool isComplete(false);
-	if (iEcnt == (pAmatrix->iVcnt - 1) * pAmatrix->iVcnt) isComplete = true;
+	if (iEcnt == ((pAmatrix->iVcnt - 1) * pAmatrix->iVcnt)/2) isComplete = true;
 	return isComplete;
 }
 bool AdjacencyMatrix::IsCycleGraph(const AMatrix* pAmatrix) {
