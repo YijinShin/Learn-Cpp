@@ -129,7 +129,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AdjacencyMatrix.cpp" />
+    <ClCompile Include="AdjacencyMatrix_Direction.cpp" />
+    <ClCompile Include="Main_AdjacencyMatrix_Direction.cpp" />
     <ClCompile Include="Main_CircularQueue_Array.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -149,7 +150,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Main_Stack_withQueue.cpp" />
+    <ClCompile Include="Main_Stack_withQueue.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Main_Stack_withSLList.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -162,10 +166,13 @@
     <ClCompile Include="Stack_withArray.cpp" />
     <ClCompile Include="Stack_withQueue.cpp" />
     <ClCompile Include="Stack_withSingleLinkedList.cpp" />
-    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AdjacencyMatrix.h" />
+    <ClInclude Include="AdjacencyMatrix_Direction.h" />
     <ClInclude Include="CirculatQueue_withArray.h" />
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="Queue_withArray.h" />

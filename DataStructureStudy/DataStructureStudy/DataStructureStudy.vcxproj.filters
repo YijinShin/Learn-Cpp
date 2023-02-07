@@ -63,7 +63,10 @@
     <ClCompile Include="Queue_withSingleLinkedList.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="AdjacencyMatrix.cpp">
+    <ClCompile Include="AdjacencyMatrix_Direction.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_AdjacencyMatrix_Direction.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,7 +101,7 @@
     <ClInclude Include="Stack_withQueue.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="AdjacencyMatrix.h">
+    <ClInclude Include="AdjacencyMatrix_Direction.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
