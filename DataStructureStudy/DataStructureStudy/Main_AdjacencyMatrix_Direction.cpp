@@ -13,7 +13,7 @@ int main() {
 	bool isEnd(false);
 	AMatrix amatrix;
 
-	// create graph with adjacency list
+	// create graph with adjacency list + direction
 	cout << " Enter the number of nodes : ";
 	cin >> iSize;
 	amatrix = AdjacencyMatrix::CreateAMatrix(iSize);

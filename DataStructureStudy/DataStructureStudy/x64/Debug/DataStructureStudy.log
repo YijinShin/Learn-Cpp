@@ -1,4 +1,3 @@
-﻿  AdjacencyMatrix_Direction.cpp
-  Main_AdjacencyMatrix_Direction.cpp
+﻿  AdjacencyMatrix_Undirection.cpp
   stdafx.cpp
   DataStructureStudy.vcxproj -> C:\GitHub\Learn-Cpp\DataStructureStudy\x64\Debug\DataStructureStudy.exe
