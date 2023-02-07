@@ -129,13 +129,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdjacencyList_Direction.cpp" />
     <ClCompile Include="AdjacencyMatrix_Direction.cpp" />
     <ClCompile Include="AdjacencyMatrix_Undirection.cpp" />
+    <ClCompile Include="Main_AdjacencyList_Direction.cpp" />
     <ClCompile Include="Main_AdjacencyMatrix_Direction.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Main_AdjacencyMatrix_Undirection.cpp" />
+    <ClCompile Include="Main_AdjacencyMatrix_Undirection.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Main_CircularQueue_Array.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -177,6 +182,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdjacencyList_Direction.h" />
     <ClInclude Include="AdjacencyMatrix_Direction.h" />
     <ClInclude Include="AdjacencyMatrix_Undirection.h" />
     <ClInclude Include="CirculatQueue_withArray.h" />

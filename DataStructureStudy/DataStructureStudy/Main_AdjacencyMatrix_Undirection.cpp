@@ -64,6 +64,7 @@ int main() {
 			break;
 		case QUIT:
 			cout << " [QUIT]" << endl;
+			AdjacencyMatrix::DeleteGraph(&amatrix);
 			isEnd = true;
 			break;
 		default:

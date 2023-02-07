@@ -105,6 +105,9 @@
     <ClCompile Include="TestHeader_1.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
+    <ClCompile Include="Main_class20230207.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="study_staticVariablePlus.h">

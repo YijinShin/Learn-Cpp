@@ -86,6 +86,10 @@ void AdjacencyMatrix::ShowGraph(const AMatrix* pAmatrix) {
 
 }
 
+void AdjacencyMatrix::DeleteGraph(PAMatrix pAmatrix) {
+	delete pAmatrix;
+}
+
 void AdjacencyMatrix::SearchEdge(const AMatrix* pAmatrix, int iNodeStart, int iNodeEnd) {
 	//wrong range
 	if (iNodeStart <= 0 || iNodeStart > pAmatrix->iVcnt) {
