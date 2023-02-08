@@ -1,3 +1,0 @@
-﻿  Main_ver3.cpp
-C:\GitHub\Learn-Cpp\TextRPG\TextRPG\Main_ver3.cpp(104,32): warning C4101: 'e' :참조되지 않은 지역 변수입니다.
-  TextRPG.vcxproj -> C:\GitHub\Learn-Cpp\TextRPG\x64\Debug\TextRPG.exe
