@@ -5,7 +5,7 @@ using namespace std;
 using namespace hw20230207_1;
 
 Report::Report() :m_iMath(0), m_iKra(0), m_iEng(0), m_fAvg(0.f), m_szName(""), m_cScore(NULL) {
-
+	
 }
 
 void Report::InitReport(int _iKra, int _iMath, int _iEng, char _szName[]) {

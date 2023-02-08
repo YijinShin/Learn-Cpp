@@ -64,7 +64,6 @@ int main() {
 }
 
 void InitReport(Report* pReport) {
-	cout << "내주소:" << pReport << endl;
 	char szName[20];
 	int iScores[3];
 	
@@ -85,10 +84,14 @@ void AddNewReport(Report** pReport, int iReportCnt, int iNewReportCnt) {
 	cout << iReportCnt << " / " << iNewReportCnt << endl;
 
 	//copy already exists
-	for (int i = 0; i < iReportCnt - iNewReportCnt; i++) {
+	/*	for (int i = 0; i < iReportCnt - iNewReportCnt; i++) {
 		cout << "Index(copy):" << i << endl;
 		newpReports[i].CopyReport((*pReport)[i]);
 	} 
+	*/
+	// 위의 copy함수대신 memcpy로 한번에 가능. 
+	memcpy(newpReports, *pReport, sizeof(pReport)*(iReportCnt-iNewReportCnt));
+
 	// new reports
 	for (int i = iReportCnt-iNewReportCnt; i < iReportCnt; i++) {
 		cout << "Index(new):" << i << endl;
