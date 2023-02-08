@@ -16,6 +16,9 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{05ef1e87-b4e3-49ce-9414-47a14b3c877f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StudySrc">
+      <UniqueIdentifier>{014867f7-248e-49c3-8e3e-696f4610727c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="class20230207_1.cpp">
@@ -36,13 +39,16 @@
     <ClCompile Include="Main_hw20230207_2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="study_struct.cpp">
+    <ClCompile Include="study_struct_accessmodifier.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="class20230208.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
+    <ClCompile Include="..\..\..\..\Users\nimbu\OneDrive\바탕 화면\공부 자료\생성자.cpp">
+      <Filter>StudySrc</Filter>
+    </ClCompile>
+    <ClCompile Include="study20230209.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
