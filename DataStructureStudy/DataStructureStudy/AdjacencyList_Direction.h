@@ -6,7 +6,7 @@
 
 namespace AL_Direction {
 	typedef struct tagAdjacencyList {
-		vector <int>* adjList;
+		vector<int>* adjList; // "vector<int>"의 배열을 동적할당 할거임. 마치 int의 배열을 동적할당할때 int* iArr를 선언하는 것 처럼
 		int iEcnt;
 		int iVcnt;
 	}AList, *PAList;
@@ -19,8 +19,8 @@ namespace AL_Direction {
 	public:
 		static AList CreateAList(int iVcnt);
 
-		static void AddNode(PAList pAlist);
-		static void RemoveNode(PAList pAlist);
+		static void AddVertex(PAList pAlist);
+		static void RemoveVertex(PAList pAlist);
 
 		static void AddEdge(PAList pAlist);
 		static void RemoveEdge(PAList pAlist);
