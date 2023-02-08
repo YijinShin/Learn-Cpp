@@ -13,33 +13,36 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="20230207">
+      <UniqueIdentifier>{056b7f14-2a3e-485b-a48a-19de55327e1c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main_usingClass_1.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>20230207</Filter>
     </ClCompile>
     <ClCompile Include="Main_usingStructure_1.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>20230207</Filter>
     </ClCompile>
     <ClCompile Include="Main_ver3.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>20230207</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monster.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>20230207</Filter>
     </ClInclude>
     <ClInclude Include="Monster_struct1.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>20230207</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>20230207</Filter>
     </ClInclude>
     <ClInclude Include="Player_struct1.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>20230207</Filter>
     </ClInclude>
     <ClInclude Include="Player_struct2.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>20230207</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
