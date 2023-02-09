@@ -18,6 +18,7 @@ int main(){
 	// start game
 	mainGame.Game(player);
 
+	// end game
 	mainGame.Release(player);
 
 }
