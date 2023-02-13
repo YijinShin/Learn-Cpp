@@ -19,6 +19,9 @@
     <Filter Include="StudySrc">
       <UniqueIdentifier>{014867f7-248e-49c3-8e3e-696f4610727c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="study20230210">
+      <UniqueIdentifier>{8a798d45-a333-497d-ba1b-f441423f9283}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="class20230207_1.cpp">
@@ -48,10 +51,28 @@
     <ClCompile Include="..\..\..\..\Users\nimbu\OneDrive\바탕 화면\공부 자료\생성자.cpp">
       <Filter>StudySrc</Filter>
     </ClCompile>
-    <ClCompile Include="study20230209.cpp">
+    <ClCompile Include="study_template.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="class20230209.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="study_iterator.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="class20230210.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CA.cpp">
+      <Filter>study20230210</Filter>
+    </ClCompile>
+    <ClCompile Include="CB.cpp">
+      <Filter>study20230210</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>study20230210</Filter>
+    </ClCompile>
+    <ClCompile Include="study_vector.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -64,6 +85,12 @@
     </ClInclude>
     <ClInclude Include="hw20230207_2.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CA.h">
+      <Filter>study20230210</Filter>
+    </ClInclude>
+    <ClInclude Include="CB.h">
+      <Filter>study20230210</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

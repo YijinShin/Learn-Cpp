@@ -56,7 +56,7 @@ class B;	//	 이게 없으면 Display_2의 함수에서 오류남
 
 class Display_2 {
 private:
-
+	int pri;
 public:
 	void Display_B(const B& b);	//지금 Display_2 클래스의 맴버 함수가 B클래스의 맴버를 참고하고있다. 때문에 클래스 B가 Display_2클래스보다 더 앞에 선언이 되어야한다. 
 								// 이 경우, B를 통째로 앞에서 선언해도 되는데, 그럴 필요없이 전방 선언을 사용해도 된다. 
@@ -68,6 +68,7 @@ private:
 public:
 	B(int ib = 10);
 	friend class Display_2;	// 프랜드 클래스 생성
+	//void Display() { cout << "friend: " << endl; }
 };
 
 
