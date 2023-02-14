@@ -75,8 +75,12 @@ class test {
 	static int a;
 };
 
-int main(){
+class CTest {
+private:
+	static const int m_iData = 10;
+};
 
+int main(){
 	test t;
 	cout << sizeof(t) << endl;	//static은 맴버로서 크기계산은 안된다. 
 }
