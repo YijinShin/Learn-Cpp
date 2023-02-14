@@ -30,4 +30,17 @@ int main() {
 	{
 
 	}
+
+	// 백터 동적할당시 배열
+	{
+		vector<int>* vPtr = new vector<int>(5, 0);
+		vector<int> v(5, 0);
+
+
+		//for (int i = 0; i < 5; i++) 
+		cout << sizeof(vPtr) << endl;
+		cout << &vPtr[0] << "," << &vPtr[1] << endl;
+		//for (int i = 0; i < 5; i++) 
+		cout << &v[0] << "," << &v[1] << endl;
+	}
 }

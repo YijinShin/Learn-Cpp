@@ -78,6 +78,15 @@
     <ClCompile Include="class20230213.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="study_graph.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AdjacencyList.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="class20230214.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -94,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="CB.h">
       <Filter>study20230210</Filter>
+    </ClInclude>
+    <ClInclude Include="AdjacencyList.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
