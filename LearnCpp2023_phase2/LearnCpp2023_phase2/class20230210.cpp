@@ -65,7 +65,13 @@ public:
 		b = refObj.b;
 		cout << " = 오버로딩 " << endl;
 		return *this;
-	}*/
+	}
+
+	Obj& operator= (int a) {
+		cout << " = 오버로딩 " << endl;
+		return *this;
+	}
+
 	Obj(const Obj& ref) {
 		// 얕은 복사 
 			//a = ref.a;
@@ -78,7 +84,7 @@ public:
 		b = ref.b;
 		cout << " 복사생성자 오버로딩" << endl;
 	}
-
+	*/
 	
 	Obj(int* _a, int _b) {
 		a = _a;
@@ -87,12 +93,25 @@ public:
 		cout << "생성자 오버로딩" << endl;
 	}
 	
+	//Obj() {
+	//	a = nullptr;
+	//	b = 20;
+	//	cout << "생성자 오버로딩2";
+	//}
+	
+	//Obj(const Obj& obj) {
+	//	cout << "복사 생성자 오버로딩" << endl;
+	//}
+
+	
+	
 };
 
 
 #include "stdafx.h"
 
 int main() {
+	/*
 
 	// 디폴트 복사 생성자 
 	/*
@@ -114,16 +133,20 @@ int main() {
 		obj1.Display();
 		obj2.Display();
 	}
-	*/
+	
 	// 오버로딩된 대입연산자 
 	{
 		int data = 10;
 
 		Obj obj1 = { &data, 100 };	// 오버로딩된 생성자 쓰기 ( 오버로딩된 대입연산자를 쓰는 것이 아니다.)
-		Obj obj2 = { &data, 200 };
+		Obj obj2 = obj1;
 
+		Obj obj3(&data, 200);	//
+		//obj2 =10;
 		obj1 = obj2;	// 오버로딩된 대입연산자 사용 ( 오버로딩 안했으면 그냥 디폴트 대입연산자 사용됨)
 
+
+	
 	}
 	cout << endl;
 	// 디폴트 대입연산자 
@@ -139,20 +162,23 @@ int main() {
 		obj2.Display();
 	}
 	
-	/* 
-	궁금한 것이 있다. 
-	대입연산자 오버로딩을 하고나서, 
-
-	Obj1 = Obj2 //이렇게 하면 내가 오버로딩한 대입연산자 쓴거잖아. 
-
-	근데 Obj obj = {10,20} 뭐 이렇게 하면 이건 생성자만 호출된거란말이야 
-	대입연산자 오버로딩 안뜸. 
-	그래도 여기서 =는 어쨌든 오리지널 대입연산자는 아니잖아 양쪽항이 타입이 다르니까. 
-	그럼 이거는 어쨌든 오버로딩된 대입연산자라는건데  
-	이건 그럼.. 디폴트 대입연산자인거야? >> 만약에 이게 디폴트 대입연산자가 맞다면, 대입연산자는 생성자나 복사 생성자와 다르게, 오버로딩한게 있어도 무조건 생성되는거야?
-	아니면 그냥 눈에 보이지 않는 오버로딩된 대입연산자인거야?
-	
 	*/
+
+	{
+		int num = 10;
+		//Obj t2;
+		Obj t4(&num, 20);
+
+
+		Obj t3 = t1;
+
+		t2 = t1;
+
+
+		cout << endl;
+		//Obj t2 = t1;
+
+	}
 	
 }
 
