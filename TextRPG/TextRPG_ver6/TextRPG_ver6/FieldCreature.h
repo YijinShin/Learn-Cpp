@@ -20,7 +20,8 @@ public:
 	void SetOffencePower(int _iOffencePower);
 
 	/* Get function */
-	const int* GetOffencePower() const;
+	int GetOffencePower() const;
+	int GetTotalHP() const;
 
 };
 

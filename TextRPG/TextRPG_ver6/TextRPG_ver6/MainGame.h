@@ -1,10 +1,12 @@
 #pragma once
 #include "Player.h"
+#include "Field.h"
 
 class MainGame
 {
 private:
-	CPlayer* m_player;
+	CPlayer* m_cpPlayer;
+	CField* m_cpField;
 public:
 	MainGame();
 	~MainGame();

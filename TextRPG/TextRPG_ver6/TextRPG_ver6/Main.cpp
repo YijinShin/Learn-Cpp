@@ -1,6 +1,9 @@
 #include "stdafx.h"
-#include "Player.h"
+#include "MainGame.h"
 
 int main(){
+	MainGame cMainGame;
 
+	cMainGame.Initialize();
+	cMainGame.Update();
 }

@@ -31,8 +31,13 @@ void CFieldCreature::SetOffencePower(int _iOffencePower)
 	m_stFcINFO.iOffencePower = _iOffencePower;
 }
 
-const int* CFieldCreature::GetOffencePower() const
+int CFieldCreature::GetOffencePower() const
 {
-	return &m_stFcINFO.iOffencePower;
+	return m_stFcINFO.iOffencePower;
+}
+
+int CFieldCreature::GetTotalHP() const
+{
+	return m_stFcINFO.iTotalHP;
 }
 

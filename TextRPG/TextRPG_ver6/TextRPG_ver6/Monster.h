@@ -7,6 +7,9 @@ public:
 	CMonster();
 	~CMonster();
 
+	void Initialize();
 	void DisplayINFO() const;
+
+	void SetType(int _iFieldLv);
 };
 
