@@ -71,16 +71,85 @@ return new Class(*this)	//이러면 자기를 복사하는거임.
 
 using namespace std;
 
-class test {
+class CTest1 {
 	static int a;
 };
 
-class CTest {
+class CTest2 {
 private:
 	static const int m_iData = 10;
 };
 
+class CTest3 {
+private:
+	static int m_iData;
+	static void Display() { cout << "private static" << endl; }
+};
+
+class CTest4 {
+private:
+	int m_iData;
+	static int m_iSrc;
+public:
+	static void Print() {
+		//cout << m_iData << endl;	// ERROR
+		cout << m_iSrc << endl;		// OK
+	}
+};
+
+void Display(int a, int b) {
+	cout << a << "," << b << endl;
+}
+
+int num = 10;
+class CTest6 {
+public:
+	static const int* iptrA ;
+	static const int i ;
+
+	const int* const Func(const int* const param)const {
+		// 와 const 5개도 붙일수있다 와 
+		int* ptr = new int;
+		return ptr;
+	}
+
+};
+
+const int CTest6::i = 10;
+const int* CTest6::iptrA = new int(5);
+
+class CTest7 {
+private:
+	char* szName = nullptr;
+public:
+	CTest7() { szName = new char[10]; strcpy_s(szName, 10, "hello"); };
+	~CTest7() { delete szName; }
+	void Draw() { cout << szName << endl; }
+};
+
+void Print(CTest7 test) {
+	test.Draw();
+}
+
+
 int main(){
-	test t;
-	cout << sizeof(t) << endl;	//static은 맴버로서 크기계산은 안된다. 
+
+	{
+		CTest7 ct1;
+		Print(ct1);
+		//ct1.Draw();
+	}
+	/*
+	{
+		CTest1 t;
+		cout << sizeof(t) << endl;	//static은 맴버로서 크기계산은 안된다. 
+		cout << endl;
+	}
+
+	// 함수 포인터 잠깐 실행해봄 갑자기 생각나서 
+	{
+		void (*Displayptr)(int, int) = Display;
+
+		Displayptr(3,4);
+	}*/
 }
