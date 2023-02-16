@@ -22,6 +22,9 @@
     <Filter Include="study20230210">
       <UniqueIdentifier>{8a798d45-a333-497d-ba1b-f441423f9283}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\study_extern">
+      <UniqueIdentifier>{74986781-d01c-4e08-babe-342c3b4c8d2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="class20230207_1.cpp">
@@ -96,6 +99,15 @@
     <ClCompile Include="study_Inheritance.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="study_extern_CTest.cpp">
+      <Filter>소스 파일\study_extern</Filter>
+    </ClCompile>
+    <ClCompile Include="study_extern_main.cpp">
+      <Filter>소스 파일\study_extern</Filter>
+    </ClCompile>
+    <ClCompile Include="study_friend.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -115,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="AdjacencyList.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="study_extern_CTest.h">
+      <Filter>소스 파일\study_extern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

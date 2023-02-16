@@ -7,6 +7,7 @@ using namespace std;
 void CB::Init()
 {
 	m_ca = new CA;
+
 }
 
 void CB::Display()
