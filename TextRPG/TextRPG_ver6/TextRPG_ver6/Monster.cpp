@@ -26,4 +26,7 @@ void CMonster::DisplayINFO() const
 
 void CMonster::SetType(int _iFieldLv)
 {
+	m_stFcINFO.iTotalHP = _iFieldLv * 30;
+	m_stFcINFO.iOffencePower = _iFieldLv * 2;
+	m_stFcINFO.iCurrHP = m_stFcINFO.iTotalHP;
 }

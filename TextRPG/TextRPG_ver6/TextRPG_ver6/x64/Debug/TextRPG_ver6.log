@@ -1,9 +1,2 @@
 ﻿  Field.cpp
-  FieldCreature.cpp
-  Main.cpp
-  MainGame.cpp
-  Monster.cpp
-  Player.cpp
-  stdafx.cpp
-  코드를 생성하고 있습니다...
   TextRPG_ver6.vcxproj -> C:\GitHub\Learn-Cpp\TextRPG\TextRPG_ver6\x64\Debug\TextRPG_ver6.exe

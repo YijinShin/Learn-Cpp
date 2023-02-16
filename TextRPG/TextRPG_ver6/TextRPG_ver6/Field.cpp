@@ -107,7 +107,7 @@ void CField::Attack(bool& refIsEnd, bool& refIsWin)
 
 	// monster attack player
 	cout << "[던전] 몬스터에게 공격당했습니다! (" << (-1) * m_cpMonster->GetOffencePower() << ")" << endl;
-	m_cpMonster->Damaged( m_cpMonster->GetOffencePower());
+	m_cpPlayer->Damaged( m_cpMonster->GetOffencePower());
 
 	// check is player dead
 	if (m_cpPlayer->IsDead()) {
