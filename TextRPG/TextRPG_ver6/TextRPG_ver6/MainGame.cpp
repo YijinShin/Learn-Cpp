@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "MainGame.h"
+#include "Player.h"
 
 MainGame::MainGame(): m_cpField(nullptr), m_cpPlayer(nullptr)
 {

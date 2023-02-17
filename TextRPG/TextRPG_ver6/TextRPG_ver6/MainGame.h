@@ -1,6 +1,7 @@
 #pragma once
-#include "Player.h"
 #include "Field.h"
+
+class CPlayer;
 
 class MainGame
 {

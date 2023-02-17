@@ -1,6 +1,6 @@
 #pragma once
-#include "Player.h"
-#include "Monster.h"
+class CPlayer;
+class CMonster;
 
 class CField
 {

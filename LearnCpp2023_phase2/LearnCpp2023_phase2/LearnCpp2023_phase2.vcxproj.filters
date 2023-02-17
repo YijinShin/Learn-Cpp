@@ -108,6 +108,9 @@
     <ClCompile Include="study_friend.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="class20230216.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

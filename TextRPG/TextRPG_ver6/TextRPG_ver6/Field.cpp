@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Field.h"
+#include "Monster.h"
+#include "Player.h"
 
 CField::CField():m_cpMonster(nullptr), m_cpPlayer(nullptr)
 {
