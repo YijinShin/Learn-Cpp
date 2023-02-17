@@ -16,9 +16,6 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{05ef1e87-b4e3-49ce-9414-47a14b3c877f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="StudySrc">
-      <UniqueIdentifier>{014867f7-248e-49c3-8e3e-696f4610727c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="study20230210">
       <UniqueIdentifier>{8a798d45-a333-497d-ba1b-f441423f9283}</UniqueIdentifier>
     </Filter>
@@ -51,9 +48,6 @@
     <ClCompile Include="class20230208.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Users\nimbu\OneDrive\바탕 화면\공부 자료\생성자.cpp">
-      <Filter>StudySrc</Filter>
-    </ClCompile>
     <ClCompile Include="study_template.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -79,12 +73,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="class20230213.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="study_graph.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="AdjacencyList.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="class20230214.cpp">
@@ -127,9 +115,6 @@
     </ClInclude>
     <ClInclude Include="CB.h">
       <Filter>study20230210</Filter>
-    </ClInclude>
-    <ClInclude Include="AdjacencyList.h">
-      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="study_extern_CTest.h">
       <Filter>소스 파일\study_extern</Filter>

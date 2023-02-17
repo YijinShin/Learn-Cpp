@@ -1,2 +1,6 @@
-﻿  class20230216.cpp
-  LearnCpp2023_phase2.vcxproj -> C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\x64\Debug\LearnCpp2023_phase2.exe
+﻿  CA.cpp
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\CA.cpp(12,10): error C2511: 'void CA::Display(void)': 오버로드된 멤버 함수가 'CA'에 없습니다.
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\CB.h(4,7): message : 'CA' 선언을 참조하십시오.
+  CB.cpp
+  class20230215.cpp
+  코드를 생성하고 있습니다...

@@ -79,7 +79,6 @@ class 자식클래스명: 접근제어지시자 부모클래스명{
 	[ 메모리 할당 - 부모 생성자 - 자식 생성자 - 자식소멸자 - 부모소멸자 - 메모리 반환 ]이렇게 진행됨.
 	이게 자식 클래스 생성, 소멸 순서. 이게 만족되어야함. 
 
-
 - 자식, 부모 모두 디폴트 생성자를 쓰는거면 상관없는데, 그게 아니면 
   Child(): Parnet(param 넘길거있음 넘기기){ ... } 이렇게 하면 됨.
 
@@ -93,35 +92,20 @@ class 자식클래스명: 접근제어지시자 부모클래스명{
 #include "stdafx.h"
 using namespace std;
 
-class FieldObject {
+class Parent {
 private:
 public:
-	FieldObject();
-	~FieldObject();
+	Parent() { cout << "hello"<<endl; }
+	~Parent() {}
 };
 
-class CPlayer {
+class Child : public Parent {
 private:
 public:
-	CPlayer();
-	~CPlayer();
+	Child() {}
+	~Child() {}
 };
-
-class CMonster {
-private:
-public:
-	CMonster();
-	~CMonster();
-};
-
-
 
 int main() {
-
+	Child ch;
 }
-
-/*
-과제
-textRPG 상속으로 바꿔보기 
-
-*/
