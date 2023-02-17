@@ -1,34 +1,34 @@
 #pragma once
 #include <vector>
-#include "SingleLinkedList.h"
-
+#include "stdafx.h"
+using namespace std;
 /* Direction graph */
 
 namespace AL_Direction {
-	typedef struct tagAdjacencyList {
-		vector<int>* adjList; // "vector<int>"의 배열을 동적할당 할거임. 마치 int의 배열을 동적할당할때 int* iArr를 선언하는 것 처럼
-		int iEcnt;
+	typedef struct AdjacencyList {
+		vector<vector<int>*> vAdList;
 		int iVcnt;
-	}AList, *PAList;
+		int iEcnt;
+		AdjacencyList():iVcnt(0), iEcnt(0) {
+			vAdList.push_back(new vector<int>);	// 하나 넣어놓고 시작하는 이유는 iVnt와 맞추기 위해
+		}//ADLIST 객체가 생성되는 순간 불림
+	}ADLIST;
 
-	class AdjacencyList {
+	class AdjacencyList_Direction {
 	private:
-		bool IsCycleGraph();
-		bool IsCompleteGraph(const AList* pAlist);
-
+		ADLIST* m_stAdList;
 	public:
-		static AList CreateAList(int iVcnt);
+		AdjacencyList_Direction();
+		~AdjacencyList_Direction();
 
-		static void AddVertex(PAList pAlist);
-		static void RemoveVertex(PAList pAlist);
+		void Release();
 
-		static void AddEdge(PAList pAlist);
-		static void RemoveEdge(PAList pAlist);
+		void AddVertex();
+		void RemoveVertex(int _iVidx);
 
-		static void SearchEdge(const AList* pAlist);
-		static void SearchNodeInfo(const AList* pAlist);
+		void AddEdge(int _iStartV, int _iEndV);
+		void RemoveEdge(int _iStartV, int _iEndV);
 
-		static void ShowGraph(const AList* pAlist);
-
+		void Display() const;
 	};
 }

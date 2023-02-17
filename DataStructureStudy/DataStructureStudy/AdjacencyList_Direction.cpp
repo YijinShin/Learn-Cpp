@@ -1,78 +1,53 @@
 #include "stdafx.h"
 #include <vector>
-
 #include "AdjacencyList_Direction.h"
 
 using namespace std;
 using namespace AL_Direction;
 
-bool AdjacencyList::IsCycleGraph() {
-	
+AdjacencyList_Direction::AdjacencyList_Direction() 
+{
+	m_stAdList = new ADLIST;
 }
 
-bool AdjacencyList::IsCompleteGraph(const AList* pAlist) {
-	bool isComplete(false);
-	if (pAlist->iEcnt == ((pAlist->iVcnt - 1) * pAlist->iVcnt)) isComplete = true;
-	return isComplete;
+AL_Direction::AdjacencyList_Direction::~AdjacencyList_Direction()
+{
+	Release();
 }
 
-AList AdjacencyList::CreateAList(int iVcnt) {
-	AList aList;
-
-	aList.iEcnt = 0;
-	aList.iVcnt = iVcnt;
-	aList.adjList = new vector<int>[iVcnt + 1];
-
-	return aList;
+void AL_Direction::AdjacencyList_Direction::Release()
+{
+	delete m_stAdList;
 }
 
-void AddVertex(PAList pAlist) {
-	vector<int> *vertex = new vector<int>;
-	//pAlist->adjList.push_back(vertex);
-}
-void RemoveVertex(PAList pAlist) {
-
+void AL_Direction::AdjacencyList_Direction::AddVertex()
+{
+	m_stAdList->vAdList.push_back(new vector<int>);
+	m_stAdList->iVcnt++;
 }
 
-void AddEdge(PAList pAlist, int iStartNode, int iEndNode) {
-	//wrong range
-	if (iStartNode <= 0 || iStartNode > pAlist->iVcnt) {
-		cout << "Wrong start node" << endl;
-		return;
-	}
-	else if (iEndNode <= 0 || iEndNode > pAlist->iVcnt) {
-		cout << "Wrong end node" << endl;
-		return;
-	}
-	//edge already exist 
-		// 아직 체크 못함 
-	//add edge
-	pAlist->adjList[iStartNode].push_back(iEndNode);
-}
-void RemoveEdge(PAList pAlist, int iStartNode, int iEndNode) {
-	//wrong range
-	if (iStartNode <= 0 || iStartNode > pAlist->iVcnt) {
-		cout << "Wrong start node" << endl;
-		return;
-	}
-	else if (iEndNode <= 0 || iEndNode > pAlist->iVcnt) {
-		cout << "Wrong end node" << endl;
-		return;
-	}
-	//edge already exist 
-		// 아직 체크 못함 
-	//add edge
-	pAlist->adjList[iStartNode].erase(remove(pAlist->adjList[iStartNode].begin(), pAlist->adjList[iStartNode].end(), iEndNode), pAlist->adjList[iStartNode].end());
+void AL_Direction::AdjacencyList_Direction::RemoveVertex(int _iVidx)
+{
+	vector<int>* removeVertex = m_stAdList->vAdList[_iVidx];
+	m_stAdList->vAdList.erase(m_stAdList->vAdList.begin()+_iVidx, m_stAdList->vAdList.begin() + _iVidx+1);
+	m_stAdList->iVcnt--;
+	delete removeVertex;
 }
 
-void SearchEdge(const AList* pAlist) {
-
+void AL_Direction::AdjacencyList_Direction::AddEdge(int _iStartV, int _iEndV)
+{
+	m_stAdList->vAdList[_iStartV]->push_back(_iEndV);
+	m_stAdList->iEcnt++;
 }
 
-void SearchNodeInfo(const AList* pAlist) {
-
+void AL_Direction::AdjacencyList_Direction::RemoveEdge(int _iStartV, int _iEndV)
+{
+	// remove 구현해야함
+//	int targetIndex = find(m_stAdList->vAdList[_iStartV].begin(), m_stAdList->vAdList[_iStartV].end(), _iEndV) - m_stAdList->vAdList[_iStartV].begin();
+//	m_stAdList->vAdList[_iStartV].erase(targetIndex, targetIndex + 1);
+	m_stAdList->iEcnt--;
 }
 
-void ShowGraph(const AList* pAlist) {
-
+void AL_Direction::AdjacencyList_Direction::Display() const
+{
 }

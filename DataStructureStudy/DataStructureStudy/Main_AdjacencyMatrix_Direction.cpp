@@ -7,6 +7,7 @@ using namespace AM_Direction;
 enum Menu { ADDEDGE=1, REMOVEEDGE, SHOW, SEARCHEDGE, SEARCHNODEINFO, CLEAN, QUIT};
 
 int main() {
+
 	int iMenu(0);
 	int iSize(0);
 	int iStartNode(0), iEndNode(0);

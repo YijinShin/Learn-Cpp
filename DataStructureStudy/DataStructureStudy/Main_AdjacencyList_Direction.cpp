@@ -9,5 +9,5 @@ using namespace std;
 using namespace AL_Direction;
 
 int main() {
-	
+	AdjacencyList_Direction ad;
 }
