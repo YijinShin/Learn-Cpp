@@ -1,8 +1,11 @@
 #include "stdafx.h"
 #include "MainGame.h"
-#include "Player.h"
 
-MainGame::MainGame(): m_cpField(nullptr), m_cpPlayer(nullptr)
+#include "Player.h"
+#include "Field.h"
+#include "Mall.h"
+
+MainGame::MainGame() : m_cpField(nullptr), m_cpPlayer(nullptr), m_cpMall(nullptr)
 {
 }
 
@@ -20,6 +23,10 @@ void MainGame::Initialize()
 	// create, init field
 	m_cpField = new CField;
 	m_cpField->Initialize(m_cpPlayer);
+
+	// create, init mall
+	m_cpMall = new CMall;
+	m_cpMall->Initialize(m_cpPlayer);
 }
 
 void MainGame::Update()
@@ -33,7 +40,7 @@ void MainGame::Update()
 		m_cpPlayer->DisplayINFO();
 
 		// select menu
-		cout << "[마을] 무엇을 할까. (1.던전, 2.종료): ";
+		cout << "[마을] 무엇을 할까. (1.던전, 2.상점가, 3.종료,): ";
 		cin >> iMenu;
 		switch (iMenu)
 		{
@@ -41,6 +48,9 @@ void MainGame::Update()
 			m_cpField->Update();
 			break;
 		case 2:
+			m_cpMall->Update();
+			break;
+		case 3:
 			isEnd = true;
 			break;
 		default:

@@ -1,4 +1,6 @@
 #pragma once
+#include "FieldCreature.h"
+
 class CMonster: public CFieldCreature
 {
 private:

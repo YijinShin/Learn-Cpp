@@ -39,6 +39,12 @@
     <ClCompile Include="Field.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Mall.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Store.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FieldCreature.h">
@@ -60,6 +66,12 @@
       <Filter>PCH</Filter>
     </ClInclude>
     <ClInclude Include="Field.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Mall.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Store.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
