@@ -19,7 +19,7 @@ void CMonster::Initialize()
 void CMonster::DisplayINFO() const
 {
 	cout << "_____________________________________________________________" << endl;
-	cout << "| Name: 몬스터" << endl;
+	cout << "| Name: 몬스터" << "\t Gold: " << m_stFcINFO.iGold << endl;
 	cout << "| HP: " << m_stFcINFO.iCurrHP << "/" << m_stFcINFO.iTotalHP << "\t Offence Power: " << m_stFcINFO.iOffencePower << endl;
 	cout << "_____________________________________________________________" << endl;
 }
@@ -28,5 +28,7 @@ void CMonster::SetType(int _iFieldLv)
 {
 	m_stFcINFO.iTotalHP = _iFieldLv * 30;
 	m_stFcINFO.iOffencePower = _iFieldLv * 2;
+	m_stFcINFO.iGold = _iFieldLv * 10;
 	m_stFcINFO.iCurrHP = m_stFcINFO.iTotalHP;
 }
+

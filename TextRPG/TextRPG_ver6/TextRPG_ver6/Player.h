@@ -15,5 +15,7 @@ public:
 	void LevelUp();
 	void SetJob();
 	void SetName();
+
+	void AddGold(int _iGold);
 };
 

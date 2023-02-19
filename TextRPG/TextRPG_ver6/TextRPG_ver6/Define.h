@@ -48,6 +48,7 @@ typedef struct stFieldCreatureINFO{
 	int iTotalHP;
 	int iCurrHP;
 	int iOffencePower;
+	int iGold;
 }FCINFO, *PFCINFO;
 
 typedef struct stPlayerINFO {

@@ -18,10 +18,12 @@ public:
 	/* Set function */
 	void SetCurrHP(int _iCurrHP);
 	void SetOffencePower(int _iOffencePower);
+	void SetGold(int _iGold);
 
 	/* Get function */
 	int GetOffencePower() const;
 	int GetTotalHP() const;
+	int GetGold() const;
 
 };
 

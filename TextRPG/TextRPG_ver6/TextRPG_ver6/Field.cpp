@@ -82,6 +82,7 @@ void CField::Battle(int _iFieldLv)
 		if (isEnd) {
 			if (isWin) {
 				m_cpPlayer->LevelUp();
+				m_cpPlayer->AddGold(m_cpMonster->GetGold());
 			}
 			else {
 				// full hill

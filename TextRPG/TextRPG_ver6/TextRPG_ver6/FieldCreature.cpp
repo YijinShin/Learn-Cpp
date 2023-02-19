@@ -31,6 +31,12 @@ void CFieldCreature::SetOffencePower(int _iOffencePower)
 	m_stFcINFO.iOffencePower = _iOffencePower;
 }
 
+void CFieldCreature::SetGold(int _iGold)
+{
+	m_stFcINFO.iGold = _iGold;
+}
+
+
 int CFieldCreature::GetOffencePower() const
 {
 	return m_stFcINFO.iOffencePower;
@@ -39,5 +45,10 @@ int CFieldCreature::GetOffencePower() const
 int CFieldCreature::GetTotalHP() const
 {
 	return m_stFcINFO.iTotalHP;
+}
+
+int CFieldCreature::GetGold() const
+{
+	return m_stFcINFO.iGold;
 }
 

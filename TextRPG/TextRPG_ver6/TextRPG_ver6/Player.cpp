@@ -23,7 +23,7 @@ void CPlayer::DisplayINFO() const
 {
     cout << "_____________________________________________________________" << endl;
     cout << "| Name: " << m_stFcINFO.szName << " (" << m_stPINFO.szJob << ")\tLv: " << m_stPINFO.iLv << endl;
-    cout << "| HP: " << m_stFcINFO.iCurrHP << "/" << m_stFcINFO.iTotalHP << "\t Offence Power: " << m_stFcINFO.iOffencePower << endl;
+    cout << "| HP: " << m_stFcINFO.iCurrHP << "/" << m_stFcINFO.iTotalHP << "\t Offence Power: " << m_stFcINFO.iOffencePower << "\t Gold: "<<m_stFcINFO.iGold<<endl;
     cout << "_____________________________________________________________" << endl;
 }
 
@@ -86,4 +86,9 @@ void CPlayer::SetName()
     }
     
     cin.ignore();
+}
+
+void CPlayer::AddGold(int _iGold)
+{
+    m_stFcINFO.iGold = m_stFcINFO.iGold + _iGold;
 }
