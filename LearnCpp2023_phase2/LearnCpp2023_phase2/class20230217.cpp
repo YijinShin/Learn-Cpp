@@ -73,17 +73,19 @@ Parent* p = new Child1;
 			얘의 논리적이다 비논리적인지의 기준은 "상속을 했냐 안했냐" 인것이지 인간 입장에서의 논리 비논리, 안전 불안전이 아님. 
 - dynamic_cast
 		- 동적인 타이밍에 캐스팅 수행하여 다형성의 문법을 사용할 수 있게 해줌. 
-		조건
+		- 조건
 			1. 일반 자료형이나 일반 포인터를 대상으로는 동작하지 않는다. 
 			2. 클래스의 상속 상태의 포인터일 때ㅁ 동작하며, 다운 캐스팅(다형성)을 하기 위한 용도로 쓴다. 
 			3. 반드시 부모 클래스에 가상 함수가 한 개 이상 있어야 사용 가능하다. => 이거 만족안되면 에러나면서 "다형 형식이 아닙니다" 이렇게 나옴. 
 					소멸자에만 버추얼 있어도 괜찮음. 뭐가 되었든 가상화가 일어나면 가능. 오버라이딩안해도 괜찮은가? 이거 확인하기 아마 될듯 
+
 		- 이게 그래서 안전한 캐스팅인가?
 			안전하지 않은 캐스팅이라고 판단하면 nullptr을 반환함.
 			Parent* p = new Parent
 			Child* ch = dynamic_cast<Child*>p;		
 			ch == nullptr이 들어감. 
 			이 안정성 테스트를 런타임에 바로 확인해서 ㅇ안전하지 않으면 nullptr을 반환하는거임. 
+
 		- 언제쓸까?
 			다운케스팅을 하기위해 쓴다. 
 			오버라이딩하지 않고, 자식 함수에 접근하려고 할때 이걸 쓴다. 
@@ -95,6 +97,7 @@ Parent* p = new Child1;
 
 			근데 여튼 보통은 다이나믹 씀. 그래도 안전한게 더 좋은 경우가 많이 때문에. 
 			그래서 보통 다이나믹쓰고 문제 없으면 그걸 static으로 바꾸는 경우가 많음. (속도를 위해)
+
 		- 업캐스팅도 허용함. 
 			어쨌든 상속이니까. 
 			업케스팅은 다이나믹이건 스테틱이건 모두다 허용해버린다. 업캐스팅할거면 static이건 다이나믹이건 똑같다. 
@@ -129,7 +132,17 @@ public:
 	void Dispaly() { cout << "Parent" << endl; }
 };
 
+class CParent_withVirtual {
+public:
+	virtual ~CParent_withVirtual() {}
+};
+
 class CChild: public CParent {
+public:
+	void Dispaly() { cout << "Child" << endl; }
+};
+
+class CChild2 : public CParent_withVirtual {
 public:
 	void Dispaly() { cout << "Child" << endl; }
 };
@@ -145,10 +158,10 @@ int main() {
 	{
 		/* 1. 포인터 이외의 타입 - 포인터 이외의 타입끼리 변경 가능 
 			  그러나 객체 타입은 불가능 */
-			int iData;
+			int iData = 10;
 			float fData = (float)iData;
 
-			float fData2;
+			float fData2 = 10.f;
 			int iData2 = (int)fData2;
 
 			CParent p;
@@ -156,20 +169,20 @@ int main() {
 
 
 		/* 2.포인터 타입- 포인터 타입 캐스팅 가능 (제약없음)*/
-			int iData3;
+			int iData3 = 10;
 			float* fData3 = (float*)&iData3;// 일반 포인터 - 일반 포인터
 
-			float fData4;
+			float fData4 = 10.f;
 			int* iData4 = (int*)&fData4;	// 일반 포인터 - 일반 포인터
 
 			CTest t;
 			int* iData5 = (int*)&t;			// 객체 포인터 - 일반 포인터 
 
-			int iData5;
-			CTest* t2 = (CTest*)&iData5;	// 일반 포인터 - 객체 포인터 
+			int iData6 = 10;
+			CTest* t2 = (CTest*)&iData6;	// 일반 포인터 - 객체 포인터 
 
-			CParent p;
-			CTest* ch = (CTest*)&p;			// 비상속관계
+			CParent p1;
+			CTest* t3 = (CTest*)&p1;			// 비상속관계
 
 			CParent p2;
 			CChild* ch2 = (CChild*)&p2;		// 상속관계 down cast
@@ -178,61 +191,92 @@ int main() {
 			CParent* p3 = (CParent*)&ch3;	// 상속관계 up cast
 
 		/* 3. 포인터 타입 - 포인터 이외의 타입  (제약없음)*/
-			int iData6;
-			float* fData6 = (float*)iData6;
+			int iData7 = 10;
+			float* fData7 = (float*)iData7;
 
-			float* fData7;
-			int iData7 = (int)fData7;
+			float* fData8 = new float(10.f);
+			int iData8 = (int)fData8;
 
-			float* fData8;
-			int iData8 = (int)*fData8;
+			float* fData9 = new float(10.f);
+			int iData9 = (int)*fData9;
 
-			int i;
-			CTest* t = (CTest*)i;
+			int i = 10;
+			CTest* t4 = (CTest*)i;
 
-			CTest t2;
-			CParent* p4 = (CParent*)t2;
+			CTest t5;
+			//CParent* p4 = (CParent*)t5;	//ERROR
 
 			// 그냥 별게 다됨....
 	}
 
-	
 	// static cast 가능한 것들 
 	{
 		/* 1. 포인터 이외의 타입 - 포인터 이외의 타입끼리 변경 가능
-		      그러나 객체 타입은 불가능 */  
-			int iData;
-			float fData = static_cast<int>(fData);
+			  그러나 객체 타입은 불가능 */
+		int iData = 10;
+		float fData = static_cast<int>(iData);
 
-			CParent p;
-			//CChild ch = static_cast<CChild>(p);	// ERROR 객체 타입 - 객체 타입간의 변경 불가능. 
-		
-		/* 2. 포인터 타입은 "상속관계" 객체간의 포인터 끼리만 가능.
-			  그 외의 포인터 타입- 포인터타입 간의 변경 불가능*/
-		
-			int iData;
-			//float* f = static_cast<int*>(&iData);	// ERROR 포인터-포인터 변경 불가능
+		CParent p;
+		//CChild ch = static_cast<CChild>(p);	// ERROR 객체 타입 - 객체 타입간의 변경 불가능. 
 
-			CParent p1;
-			//CTest* t = static_cast<CTest*>(&p1);	// ERROR 포인터-포인터 변경 불가능
-			
-			CParent p1;
-			CChild* ch = static_cast<CChild*>(&p1);	// down cast
+	/* 2. 포인터 타입은 "상속관계" 객체간의 포인터 끼리만 가능.
+		  그 외의 포인터 타입- 포인터타입 간의 변경 불가능*/
 
-			CChild ch2;
-			CParent* p2 = static_cast<CParent*>(&ch2);// up cast
+		int iData1 = 10;
+		//float* f = static_cast<int*>(&iData1);	// ERROR 포인터-포인터 변경 불가능
+
+		CParent p1;
+		//CTest* t = static_cast<CTest*>(&p1);	// ERROR 포인터-포인터 변경 불가능
+
+		CParent p2;
+		CChild* ch = static_cast<CChild*>(&p2);	// down cast
+
+		CChild ch2;
+		CParent* p3 = static_cast<CParent*>(&ch2);// up cast
 
 		/* 3. 포인터 타입 - 포인터 이외의 타입 (아예 불가능)
 			  애초에 포인터 타입 - 포인터 타입간의 변경이 객체아니면 다 안되기 때문*/
-			int iData6;
-			//float* fData6 = static_cast<float*>(iData6); // ERROR 일반->포인터 안됨
+		int iData2 = 10;
+		//float* fData6 = static_cast<float*>(iData2); // ERROR 일반->포인터 안됨
 
-			CTest* t = new CTest;
-			//CParent p = static_cast<CParent>(*t);		// ERROR 포인터->일반 안됨
+		CTest* t = new CTest;
+		//CParent p = static_cast<CParent>(*t);		// ERROR 포인터->일반 안됨
 	}
 
 	// dynamic cast 가능한 것들 
 	{
+		/* 1. 포인터 이외의 타입 - 포인터 이외의 타입 => 아예 불가능 */
+		int iData = 10;
+		//float fData = dynamic_cast<int>(fData);	//ERROR
 
+		CParent p;
+		//CChild ch = static_cast<CChild>(p);	// ERROR 객체 타입 - 객체 타입간의 변경 불가능. 
+
+	/* 2. 포인터 타입은 "상속관계" 객체간의 포인터 끼리만 가능.
+		  그 외의 포인터 타입- 포인터타입 간의 변경 불가능*/
+
+		int iData1 = 10;
+		//float* f = dynamic_cast<int*>(&iData1);	// ERROR 포인터-포인터 변경 불가능
+
+		CParent p1;
+		//CTest* t = dynamic_cast<CTest*>(&p1);	// ERROR 포인터-포인터 변경 불가능
+
+		CParent_withVirtual p2;
+		CChild2* ch = dynamic_cast<CChild2*>(&p2);	// down cast
+
+		CChild2 ch2;
+		CParent_withVirtual* p3 = dynamic_cast<CParent_withVirtual*>(&ch2);// up cast
+
+		/* 3. 포인터 타입 - 포인터 이외의 타입 => 아예 불가능
+			  애초에 포인터 이외의 타입은 절대 불가능하다.*/
+		int iData2 = 10;
+		//float* fData6 = static_cast<float*>(iData2); // ERROR 일반->포인터 안됨
+
+		CTest* t = new CTest;
+		//CParent_withVirtual p = dynamic_cast<CParent_withVirtual>(*t);		// ERROR 포인터->일반 안됨
 	}
+
+	
+
+	
 }
