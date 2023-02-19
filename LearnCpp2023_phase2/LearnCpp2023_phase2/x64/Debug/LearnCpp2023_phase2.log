@@ -1,6 +1,4 @@
-﻿  CA.cpp
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\CA.cpp(12,10): error C2511: 'void CA::Display(void)': 오버로드된 멤버 함수가 'CA'에 없습니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\CB.h(4,7): message : 'CA' 선언을 참조하십시오.
-  CB.cpp
-  class20230215.cpp
-  코드를 생성하고 있습니다...
+﻿  class20230217.cpp
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(149,11): warning C4101: 'p' :참조되지 않은 지역 변수입니다.
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(153,11): warning C4101: 'p2' :참조되지 않은 지역 변수입니다.
+  LearnCpp2023_phase2.vcxproj -> C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\x64\Debug\LearnCpp2023_phase2.exe
