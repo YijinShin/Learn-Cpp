@@ -30,7 +30,7 @@ typedef struct stEquipmentItemINFO {	// no use
 }EQUIPMENTITEMINFO;
 
 typedef struct stItemINFO {
-	int iType;
+	int iId;
 	char szName[MAXNAMESIZE];
 	string strInfo;
 	int iPrice;
@@ -40,6 +40,11 @@ typedef struct stItemINFO {
 	int iEffect_HillHP;
 	int iEffect_DamageHP;
 }ITEMINFO;
+
+typedef struct stInventoryItemINFO {
+	ITEMINFO stItemInfo;
+	int iCnt;
+}INVENITEMINFO;
 
 // ----------------------------------------------
 
@@ -54,6 +59,7 @@ typedef struct stFieldCreatureINFO{
 typedef struct stPlayerINFO {
 	char szJob[MAXNAMESIZE];
 	int iLv;
+	vector<INVENITEMINFO> vInventory;
 }PINFO, *PPINFO;
 
 typedef struct stMonsterINFO {
@@ -64,15 +70,5 @@ typedef struct stStoreINFO {
 	int iStoreType;
 	char szName[MAXNAMESIZE];
 	int iItemCnt;
-	vector<ITEMINFO> itemList;
+	vector<ITEMINFO> vItemList;
 }STOREINFO, * PSTOREINFO;
-
-
-/*
-ITEMINFO _ iType
-	: 상점 정렬을 위해 숫자를 넣음. 
-	- 장비상점: 1.무기 2.방패
-	- 잡화상점: 1.HP포션 2.폭탄
-
-
-*/

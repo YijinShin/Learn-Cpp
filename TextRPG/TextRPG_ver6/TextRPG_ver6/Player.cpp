@@ -17,6 +17,14 @@ void CPlayer::Initialize()
 {
     SetName();
     SetJob();
+
+    // default item (for index) 
+    INVENITEMINFO defaultItem;
+    memset(&defaultItem, 0, sizeof(INVENITEMINFO));
+    m_stPINFO.vInventory.push_back(defaultItem);
+
+    // gold test 를 위한 코드 
+    m_stFcINFO.iGold = 300;
 }
 
 void CPlayer::DisplayINFO() const
@@ -33,6 +41,71 @@ void CPlayer::LevelUp()
     m_stFcINFO.iTotalHP = m_stFcINFO.iTotalHP + 20;
     m_stFcINFO.iCurrHP = m_stFcINFO.iTotalHP;
     m_stFcINFO.iOffencePower = m_stFcINFO.iOffencePower + 2;
+}
+
+void CPlayer::ShowInventory() const
+{
+    for (int i = 1; i < m_stPINFO.vInventory.size(); i++) {
+        cout << "*******************************" << endl;
+        cout << "No. " << i << "\t이름: " << m_stPINFO.vInventory[i].stItemInfo.szName << endl;
+        cout << "가격: " << m_stPINFO.vInventory[i].stItemInfo.iResellPrice << " Gold\t개수: "<< m_stPINFO.vInventory[i].iCnt<<"개" << endl;
+        cout << "설명: " << m_stPINFO.vInventory[i].stItemInfo.strInfo << endl;
+    }
+    cout << "*******************************" << endl;
+}
+
+int CPlayer::FindItemIndex(int _iItemId) const
+{
+    int iReturn(0);
+    bool isFound(false);
+    for (int i = 0; i < m_stPINFO.vInventory.size(); i++) {
+        if (m_stPINFO.vInventory[i].stItemInfo.iId == _iItemId) {
+            iReturn = i;
+            isFound = true;
+            break;
+        }
+    }
+    if (!isFound) iReturn = -1;
+    return iReturn;
+}
+
+void CPlayer::RemoveItem(int _iItemIndex)
+{
+    if (m_stPINFO.vInventory[_iItemIndex].iCnt == 1) {
+        if (m_stPINFO.vInventory.size()-1 == _iItemIndex) {
+            cout << "case1" << endl; m_stPINFO.vInventory.pop_back();
+        }
+        else { cout << "case2" << endl; m_stPINFO.vInventory.erase(m_stPINFO.vInventory.begin() + _iItemIndex); }
+    } 
+    else {
+        m_stPINFO.vInventory[_iItemIndex].iCnt--;
+    }
+}
+
+void CPlayer::EarnItem(ITEMINFO _item)
+{
+    int iIndex = FindItemIndex(_item.iId);
+    bool isExist(false);
+    // 이미 가지고 있는 아이템인 경우 
+    if (iIndex >= 0) {
+        m_stPINFO.vInventory[iIndex].iCnt++;
+    }
+    else if (!isExist) {
+        // 처음 획득하는 경우, 
+        INVENITEMINFO newItem = { _item, 1 };
+        m_stPINFO.vInventory.push_back(newItem);
+    }
+    
+}
+
+int CPlayer::GetResellPrice(int _iItemIndex) const
+{
+    return m_stPINFO.vInventory[_iItemIndex].stItemInfo.iResellPrice;
+}
+
+int CPlayer::GetInventoryCnt() const
+{
+    return m_stPINFO.vInventory.size();
 }
 
 void CPlayer::SetJob()
@@ -88,7 +161,11 @@ void CPlayer::SetName()
     cin.ignore();
 }
 
-void CPlayer::AddGold(int _iGold)
+void CPlayer::EarnGold(int _iGold)
 {
     m_stFcINFO.iGold = m_stFcINFO.iGold + _iGold;
+}
+
+void CPlayer::PurchaseGold(int _iGold) {
+    m_stFcINFO.iGold = m_stFcINFO.iGold - _iGold;
 }

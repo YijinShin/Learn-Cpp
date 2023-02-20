@@ -1,13 +1,16 @@
 #pragma once
+class CPlayer;
+
 class CStore
 {
 private:
 	STOREINFO m_stStoreInfo;
+	CPlayer* m_cpPlayer;
 public:
 	CStore();
 	~CStore();
 
-	void Initialize();
+	void Initialize(CPlayer* _cpPlayer);
 	void Update();
 	void Release();
 
@@ -16,10 +19,9 @@ public:
 	void BuyMenu();
 
 	void ShowItemList();
-	void Sell();
-	void Buy(int _iItem);
+	void Sell(int _iItemId);
+	void Buy(int _iItemId);
 
 	void ClearItemList();
-
 };
 

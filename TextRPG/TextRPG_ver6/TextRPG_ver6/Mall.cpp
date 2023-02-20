@@ -17,7 +17,7 @@ void CMall::Initialize(CPlayer* _cpPlayer)
 {
 	// create, init store
 	m_cpStore = new CStore;
-	m_cpStore->Initialize();
+	m_cpStore->Initialize(_cpPlayer);
 	
 	// set player
 	m_cpPlayer = _cpPlayer;

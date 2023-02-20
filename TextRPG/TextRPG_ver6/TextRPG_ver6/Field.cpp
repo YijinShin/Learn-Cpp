@@ -32,7 +32,7 @@ void CField::Update()
 		cout << "[마을] 던전을 선택해주세요 (1. 초급, 2.중급, 3.고급, 4.돌아간다): ";
 		cin >> iMenu;
 		if (iMenu == 1 || iMenu == 2 || iMenu == 3) {
-			Battle(3);
+			Battle(iMenu);
 		}
 		else if(iMenu == 4) isEnd = true;
 		else cout << "[던전] 잘못된 입력입니다. " << endl;
@@ -82,7 +82,7 @@ void CField::Battle(int _iFieldLv)
 		if (isEnd) {
 			if (isWin) {
 				m_cpPlayer->LevelUp();
-				m_cpPlayer->AddGold(m_cpMonster->GetGold());
+				m_cpPlayer->EarnGold(m_cpMonster->GetGold());
 			}
 			else {
 				// full hill
