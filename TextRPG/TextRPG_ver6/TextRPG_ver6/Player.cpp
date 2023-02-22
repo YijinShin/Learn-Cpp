@@ -70,15 +70,15 @@ int CPlayer::FindItemIndex(int _iItemId) const
 }
 
 void CPlayer::RemoveItem(int _iItemIndex)
-{
+{  
     if (m_stPINFO.vInventory[_iItemIndex].iCnt == 1) {
         if (m_stPINFO.vInventory.size()-1 == _iItemIndex) {
-            cout << "case1" << endl; m_stPINFO.vInventory.pop_back();
+            m_stPINFO.vInventory.pop_back();
         }
-        else { cout << "case2" << endl; m_stPINFO.vInventory.erase(m_stPINFO.vInventory.begin() + _iItemIndex); }
+        else { m_stPINFO.vInventory.erase(m_stPINFO.vInventory.begin() + _iItemIndex); }
     } 
     else {
-        m_stPINFO.vInventory[_iItemIndex].iCnt--;
+         m_stPINFO.vInventory[_iItemIndex].iCnt--;
     }
 }
 
@@ -90,12 +90,12 @@ void CPlayer::EarnItem(ITEMINFO _item)
     if (iIndex >= 0) {
         m_stPINFO.vInventory[iIndex].iCnt++;
     }
-    else if (!isExist) {
+    else {
         // Ã³À½ È¹µæÇÏ´Â °æ¿ì, 
         INVENITEMINFO newItem = { _item, 1 };
         m_stPINFO.vInventory.push_back(newItem);
+        m_stPINFO.vInventory.pop_back();
     }
-    
 }
 
 int CPlayer::GetResellPrice(int _iItemIndex) const

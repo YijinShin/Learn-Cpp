@@ -1,13 +1,2 @@
-﻿  class20230217.cpp
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(195,34): warning C4312: '형식 캐스트': 'int'에서 더 큰 'float *'(으)로의 변환입니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(198,28): warning C4311: '형식 캐스트': 'float *'에서 'int'(으)로 포인터가 잘립니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(198,28): warning C4302: '형식 캐스트': 'float *'에서 'int'(으)로 잘립니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(204,25): warning C4312: '형식 캐스트': 'int'에서 더 큰 'CTest *'(으)로의 변환입니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(217,15): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(167,12): warning C4101: 'p' :참조되지 않은 지역 변수입니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(206,10): warning C4101: 't5' :참조되지 않은 지역 변수입니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(219,11): warning C4101: 'p' :참조되지 않은 지역 변수입니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(228,11): warning C4101: 'p1' :참조되지 않은 지역 변수입니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(252,11): warning C4101: 'p' :참조되지 않은 지역 변수입니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\class20230217.cpp(261,11): warning C4101: 'p1' :참조되지 않은 지역 변수입니다.
+﻿  class20230221_1.cpp
   LearnCpp2023_phase2.vcxproj -> C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\x64\Debug\LearnCpp2023_phase2.exe
