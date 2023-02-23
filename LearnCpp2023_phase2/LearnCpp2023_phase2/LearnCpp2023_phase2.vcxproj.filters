@@ -22,6 +22,9 @@
     <Filter Include="소스 파일\study_extern">
       <UniqueIdentifier>{74986781-d01c-4e08-babe-342c3b4c8d2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\hw20230223">
+      <UniqueIdentifier>{0442efbe-49b5-47fa-88bd-fefea271711a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="class20230207_1.cpp">
@@ -114,6 +117,24 @@
     <ClCompile Include="class20230221_2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="class20230222.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="class20230223.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="class20230223_2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="class_vector_function.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="hw20230223_Main.cpp">
+      <Filter>소스 파일\hw20230223</Filter>
+    </ClCompile>
+    <ClCompile Include="GradeCard.cpp">
+      <Filter>소스 파일\hw20230223</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -133,6 +154,12 @@
     </ClInclude>
     <ClInclude Include="study_extern_CTest.h">
       <Filter>소스 파일\study_extern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Users\nimbu\Downloads\12일차-STL개론\230222\targetver.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GradeCard.h">
+      <Filter>소스 파일\hw20230223</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

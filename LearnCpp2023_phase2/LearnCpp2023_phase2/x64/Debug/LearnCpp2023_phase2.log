@@ -1,2 +1,5 @@
-﻿  class20230221_1.cpp
+﻿  GradeCard.cpp
+  hw20230223_Main.cpp
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\hw20230223_Main.cpp(92,7): warning C4101: 'szName' :참조되지 않은 지역 변수입니다.
+  코드를 생성하고 있습니다...
   LearnCpp2023_phase2.vcxproj -> C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\x64\Debug\LearnCpp2023_phase2.exe
