@@ -16,6 +16,9 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{1ba9f9eb-f0d1-4f37-a137-19c8d1dbb01e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BinarySearchTree">
+      <UniqueIdentifier>{4668eb29-5a11-46de-8fd5-92c60624cbbc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main_LinkedList.cpp">
@@ -81,6 +84,15 @@
     <ClCompile Include="AdjacencyList_Direction.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="BinarySearchTree.cpp">
+      <Filter>BinarySearchTree</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_BinarySearchTree.cpp">
+      <Filter>BinarySearchTree</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame_BinarySearchTree.cpp">
+      <Filter>BinarySearchTree</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SingleLinkedList.h">
@@ -122,5 +134,19 @@
     <ClInclude Include="AdjacencyList_Direction.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="BinarySearchTree.h">
+      <Filter>BinarySearchTree</Filter>
+    </ClInclude>
+    <ClInclude Include="Define_BinarySearchTree.h">
+      <Filter>BinarySearchTree</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame_BinarySearchTree.h">
+      <Filter>BinarySearchTree</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Info.txt">
+      <Filter>BinarySearchTree</Filter>
+    </Text>
   </ItemGroup>
 </Project>

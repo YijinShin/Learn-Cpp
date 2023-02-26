@@ -132,7 +132,12 @@
     <ClCompile Include="AdjacencyList_Direction.cpp" />
     <ClCompile Include="AdjacencyMatrix_Direction.cpp" />
     <ClCompile Include="AdjacencyMatrix_Undirection.cpp" />
-    <ClCompile Include="Main_AdjacencyList_Direction.cpp" />
+    <ClCompile Include="BinarySearchTree.cpp" />
+    <ClCompile Include="MainGame_BinarySearchTree.cpp" />
+    <ClCompile Include="Main_AdjacencyList_Direction.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Main_AdjacencyMatrix_Direction.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -141,6 +146,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Main_BinarySearchTree.cpp" />
     <ClCompile Include="Main_CircularQueue_Array.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -185,8 +191,11 @@
     <ClInclude Include="AdjacencyList_Direction.h" />
     <ClInclude Include="AdjacencyMatrix_Direction.h" />
     <ClInclude Include="AdjacencyMatrix_Undirection.h" />
+    <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="CirculatQueue_withArray.h" />
+    <ClInclude Include="Define_BinarySearchTree.h" />
     <ClInclude Include="DoubleLinkedList.h" />
+    <ClInclude Include="MainGame_BinarySearchTree.h" />
     <ClInclude Include="Queue_withArray.h" />
     <ClInclude Include="Queue_withSingleLinkedList.h" />
     <ClInclude Include="Queue_withStack.h" />
@@ -195,6 +204,9 @@
     <ClInclude Include="Stack_withQueue.h" />
     <ClInclude Include="Stack_withSingleLinkedList.h" />
     <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Info.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
