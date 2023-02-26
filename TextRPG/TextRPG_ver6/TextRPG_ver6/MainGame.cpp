@@ -40,7 +40,7 @@ void MainGame::Update()
 		m_cpPlayer->DisplayINFO();
 
 		// select menu
-		cout << "[마을] 무엇을 할까. (1.던전, 2.상점가, 3.종료,): ";
+		cout << "[마을] 무엇을 할까. (1.던전, 2.상점가, 4.종료,): ";
 		cin >> iMenu;
 		switch (iMenu)
 		{
@@ -50,7 +50,7 @@ void MainGame::Update()
 		case 2:
 			m_cpMall->Update();
 			break;
-		case 3:
+		case 4:
 			isEnd = true;
 			break;
 		default:

@@ -1,5 +1,5 @@
 #pragma once
-#include "Define.h"
+#include "stdafx.h"
 
 #define MAXNAMESIZE 20
 
@@ -11,26 +11,9 @@
 
 // Base structure -------------------------------
 
-typedef struct stItemBaseINFO {	// no use
-	char szName[MAXNAMESIZE];
-	string strInfo;
-	int iPrice;
-	int iResellPrice;
-}ITEMBASEINFO;
-
-typedef struct stConsumableItemINFO {	// no use
-	stItemBaseINFO stItemBaseInfo;
-	int iEffect_HillHP;
-}CONSUMABLEITEMINFO;
-
-typedef struct stEquipmentItemINFO {	// no use
-	stItemBaseINFO stItemBaseInfo;
-	int iEffect_OffencePower;
-	int iEffect_DefencePower;
-}EQUIPMENTITEMINFO;
-
 typedef struct stItemINFO {
 	int iId;
+	int iType;	// 1. 무기, 2. 방어구, 3. 힐 소비템, 4.공격 소비템
 	char szName[MAXNAMESIZE];
 	string strInfo;
 	int iPrice;
@@ -40,6 +23,16 @@ typedef struct stItemINFO {
 	int iEffect_HillHP;
 	int iEffect_DamageHP;
 }ITEMINFO;
+
+typedef struct stEquipmentItemINFO {	// no use
+	int iEffect_OffencePower;
+	int iEffect_DefencePower;
+}EQUIITEMINFO;
+
+typedef struct stConsumableItemINFO {	// no use
+	int iEffect_HillHP;
+	int iEffect_DamageHP;
+}CONITEMINFO;
 
 typedef struct stInventoryItemINFO {
 	ITEMINFO stItemInfo;
@@ -59,6 +52,9 @@ typedef struct stFieldCreatureINFO{
 typedef struct stPlayerINFO {
 	char szJob[MAXNAMESIZE];
 	int iLv;
+	int iDefencePower;
+	ITEMINFO stCurrWeapon;
+	ITEMINFO stCurrShield;
 	vector<INVENITEMINFO> vInventory;
 }PINFO, *PPINFO;
 

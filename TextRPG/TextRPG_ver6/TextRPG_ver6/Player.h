@@ -16,6 +16,8 @@ public:
 	void SetJob();
 	void SetName();
 
+	void WorkInventory(bool isField);
+
 	// gold 
 	void EarnGold(int _iGold);
 	void PurchaseGold(int _iGold);

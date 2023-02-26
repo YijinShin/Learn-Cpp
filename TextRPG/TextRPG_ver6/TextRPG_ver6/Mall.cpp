@@ -32,13 +32,14 @@ void CMall::Update()
 		system("cls");
 
 		//select menu
-		cout << "[상점가] 어떤 상점에 갈까? (1.장비상점, 2.잡화점, 3.돌아간다): ";
+		cout << "[상점가] 어떤 상점에 갈까? (1.장비상점, 2.잡화점, 3.인벤토리, 4.돌아간다): ";
 		cin >> iMenu;
 		if (iMenu == 1 || iMenu == 2) {
 			m_cpStore->SetType(iMenu);
 			m_cpStore->Update();
 		}
-		else if (iMenu == 3) isEnd = true;
+		else if (iMenu == 3) m_cpPlayer->WorkInventory(false);
+		else if (iMenu == 4) isEnd = true;
 		else cout << "[상점가] 잘못된 입력입니다. " << endl;
 
 		if (isEnd) break;

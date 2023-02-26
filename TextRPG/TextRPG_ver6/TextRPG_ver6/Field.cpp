@@ -63,7 +63,7 @@ void CField::Battle(int _iFieldLv)
 		m_cpPlayer->DisplayINFO();
 		m_cpMonster->DisplayINFO();
 
-		cout << "[던전]  1. 공격한다 2. 도망간다 : ";
+		cout << "[던전]  1. 공격한다 2. 도망간다 3. 인벤토리 : ";
 		cin >> iMenu;
 
 		switch (iMenu)
@@ -74,6 +74,11 @@ void CField::Battle(int _iFieldLv)
 		case 2:
 			Run(isEnd);
 			break;
+		case 3:
+			Run(isEnd);
+			m_cpPlayer->WorkInventory(true);
+			break;
+
 		default:
 			cout << "[던전] 잘못된 입력입니다. " << endl;
 			break;

@@ -59,15 +59,15 @@ void CStore::SetType(int _iStoreType)
 	if (_iStoreType == 1) {
 		m_stStoreInfo.iItemCnt = 2;
 		strcpy_s(m_stStoreInfo.szName, MAXNAMESIZE, "00장비상점");
-		ITEMINFO itemlist[2] = {{1, "단단한 칼", "공격력 +5", 200, 70, 5,0,0,0},
-								{2, "단단한 방패", "방어력 +5", 150, 70, 0,5,0,0 }};
+		ITEMINFO itemlist[2] = {{1,1, "단단한 칼", "공격력 +5", 200, 70, 5,0,0,0},
+								{2,2, "단단한 방패", "방어력 +5", 150, 70, 0,5,0,0 }};
 		for (int i = 0; i < m_stStoreInfo.iItemCnt; i++) m_stStoreInfo.vItemList.push_back(itemlist[i]);
 	}
 	else if (_iStoreType == 2) {
 		m_stStoreInfo.iItemCnt = 2;
 		strcpy_s(m_stStoreInfo.szName, MAXNAMESIZE, "00잡화점");
-		ITEMINFO itemlist[2] = {{10, "HP포션", "HP를 5만큼 채워준다.", 100, 70, 0,0,5,0},
-								{11, "폭탄", "몬스터에게 30의 데미지를 준다", 120, 70, 0,0,0,30 }};
+		ITEMINFO itemlist[2] = {{10,3, "HP포션", "HP를 5만큼 채워준다.", 100, 70, 0,0,5,0},
+								{11,4, "폭탄", "몬스터에게 30의 데미지를 준다", 120, 70, 0,0,0,30 }};
 		for (int i = 0; i < m_stStoreInfo.iItemCnt; i++) m_stStoreInfo.vItemList.push_back(itemlist[i]);
 	}
 }
@@ -127,7 +127,7 @@ void CStore::ClearItemList()
 
 
 void CStore::Buy(int _iItemIndex)
-{
+{	
 	// check gold 
 	if (m_cpPlayer->GetGold() >= m_stStoreInfo.vItemList[_iItemIndex].iPrice) {
 		m_cpPlayer->PurchaseGold(m_stStoreInfo.vItemList[_iItemIndex].iPrice);

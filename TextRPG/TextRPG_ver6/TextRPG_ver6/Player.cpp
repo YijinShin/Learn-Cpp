@@ -7,6 +7,13 @@ CPlayer::CPlayer()
 {
     memset(&m_stPINFO, 0, sizeof(PINFO));
     m_stPINFO.iLv = 1;
+
+    ITEMINFO basicShield = { 0,2, "그냥 방패", "방어력 +0", 100, 50, 0,0,0,0 };
+    ITEMINFO basicWeapon = { 0,1, "그냥 칼", "공격력 +0", 100, 50, 0,0,0,0 };
+    m_stPINFO.stCurrShield = basicShield;
+    m_stPINFO.stCurrWeapon = basicWeapon;
+
+    m_stFcINFO.iGold = 1000;
 }
 
 CPlayer::~CPlayer()
@@ -31,7 +38,7 @@ void CPlayer::DisplayINFO() const
 {
     cout << "_____________________________________________________________" << endl;
     cout << "| Name: " << m_stFcINFO.szName << " (" << m_stPINFO.szJob << ")\tLv: " << m_stPINFO.iLv << endl;
-    cout << "| HP: " << m_stFcINFO.iCurrHP << "/" << m_stFcINFO.iTotalHP << "\t Offence Power: " << m_stFcINFO.iOffencePower << "\t Gold: "<<m_stFcINFO.iGold<<endl;
+    cout << "| HP: " << m_stFcINFO.iCurrHP << "/" << m_stFcINFO.iTotalHP << "\t Offence Power: " << m_stFcINFO.iOffencePower << "\t Defence Power: " << m_stPINFO.iDefencePower << "\t Gold: "<<m_stFcINFO.iGold<<endl;
     cout << "_____________________________________________________________" << endl;
 }
 
@@ -94,7 +101,6 @@ void CPlayer::EarnItem(ITEMINFO _item)
         // 처음 획득하는 경우, 
         INVENITEMINFO newItem = { _item, 1 };
         m_stPINFO.vInventory.push_back(newItem);
-        m_stPINFO.vInventory.pop_back();
     }
 }
 
@@ -159,6 +165,66 @@ void CPlayer::SetName()
     }
     
     cin.ignore();
+}
+
+void CPlayer::WorkInventory(bool isField)
+{
+    int iMenu(0);
+    bool isEnd(false);
+
+    while (1) {
+        system("cls");
+        DisplayINFO();
+        ShowInventory();
+        // select menu
+        cout << "[인벤토리] 무엇을 사용할까 (iIndex입력.사용, 0. 돌아가기): ";
+        cin >> iMenu;
+       
+        if (iMenu == 0) isEnd = true;
+        else {
+            if (m_stPINFO.vInventory[iMenu].stItemInfo.iType == 1) {
+                cout << "여기1" << endl;
+                cout << "[인벤토리] " << m_stPINFO.vInventory[iMenu].stItemInfo.szName << "을 착용했습니다." << endl;
+
+                // effect
+                m_stFcINFO.iOffencePower -= m_stPINFO.stCurrWeapon.iEffect_OffencePower;
+                m_stFcINFO.iOffencePower += m_stPINFO.vInventory[iMenu].stItemInfo.iEffect_OffencePower;
+
+                // change 
+                ITEMINFO currItem = m_stPINFO.stCurrWeapon;
+                m_stPINFO.stCurrWeapon = m_stPINFO.vInventory[iMenu].stItemInfo;
+                m_stPINFO.vInventory[iMenu].stItemInfo = currItem;
+            }
+            else if (m_stPINFO.vInventory[iMenu].stItemInfo.iType == 2) {
+                cout << "여기2" << endl;
+
+                cout << "[인벤토리] " << m_stPINFO.vInventory[iMenu].stItemInfo.szName << "을 착용했습니다." << endl;
+
+                // effect
+                m_stPINFO.iDefencePower = m_stPINFO.vInventory[iMenu].stItemInfo.iEffect_DefencePower;
+                //change
+                ITEMINFO currItem = m_stPINFO.stCurrShield;
+                m_stPINFO.stCurrShield = m_stPINFO.vInventory[iMenu].stItemInfo;
+                m_stPINFO.vInventory[iMenu].stItemInfo = currItem;
+            }
+            else if (m_stPINFO.vInventory[iMenu].stItemInfo.iType == 3) {
+                if (m_stFcINFO.iCurrHP == m_stFcINFO.iTotalHP) cout << "[인벤토리] 지금은 포션을 마실 필요가 없습니다!" << endl;
+                else{
+                    Hilled(m_stPINFO.vInventory[iMenu].stItemInfo.iEffect_HillHP);
+                    cout << "[인벤토리] "<< m_stPINFO.vInventory[iMenu].stItemInfo.szName<<"을 사용했다! HP가 "<< m_stPINFO.vInventory[iMenu].stItemInfo.iEffect_HillHP<<"만큼 채워졌습니다." << endl;
+                }
+            }
+            else if (m_stPINFO.vInventory[iMenu].stItemInfo.iType == 4) {
+                if(!isField) cout << "[인벤토리] 지금은 사용할 수 없는 아이템입니다." << endl;
+                else {
+
+                }
+            }
+        }
+
+        if (isEnd) break;
+        system("pause");
+    }
 }
 
 void CPlayer::EarnGold(int _iGold)
