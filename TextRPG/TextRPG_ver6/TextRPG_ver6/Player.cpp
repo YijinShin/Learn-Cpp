@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "Define.h"
 #include "FieldCreature.h"
 #include "Player.h"
 
