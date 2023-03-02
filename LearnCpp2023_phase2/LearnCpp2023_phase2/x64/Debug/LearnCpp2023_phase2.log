@@ -1,3 +1,1 @@
-﻿  class20230228.cpp
-study0227_casting.obj : error LNK2005: main이(가) class20230228.obj에 이미 정의되어 있습니다.
-C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\x64\Debug\LearnCpp2023_phase2.exe : fatal error LNK1169: 여러 번 정의된 기호가 있습니다.
+﻿LINK : fatal error LNK1168: C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\x64\Debug\LearnCpp2023_phase2.exe을(를) 쓰기용으로 열 수 없습니다.
