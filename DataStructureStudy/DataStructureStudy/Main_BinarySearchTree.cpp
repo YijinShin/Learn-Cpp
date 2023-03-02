@@ -5,4 +5,5 @@ using namespace std;
 
 int main() {
 	MainGame_BinarySearchTree cMainBST;
+	cMainBST.Update();
 }

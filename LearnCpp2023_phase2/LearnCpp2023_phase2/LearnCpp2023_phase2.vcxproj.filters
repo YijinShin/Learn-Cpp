@@ -144,6 +144,12 @@
     <ClCompile Include="study0227_casting.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="class20230228_1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="class20230228_2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
