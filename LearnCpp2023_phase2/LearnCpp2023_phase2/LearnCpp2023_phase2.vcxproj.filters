@@ -165,6 +165,9 @@
     <ClCompile Include="study_STL_altorithm.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Users\nimbu\Downloads\14일차-Vector2&amp;알고리즘\230224\STL 알고리즘과 조건자.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

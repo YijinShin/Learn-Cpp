@@ -127,6 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Users\nimbu\Downloads\14일차-Vector2&amp;알고리즘\230224\STL 알고리즘과 조건자.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="CA.cpp" />
     <ClCompile Include="CB.cpp" />
     <ClCompile Include="class20230207_1.cpp">

@@ -1,2 +1,17 @@
-﻿  study_예외처리기법.cpp
-  LearnCpp2023_phase2.vcxproj -> C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\x64\Debug\LearnCpp2023_phase2.exe
+﻿  study_STL_altorithm.cpp
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\study_STL_altorithm.cpp(118,15): warning C4244: '초기화 중': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\study_STL_altorithm.cpp(119,16): warning C4244: '초기화 중': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\algorithm(266,9): error C2664: 'void Delete2<CTest>::operator ()(T &)': 인수 1을(를) 'CTest *'에서 'T &'(으)로 변환할 수 없습니다.
+          with
+          [
+              T=CTest
+          ]
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\study_STL_altorithm.cpp(71,7): message : 'Delete2<CTest>::operator ()' 선언을 참조하십시오.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\algorithm(266,9): message : 인수 목록 '(CTest *)'을(를) 일치시키는 동안
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\study_STL_altorithm.cpp(135,52): message : 컴파일되는 함수 템플릿 인스턴스화 '_Fn std::for_each<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,Delete2<CTest>>(_InIt,_InIt,_Fn)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Fn=Delete2<CTest>,
+              _Ty=CTest *,
+              _InIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<CTest *>>>
+          ]
