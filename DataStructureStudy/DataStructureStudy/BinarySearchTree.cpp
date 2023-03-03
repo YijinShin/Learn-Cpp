@@ -1,5 +1,5 @@
 #include "stdafx.h";
-#include "BinarySearchTree.h"
+#include "BinarySearchTree.h";
 
 using namespace std;
 
@@ -22,7 +22,8 @@ void BinarySearchTree::Release()
 }
 
 bool BinarySearchTree::Insert(NODE& stRoot, NODE& stNewNode)
-{	
+{
+	
 	// TargetKey < CurrNode->key : 왼쪽 자식을 CurrNode로 하고 재귀 호출
 	if (stNewNode.iKey < stRoot.iKey) {
 		if (stRoot.stLeft == nullptr) {

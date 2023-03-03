@@ -1,11 +1,11 @@
 #pragma once
 
 typedef struct stNode {
-	NODE* stLeft;
-	NODE* stRight;
+	stNode* stLeft;
+	stNode* stRight;
 	int iKey;
 
-	stNode() :stLeft(nullptr), stRight(nullptr), iKey(0) {};
+	stNode():stLeft(nullptr), stRight(nullptr), iKey(0) {}
 }NODE;
 
 typedef struct stBinaryTree {

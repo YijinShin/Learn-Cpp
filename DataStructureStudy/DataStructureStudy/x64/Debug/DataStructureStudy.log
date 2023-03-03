@@ -1,4 +1,12 @@
-﻿  AdjacencyList_Direction.cpp
-  Main_AdjacencyList_Direction.cpp
-  stdafx.cpp
-  DataStructureStudy.vcxproj -> C:\GitHub\Learn-Cpp\DataStructureStudy\x64\Debug\DataStructureStudy.exe
+﻿  AdjacencyMatrix_Direction.cpp
+  AdjacencyMatrix_Undirection.cpp
+  Main_RedBlackTree.cpp
+c1xx : fatal  error C1083: 컴파일러 중간 파일 파일을 열 수 없습니다. 'x64\Debug\DataStructureStudy.pch': Invalid argument
+  Queue_withSingleLinkedList.cpp
+c1xx : fatal  error C1083: 컴파일러 중간 파일 파일을 열 수 없습니다. 'x64\Debug\DataStructureStudy.pch': Invalid argument
+  Queue_withStack.cpp
+c1xx : fatal  error C1083: 컴파일러 중간 파일 파일을 열 수 없습니다. 'x64\Debug\DataStructureStudy.pch': Invalid argument
+  RedBlackTree.cpp
+c1xx : fatal  error C1083: 컴파일러 중간 파일 파일을 열 수 없습니다. 'x64\Debug\DataStructureStudy.pch': Invalid argument
+  Stack_withArray.cpp
+c1xx : fatal  error C1083: 컴파일러 중간 파일 파일을 열 수 없습니다. 'x64\Debug\DataStructureStudy.pch': Invalid argument
