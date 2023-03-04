@@ -16,14 +16,23 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{05ef1e87-b4e3-49ce-9414-47a14b3c877f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="study20230210">
-      <UniqueIdentifier>{8a798d45-a333-497d-ba1b-f441423f9283}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\study_extern">
       <UniqueIdentifier>{74986781-d01c-4e08-babe-342c3b4c8d2b}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\hw20230223">
       <UniqueIdentifier>{0442efbe-49b5-47fa-88bd-fefea271711a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="study20230210_상호참조">
+      <UniqueIdentifier>{8a798d45-a333-497d-ba1b-f441423f9283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="study_상호참조2">
+      <UniqueIdentifier>{ec6b2794-50f5-457a-82fa-ad06be95bf5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="study_extern">
+      <UniqueIdentifier>{594d00e8-9406-440f-a970-a17c6b0a2acd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\study_friend">
+      <UniqueIdentifier>{7cf6107c-564d-4166-93dd-51f26b9bd6c0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -64,13 +73,13 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CA.cpp">
-      <Filter>study20230210</Filter>
+      <Filter>study20230210_상호참조</Filter>
     </ClCompile>
     <ClCompile Include="CB.cpp">
-      <Filter>study20230210</Filter>
+      <Filter>study20230210_상호참조</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
-      <Filter>study20230210</Filter>
+      <Filter>study20230210_상호참조</Filter>
     </ClCompile>
     <ClCompile Include="study_SLT_vector.cpp">
       <Filter>소스 파일</Filter>
@@ -87,7 +96,7 @@
     <ClCompile Include="class20230215.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="study_Inheritance.cpp">
+    <ClCompile Include="study_상속접근제어지시자.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="study_extern_CTest.cpp">
@@ -171,7 +180,25 @@
     <ClCompile Include="class20230303.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="class20230303_복습수업.cpp">
+    <ClCompile Include="Main_study상호참조2.cpp">
+      <Filter>study_상호참조2</Filter>
+    </ClCompile>
+    <ClCompile Include="study_디폴트대입연산자.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="study_복사생성자_얕은복사문제.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="study_extern_1.cpp">
+      <Filter>study_extern</Filter>
+    </ClCompile>
+    <ClCompile Include="study_extern_2.cpp">
+      <Filter>study_extern</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_friend.cpp">
+      <Filter>소스 파일\study_friend</Filter>
+    </ClCompile>
+    <ClCompile Include="study_클래스크기.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -186,19 +213,28 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CA.h">
-      <Filter>study20230210</Filter>
+      <Filter>study20230210_상호참조</Filter>
     </ClInclude>
     <ClInclude Include="CB.h">
-      <Filter>study20230210</Filter>
+      <Filter>study20230210_상호참조</Filter>
     </ClInclude>
     <ClInclude Include="study_extern_CTest.h">
       <Filter>소스 파일\study_extern</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Users\nimbu\Downloads\12일차-STL개론\230222\targetver.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="GradeCard.h">
       <Filter>소스 파일\hw20230223</Filter>
+    </ClInclude>
+    <ClInclude Include="CTest1.h">
+      <Filter>study_상호참조2</Filter>
+    </ClInclude>
+    <ClInclude Include="CTest2.h">
+      <Filter>study_상호참조2</Filter>
+    </ClInclude>
+    <ClInclude Include="friend1.h">
+      <Filter>소스 파일\study_friend</Filter>
+    </ClInclude>
+    <ClInclude Include="friend2.h">
+      <Filter>소스 파일\study_friend</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
