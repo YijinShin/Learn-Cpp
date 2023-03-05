@@ -1,2 +1,5 @@
-﻿  study_클래스템플릿특수화.cpp
+﻿  study_CPP11.cpp
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\study_CPP11.cpp(81,1): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\study_CPP11.cpp(88,1): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\LearnCpp2023_phase2\study_CPP11.cpp(211,27): warning C4227: 오래된 구문을 사용했습니다. 참조의 한정자가 무시됩니다.
   LearnCpp2023_phase2.vcxproj -> C:\GitHub\Learn-Cpp\LearnCpp2023_phase2\x64\Debug\LearnCpp2023_phase2.exe

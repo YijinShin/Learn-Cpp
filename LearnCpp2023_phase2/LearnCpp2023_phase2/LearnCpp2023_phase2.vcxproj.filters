@@ -165,9 +165,6 @@
     <ClCompile Include="study_STL_altorithm.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Users\nimbu\Downloads\14일차-Vector2&amp;알고리즘\230224\STL 알고리즘과 조건자.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="class20230303.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -205,6 +202,12 @@
       <Filter>소스 파일\study_global_static</Filter>
     </ClCompile>
     <ClCompile Include="study_클래스템플릿특수화.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Users\nimbu\Downloads\17일차-C++11\230303\c++11.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Users\nimbu\Downloads\17일차-C++11\230303\이동생성자.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
