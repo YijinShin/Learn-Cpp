@@ -78,14 +78,14 @@ private:
 	char* m_szName;
 public:
 	CTest3(const char* _szName){
-		int iLength = strlen(_szName) + 1;
+		int iLength = strlen(_szName)+2;
 		m_szName = new char(iLength);
 		strcpy_s(m_szName, iLength, _szName);
 	}
 	// 복사 생성자 (깊은 복사)
 	CTest3(const CTest3& rhs) {
 		cout << "깊은 복사 생성자 호출 " << endl;
-		int iLength = strlen(rhs.m_szName) + 1;
+		int iLength = strlen(rhs.m_szName) + 2;
 		m_szName = new char(iLength);
 		strcpy_s(m_szName, iLength, rhs.m_szName);
 	}
@@ -97,7 +97,7 @@ public:
 	}
 	~CTest3() {
 		cout << m_iId << "의 소멸자 호출" << endl;
-		if(m_szName){
+		if(m_szName != nullptr){
 			cout << m_iId << "의 m_szName 삭제" << endl;
 			delete[] m_szName;
 			m_szName = nullptr;
