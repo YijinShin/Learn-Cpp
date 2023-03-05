@@ -22,17 +22,17 @@
     <Filter Include="소스 파일\hw20230223">
       <UniqueIdentifier>{0442efbe-49b5-47fa-88bd-fefea271711a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="study20230210_상호참조">
-      <UniqueIdentifier>{8a798d45-a333-497d-ba1b-f441423f9283}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="study_상호참조2">
-      <UniqueIdentifier>{ec6b2794-50f5-457a-82fa-ad06be95bf5a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="study_extern">
-      <UniqueIdentifier>{594d00e8-9406-440f-a970-a17c6b0a2acd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\study_friend">
       <UniqueIdentifier>{7cf6107c-564d-4166-93dd-51f26b9bd6c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\study_상호참조2">
+      <UniqueIdentifier>{2ca2f333-e107-4a23-bee9-96f77c8209e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\study_상호참조1">
+      <UniqueIdentifier>{90d9575e-7b43-4113-9085-06cea037ce31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\study_global_static">
+      <UniqueIdentifier>{25441e1a-a6e7-4390-a6ff-8cac00068d7f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -71,15 +71,6 @@
     </ClCompile>
     <ClCompile Include="class20230210.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="CA.cpp">
-      <Filter>study20230210_상호참조</Filter>
-    </ClCompile>
-    <ClCompile Include="CB.cpp">
-      <Filter>study20230210_상호참조</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>study20230210_상호참조</Filter>
     </ClCompile>
     <ClCompile Include="study_SLT_vector.cpp">
       <Filter>소스 파일</Filter>
@@ -180,25 +171,40 @@
     <ClCompile Include="class20230303.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Main_study상호참조2.cpp">
-      <Filter>study_상호참조2</Filter>
-    </ClCompile>
     <ClCompile Include="study_디폴트대입연산자.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="study_복사생성자_얕은복사문제.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="study_extern_1.cpp">
-      <Filter>study_extern</Filter>
-    </ClCompile>
-    <ClCompile Include="study_extern_2.cpp">
-      <Filter>study_extern</Filter>
-    </ClCompile>
     <ClCompile Include="Main_friend.cpp">
       <Filter>소스 파일\study_friend</Filter>
     </ClCompile>
     <ClCompile Include="study_클래스크기.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="study_함수템플릿특수화.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_study상호참조2.cpp">
+      <Filter>소스 파일\study_상호참조2</Filter>
+    </ClCompile>
+    <ClCompile Include="CA.cpp">
+      <Filter>소스 파일\study_상호참조1</Filter>
+    </ClCompile>
+    <ClCompile Include="CB.cpp">
+      <Filter>소스 파일\study_상호참조1</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>소스 파일\study_상호참조1</Filter>
+    </ClCompile>
+    <ClCompile Include="study_extern_2.cpp">
+      <Filter>소스 파일\study_global_static</Filter>
+    </ClCompile>
+    <ClCompile Include="study_extern_1.cpp">
+      <Filter>소스 파일\study_global_static</Filter>
+    </ClCompile>
+    <ClCompile Include="study_클래스템플릿특수화.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -212,29 +218,29 @@
     <ClInclude Include="hw20230207_2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CA.h">
-      <Filter>study20230210_상호참조</Filter>
-    </ClInclude>
-    <ClInclude Include="CB.h">
-      <Filter>study20230210_상호참조</Filter>
-    </ClInclude>
     <ClInclude Include="study_extern_CTest.h">
       <Filter>소스 파일\study_extern</Filter>
     </ClInclude>
     <ClInclude Include="GradeCard.h">
       <Filter>소스 파일\hw20230223</Filter>
     </ClInclude>
-    <ClInclude Include="CTest1.h">
-      <Filter>study_상호참조2</Filter>
-    </ClInclude>
-    <ClInclude Include="CTest2.h">
-      <Filter>study_상호참조2</Filter>
-    </ClInclude>
     <ClInclude Include="friend1.h">
       <Filter>소스 파일\study_friend</Filter>
     </ClInclude>
     <ClInclude Include="friend2.h">
       <Filter>소스 파일\study_friend</Filter>
+    </ClInclude>
+    <ClInclude Include="CTest2.h">
+      <Filter>소스 파일\study_상호참조2</Filter>
+    </ClInclude>
+    <ClInclude Include="CTest1.h">
+      <Filter>소스 파일\study_상호참조2</Filter>
+    </ClInclude>
+    <ClInclude Include="CB.h">
+      <Filter>소스 파일\study_상호참조1</Filter>
+    </ClInclude>
+    <ClInclude Include="CA.h">
+      <Filter>소스 파일\study_상호참조1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
