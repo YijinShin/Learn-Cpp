@@ -56,6 +56,21 @@ inline void Rander(list<int> _list) {
 	cout << endl;
 }
 
+/* 함수 객체를 조건자로 */
+template <typename T>
+class Greater {
+public:
+	bool operator()(T& t1, T& t2) {
+		return t1 > t2;
+	}
+};
+
+/* 함수 포인터를 조건자로 */
+template <typename T>
+bool Less(T& t1, T&t2){
+	return t1 < t2;
+}
+
 int main() {
 
 	/* 생성 + 초기화 */
@@ -113,9 +128,13 @@ int main() {
 		cout << "정렬 전:";
 		Rander(iDataList);
 		
-		iDataList.sort();
+		iDataList.sort(Greater<int>()); // 함수 객체
 		
-		cout << "정렬 후:";
+		cout << "내림차순 정렬 후:";
+		Rander(iDataList);
+
+		iDataList.sort(Less<int>);	// 함수 포인터 
+		cout << "오름차순 정렬 후:";
 		Rander(iDataList);
 	}
 
@@ -149,7 +168,7 @@ int main() {
 		Rander(iDataList2);
 
 		iDataList2.splice(iter2, iDataList1);	// iDataList 전체를 붙여넣기
-
+		cout << "splice후:" << endl;
 		Rander(iDataList1);
 		Rander(iDataList2);
 		cout << endl;

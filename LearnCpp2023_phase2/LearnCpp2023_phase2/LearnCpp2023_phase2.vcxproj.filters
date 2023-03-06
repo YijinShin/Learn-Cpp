@@ -204,13 +204,10 @@
     <ClCompile Include="study_클래스템플릿특수화.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Users\nimbu\Downloads\17일차-C++11\230303\이동생성자.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Users\nimbu\Downloads\17일차-C++11 (1)\230303\이동생성자.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="study_이동생성자.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="study_클래스의template맴버.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

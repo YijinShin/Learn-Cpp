@@ -29,7 +29,7 @@ stl종류: vector, list, deque, set, multiset, map, multimap,
 		- clear()
 		- 빈 백터 임시객체와의 swap()
 		- shrink_to_fit() 
-		위에 셋은 요소를 삭제해서 size는 줄어도 capacity는 줄지 않는다. 
+		위에 셋은 요소를=   삭제해서 size는 줄어도 capacity는 줄지 않는다. 
 		재할당 이슈때문에 capa를 매 요소 삭제마다 줄이는게 좋은건 아니다.  
 		백터의 타입으로 포인터가 있는경우, 해당 포인터를 먼저 해제하고, 백터 요소를 삭제해야한다.
 	
