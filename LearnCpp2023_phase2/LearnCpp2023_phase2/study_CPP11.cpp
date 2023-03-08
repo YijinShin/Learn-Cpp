@@ -78,16 +78,16 @@ private:
 	char* m_szName;
 public:
 	CTest3(const char* _szName){
-		int iLength = strlen(_szName)+2;
-		m_szName = new char(iLength);
-		strcpy_s(m_szName, iLength, _szName);
+		int iSize = strlen(_szName)+1;
+		m_szName = new char(iSize);
+		strcpy_s(m_szName, iSize, _szName);
 	}
 	// 복사 생성자 (깊은 복사)
 	CTest3(const CTest3& rhs) {
 		cout << "깊은 복사 생성자 호출 " << endl;
-		int iLength = strlen(rhs.m_szName) + 2;
-		m_szName = new char(iLength);
-		strcpy_s(m_szName, iLength, rhs.m_szName);
+		int iSize = strlen(rhs.m_szName) + 1;
+		m_szName = new char(iSize);
+		strcpy_s(m_szName, iSize, rhs.m_szName);
 	}
 	// 이동 생성자 
 	CTest3(CTest3&& rvr) {
@@ -97,7 +97,7 @@ public:
 	}
 	~CTest3() {
 		cout << m_iId << "의 소멸자 호출" << endl;
-		if(m_szName != nullptr){
+		if(m_szName){
 			cout << m_iId << "의 m_szName 삭제" << endl;
 			delete[] m_szName;
 			m_szName = nullptr;
@@ -232,5 +232,8 @@ int main() {
 		cout << "t1: "; if (t1.GetName() != nullptr) t1.Rander(); else cout << "nullptr" << endl;
 		cout << "t2: "; t2.Rander();
 		cout << "t3: "; t3.Rander();
+
+		// ERROR: 이거 t3을 제일 먼저 소멸시키는데 소멸할때 에러나거든? 이유는 정확히 모르겠는데 아마 메모리 할당할때 문제가 있는 것 같음. 
+		//		  study_이동생성자.cpp에서 char*가 아니라 int*로 똑같이 구현한게 있는데, 그거는 아무 문제 없이 잘 돌아감
 	}
 }

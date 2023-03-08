@@ -54,9 +54,21 @@ stl종류: vector, list, deque, set, multiset, map, multimap,
 	
 	- 탐색
 		- .find()
-		- find_if()
+		- find_if()	
 		key값으로찾거나 iter로 찾을 수 있다. 
 		만약 key가 char*(문자열)라면 조건자를 직접 정의해서 find_if를 사용하는 것이 좋다. 
+			char	:	정수값을 가지고 
+			char*	:	주소값을 가지고 
+						map<char*, int> mymap 이런경우는
+						mymap.find("dd") 이러헥하면 "dd"라는 문자열의 주소값을 찾는거임. 그래서 그냥 쓰면 일단 문제 안됨. 
+						근데 이게 안되는 경우가 있다는거임. 멀티쓰레드 사용시, 다중 프로젝트를 만드는 경우 등등
+						여튼, 지금은 문제 없어도 나중에 문제 생기기 때문에 이것도 안전하지는 않음. 
+			string	:	문자열 탐색함. (string내에 대소비교 오버로딩되어있음) 그래서 주소기반이 아니라 문자열 대 문자열 비교함.	
+						근데 문자열 상수를 넣으면 그건 문제가 된는거임. 
+						얘쓰면 find 문제는 안됨. 
+						key주제에 용량이 좀 큰게 단점. 
+						unicode기반이면 8글자 이상이 안됨
+						
 */
 
 #include "stdafx.h"
