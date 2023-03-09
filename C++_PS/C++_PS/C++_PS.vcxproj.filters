@@ -30,5 +30,8 @@
     <ClCompile Include="PM_대충만든자판2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="PM_덧칠하기.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

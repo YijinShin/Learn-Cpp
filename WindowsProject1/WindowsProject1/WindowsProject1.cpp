@@ -27,6 +27,9 @@
 #include "WindowsProject1.h"
 #include <vector>
 #include <list>
+
+#include "stdafx.h"
+#include "MainGame.h"
 using namespace std;
 
 #define MAX_LOADSTRING 100
@@ -44,9 +47,8 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);  // 쓸모가 없어서 �
 /* 창실행은 F5, 도움말 관령 어쩌구 뜨는게 어바웃 함수 때문임.없어도됨.뿅
  이거 위에 4개 함수랑 밑에 main이렇게가 함ㅅ쳐서 윈도우 초기화 구문(?)인듯 뿅*/
 
-/*
+HWND p_hWnd;
 
-*/
     int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램 인스턴스라고 부름. H가 핸들이라는 의미. 
                                                 /* 프로새스, 스레드, 파일 = 윈도우의 리소스
                                                     vs라는 프로세스, 크롬이라는 프로세스. ppt라는 프로세스 => 동시에 구동한가 멀티 프로세스라는 것. 
@@ -78,6 +80,28 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);  // 쓸모가 없어서 �
 
     MSG msg;    // msg: 메세지 줄임말
     /* 윈도우는 메세지 기반 운영체제. 메세지를 주고받는 식의 운영*/
+    //msg = WM_NULL;
+
+    CMainGame MainGame;
+    MainGame.Initialize();
+
+    while (true) {
+        if (PeekMessage(&msg, nullptr, 0,0,PM_REMOVE)) { // get메세지 아니고 다른 함수로 메세지를 가져올건데, 이건 훔치다 라는 의미임. 
+               /* 기본적으로 get메세지랑 동작은 같다. 차이가 있다면 얘는 메개변수가 하나 더 있다. 
+               옵션 매개변수
+               PM_REMOVE: 메세지를 읽어옴과 동시에 메세지 큐에서 제거하는 옵션
+               PM_NOREMOE:메세지 큐에 메세지가 있는지만 파악하는 옵셤. 만약 메세지 읽어오려면 다시 get메세지 호출해야함. */
+                
+                /* 코드 추가 */
+
+        }
+        else {
+            //메인게임의 update, 메인게임의 render() 호출하기 
+            /* 시스템 메세지가 있으면 -> 윈도우 프로시저에 따라 처리하고, 
+            시스템메세지가 없으면 -> 우리가 만들어둔 업데이트함수대로 처리하겠다. */
+        }
+    }
+    
 
     // 기본 메시지 루프입니다:
     while (GetMessage(&msg, nullptr, 0, 0)) // GetMessage:멀티 프로세스를 위해 꼭 필요한 함수 . WM_QUIT메세지를 읽어오면 FALSE를 반환, 그 외에는 true반홤
@@ -122,7 +146,8 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINDOWSPROJECT1));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_WINDOWSPROJECT1);
+    //wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_WINDOWSPROJECT1);
+        wcex.lpszMenuName = NULL;
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -138,11 +163,12 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //
 //        이 함수를 통해 인스턴스 핸들을 전역 변수에 저장하고
 //        주 프로그램 창을 만든 다음 표시합니다.
-//
+//윈도우 초기화 구문 함수 
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)    // 창 생성 함수 
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
+   RECT rc{ 0,0,WINCX, WINCY };// 창 사이즈 지정해서 생성하기 위해 
    /*RECT라는 자료헝이있다. 
      api에서는 데카르트 좌표계를 ㅏㅇㄴ쓴다. x축의 양의 방향은 똑같은데, y축은 반대임. 아래쪽이 +임. 당연함. 알쥐?
 
@@ -151,7 +177,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)    // 창 생성 함수
      전체화면모드는 다렉가서 쓸거임. 
    */
 
-   RECT rc{ 0,0,800,600 };  // 창 사이즈 지정해서 생성하기 위해 
+   AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);   // 이거 안하면 원이 잘려서 채워짐. 
+   // 최종적으로 이 rect의 위치를 조정해주는 것. 
+   /* rc : 원래 rect크기 (rc) + 기본 창 스타일 + 메뉴가 크기 고려
+   */
 
    HWND hWnd = CreateWindowW(
        szWindowClass,
@@ -169,6 +198,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)    // 창 생성 함수
    {
       return FALSE;
    }
+
+   p_Hwnd = hWnd;
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);  // 창 내용 갱신 
