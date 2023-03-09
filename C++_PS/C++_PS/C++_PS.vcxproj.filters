@@ -21,5 +21,14 @@
     <ClCompile Include="Main.cpp">
       <Filter>2023펄어비스3번</Filter>
     </ClCompile>
+    <ClCompile Include="PM_대충만든자판1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PM_바탕화면정리.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PM_대충만든자판2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
