@@ -31,6 +31,9 @@
     <Filter Include="Obj\Monster">
       <UniqueIdentifier>{0e4fd777-7086-4ca0-bc82-77b2e25b8ded}</UniqueIdentifier>
     </Filter>
+    <Filter Include="수업필기">
+      <UniqueIdentifier>{ab56643a-15bd-4789-aef6-eb261f80827a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -88,6 +91,12 @@
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>Obj\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="class20230310.cpp">
+      <Filter>수업필기</Filter>
+    </ClCompile>
+    <ClCompile Include="class20230309.cpp">
+      <Filter>수업필기</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
