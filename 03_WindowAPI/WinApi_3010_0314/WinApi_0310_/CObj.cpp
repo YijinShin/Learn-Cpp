@@ -11,6 +11,21 @@ CObj::~CObj()
 {
 }
 
+bool CObj::CheckCrash(list<CObj*> targetObjList)
+{
+	RECT resultRc;
+
+	for (auto iter : targetObjList) {
+		RECT targetRect = iter->GetRect();
+		if (IntersectRect(&resultRc, &m_tRect, &targetRect)) {
+			m_bDead = true;
+			iter->Set_Dead(true);
+		}
+	}
+
+	return false;
+}
+
 void CObj::Set_Rect()
 {
 	m_tRect.left = m_tInfo.fX - (m_tInfo.fCX / 2.f);

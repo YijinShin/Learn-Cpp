@@ -22,11 +22,16 @@ public:
 	virtual void		Render(HDC hDC)	PURE;
 	virtual void		Release()		PURE;
 
+	bool CheckCrash(list<CObj*> targetObjList);
+
 	void		Set_Rect();
+	void		Set_Dir(DIR _Dir) { m_eDir = _Dir; }
+	void		Set_Dead(bool _bDead) { m_bDead = _bDead; }
 	void		Set_Pos(float _fX, float _fY) {
 		m_tInfo.fX = _fX;
 		m_tInfo.fY = _fY;
 	}
-	void		Set_Dir(DIR _Dir) { m_eDir = _Dir; }
+
+	RECT GetRect() const { return m_tRect; }
 };
 

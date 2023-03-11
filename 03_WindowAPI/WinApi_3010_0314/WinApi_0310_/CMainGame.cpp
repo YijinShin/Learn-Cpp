@@ -50,6 +50,8 @@ int CMainGame::Update()
 
 void CMainGame::Late_Update()
 {
+
+	// 
 	for (int i = 0; i < OBJ_END; i++) {
 
 		for (auto iter = m_ObjList[i].begin(); iter != m_ObjList[i].end(); iter++) {
@@ -57,6 +59,11 @@ void CMainGame::Late_Update()
 			(*iter)->Late_Update();
 
 		}
+	}
+
+	// 몬스터와 총알의 충돌 
+	for (auto iter : m_ObjList[OBJ_BULLET]) {
+		iter->CheckCrash(m_ObjList[OBJ_MONSTER]);
 	}
 }
 
