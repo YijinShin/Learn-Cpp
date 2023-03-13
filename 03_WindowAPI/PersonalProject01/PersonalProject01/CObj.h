@@ -28,8 +28,11 @@ public:
 		m_tInfo.fY = _fY;
 	}
 
-	RECT	Get_Rect() const {
+	RECT const	Get_Rect() const {
 		return m_tRect;
+	}
+	INFO const	Get_Info() const {
+		return m_tInfo;
 	}
 };
 

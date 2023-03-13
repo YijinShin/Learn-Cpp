@@ -1,25 +1,18 @@
 #pragma once
-#include "Include.h"
+#include "Define.h"
 #include "CObj.h"
 
 class CBall: public CObj
 {
 private:
-	DIRECTION m_eDir;
-
-	COLLISIONTARGET m_eCTarget;
-
-	float m_fAngle;
+	DIRECTION	m_eDir;
 	float m_fXSpeed;
 	float m_fYSpeed;
-
-	void	ChangeDir();
-	void	Set_DirSpeed();
+	float m_fAngle;
 
 public:
 	CBall();
 	virtual ~CBall();
-
 
 	virtual void		Initialize()	override;
 	virtual int			Update()		override;
@@ -27,5 +20,7 @@ public:
 	virtual void		Render(HDC hDC)	override;
 	virtual void		Release()		override;
 
+	void CollisionCheck(CObj* targetObj);
+	void Set_XYSpeed();
 };
 

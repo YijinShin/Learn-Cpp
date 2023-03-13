@@ -4,7 +4,6 @@
 #include "CObj.h"
 #include "CMonster.h"
 #include "CPlayer.h"
-#include "CBall.h"
 
 CMainGame::CMainGame()
 {
@@ -25,7 +24,7 @@ void CMainGame::Initialize()
 
 
 	// create Ball
-	m_ObjList[OBJ_Ball].push_back(CAbstractFactory<CBall>::Create( WINCX/2.f, WINCY/2.f));
+	//m_ObjList[OBJ_Ball].push_back(CAbstractFactory<CBall>::Create( WINCX/2.f, WINCY/2.f));
 
 	// create Monster
 }
