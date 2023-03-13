@@ -34,10 +34,12 @@ int CPlayer::Update()
 	// m_tRect 업데이트: 업데이트 된 m_tInfo를 기준으로 계산하기
 	__super::Set_Rect();
 
+
 	// 포신 위치 업데이트하기 
-	//Set_Angle();
-	//Set_AimPos();
-	Set_AimPos3();
+	Set_Angle();	// 각도 업데이트
+	Set_DirVector();// 각도를 기반으로 방향 백터 업데이트
+	Set_AimPos();	// 방향 백터를 기반으로 에임 좌표 업데이트
+
 
 	return OBJ_NOEVENT;
 }
@@ -73,16 +75,35 @@ void CPlayer::Release()
 void CPlayer::Key_Input()
 {
 	if (GetAsyncKeyState(VK_UP)) {
-		m_tInfo.fY -= m_fSpeed;
+		//m_tInfo.fY -= m_fSpeed;
+		m_tInfo.fX += m_DirVector.first*m_fSpeed;
+		m_tInfo.fY += m_DirVector.second * m_fSpeed;
 	}
 	if (GetAsyncKeyState(VK_DOWN)) {
-		m_tInfo.fY += m_fSpeed;
+		//m_tInfo.fY += m_fSpeed;
+		m_tInfo.fX -= m_DirVector.first * m_fSpeed;
+		m_tInfo.fY -= m_DirVector.second * m_fSpeed;
 	}
 	if (GetAsyncKeyState(VK_LEFT)) {
-		m_tInfo.fX -= m_fSpeed;
+		if ( 0<= m_fAngle <= 180) {
+			m_tInfo.fX -= m_DirVector.first * m_fSpeed;
+			m_tInfo.fY += m_DirVector.second * m_fSpeed;
+		}
+		else {
+			m_tInfo.fX += m_DirVector.first * m_fSpeed;
+			m_tInfo.fY += m_DirVector.second * m_fSpeed;
+		}
+		
 	}
 	if (GetAsyncKeyState(VK_RIGHT)) {
-		m_tInfo.fX += m_fSpeed;
+		if (0 <= m_fAngle <= 180) {
+			m_tInfo.fX += m_DirVector.first * m_fSpeed;
+			m_tInfo.fY -= m_DirVector.second * m_fSpeed;
+		}
+		else {
+			m_tInfo.fX -= m_DirVector.first * m_fSpeed;
+			m_tInfo.fY -= m_DirVector.second * m_fSpeed;
+		}
 	}
 	if (GetAsyncKeyState(VK_SPACE)) {
 		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_UP));
@@ -102,17 +123,18 @@ void CPlayer::Key_Input()
 		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_RIGHT));
 	}
 	if (GetAsyncKeyState('Q')) {
-		m_fAngle += 5;
-		if (m_fAngle <= 0) m_fAngle += 360;
+		m_fAngle += 5.f;
+		//if (m_fAngle <= 0.f) m_fAngle += 360.f;
 	}
 	if (GetAsyncKeyState('E')) {
-		m_fAngle -= 5;
-		if (m_fAngle >= 360) m_fAngle -= 360;
+		m_fAngle -= 5.f;
+		//if (m_fAngle >= 360.f) m_fAngle -= 360.f;
 	}
 }
 
 void CPlayer::Set_Angle()
 {
+	/*
 	GetCursorPos(&ptMouse);
 	ScreenToClient(g_hWnd, &ptMouse);
 
@@ -120,10 +142,10 @@ void CPlayer::Set_Angle()
 	float fYDist = abs((float)ptMouse.y - m_tInfo.fY);
 
 	m_fAngle = RadianToDegree(atan2(fYDist, fXDist));
-
-	if (  ) {
-
-	}
+	*/
+	// 0~ 360 으로 바꾸기 
+	if (m_fAngle >= 360.f) m_fAngle -= 360.f;
+	if (m_fAngle <= 0.f) m_fAngle += 360.f;
 }
 
 float  CPlayer::RadianToDegree(float fRadian) {
@@ -134,22 +156,16 @@ float  CPlayer::DegreeToRadian(float fDegree) {
 	return (PI / 180.f) * fDegree;
 }
 
+void CPlayer::Set_DirVector()
+{
+	// 원점 백터에 각도 추가 
+	m_DirVector.first = (float)sin(m_fAngle * (PI / 180.f));
+	m_DirVector.second = (float)cos(m_fAngle * (PI / 180.f));
+}
 
 void CPlayer::Set_AimPos()
 {
-	GetCursorPos(&ptMouse);
-	ScreenToClient(g_hWnd, &ptMouse);
-	
-	// 원점 백터에 각도 추가 
-	pair<float, float > vector;
-	vector.second = (float)cos(m_fAngle * (PI / 180.f));
-	vector.first = (float)sin(m_fAngle * (PI / 180.f));
-
-	// 길이 고치기 
-	vector.first *= 100.f;
-	vector.second *= 100.f;
-
 	// 플레이어 원점에서 시작하는 백터로 옮겨주기 
-	m_AimPos.first = m_tInfo.fX + vector.first;
-	m_AimPos.second = m_tInfo.fY + vector.second;
+	m_AimPos.first = m_tInfo.fX + m_DirVector.first * 100.f;
+	m_AimPos.second = m_tInfo.fY + m_DirVector.second *100.f;
 }

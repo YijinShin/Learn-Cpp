@@ -7,6 +7,8 @@ class CPlayer : public CObj
 private:
 	float m_fAimLength;
 	pair<float, float> m_AimPos;
+	pair<float, float> m_DirVector;
+	pair<float, float> m_VerticalDirVector;
 	list<CObj*>* m_pBulletList;
 
 	POINT	ptMouse{};
@@ -34,5 +36,6 @@ public:
 	float  DegreeToRadian(float fDegree);
 
 	void Set_AimPos();
+	void Set_DirVector();
 };
 
