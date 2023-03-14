@@ -31,6 +31,12 @@
     <Filter Include="Obj\Monster">
       <UniqueIdentifier>{cb2bab69-8a8f-4669-8e73-0788d4a2ed7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Obj\Shield">
+      <UniqueIdentifier>{1c930140-774b-4868-9356-0ee4ff4737a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Obj\Monster\Monster_type1">
+      <UniqueIdentifier>{32f5647c-332f-4282-aa8a-f12b32729770}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -81,6 +87,12 @@
     <ClInclude Include="AbstractFactory.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CShield.h">
+      <Filter>Obj\Shield</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonster_type1.h">
+      <Filter>Obj\Monster\Monster_type1</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinApi_0310_.cpp">
@@ -103,6 +115,12 @@
     </ClCompile>
     <ClCompile Include="CBullet.cpp">
       <Filter>Obj\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="CShield.cpp">
+      <Filter>Obj\Shield</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonster_type1.cpp">
+      <Filter>Obj\Monster\Monster_type1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 #include "CMainGame.h"
 #include "CPlayer.h"
 #include "CMonster.h"
+#include "CMonster_type1.h"
 #include "AbstractFactory.h"
 
 CMainGame::CMainGame(): m_dwTime(GetTickCount()), m_iFPS(0)
@@ -22,10 +23,13 @@ void CMainGame::Initialize()
 	// 플레이어 생성 
 	m_ObjList[OBJ_PLAYER].push_back(CAbstractFactory<CPlayer>::Create( WINCX/2.f, WINCY / 1.5f));
 	dynamic_cast<CPlayer*>(m_ObjList[OBJ_PLAYER].front())->Set_BulletList(&m_ObjList[OBJ_BULLET]);
+	dynamic_cast<CPlayer*>(m_ObjList[OBJ_PLAYER].front())->Set_ShieldList(&m_ObjList[OBJ_SHIELD]);
 
 	// 몬스터 생성
-	m_ObjList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster>::Create( WINCX / 2.f, WINCY / 3.f));
-
+	//m_ObjList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster>::Create( WINCX / 2.f, WINCY / 3.f));
+	m_ObjList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster_type1>::Create(WINCX / 2.f, WINCY / 3.f));
+	dynamic_cast<CMonster_type1*>(m_ObjList[OBJ_MONSTER].front())->Set_TargetList(&m_ObjList[OBJ_PLAYER]);
+	
 	// 총알은 플레이어에서 생성함. 
 }
 
@@ -40,24 +44,16 @@ int CMainGame::Update()
 				iter = m_ObjList[i].erase(iter);
 			}
 			else iter++;
-
 		}
-
 	}
-
 	return 0;
 }
 
 void CMainGame::Late_Update()
 {
-
-	// 
 	for (int i = 0; i < OBJ_END; i++) {
-
 		for (auto iter = m_ObjList[i].begin(); iter != m_ObjList[i].end(); iter++) {
-
 			(*iter)->Late_Update();
-
 		}
 	}
 
@@ -115,3 +111,4 @@ void CMainGame::Release()
 		}
 	}
 }
+

@@ -20,12 +20,13 @@ public:
 
 		return pObj;
 	}
-
-	static CObj*	Create(float _fX, float _fY, DIR _Dir) {
+	 
+	static CObj* Create(float _fX, float _fY, DIR _Dir, pair<float, float> _DirVector) {
 		CObj* pObj = new T;
 		pObj->Initialize();
 		pObj->Set_Pos(_fX, _fY);
 		pObj->Set_Dir(_Dir);
+		pObj->Set_DirVector(_DirVector);
 
 		return pObj;
 	}

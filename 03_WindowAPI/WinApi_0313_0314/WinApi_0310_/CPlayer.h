@@ -7,9 +7,8 @@ class CPlayer : public CObj
 private:
 	float m_fAimLength;
 	pair<float, float> m_AimPos;
-	pair<float, float> m_DirVector;
-	pair<float, float> m_VerticalDirVector;
 	list<CObj*>* m_pBulletList;
+	list<CObj*>* m_pShieldList;
 
 	POINT	ptMouse{};
 
@@ -24,18 +23,18 @@ public:
 	virtual void	Release()		override;
 
 	void Key_Input();
+	void Mouse_Input();
 
 	void Set_BulletList(list<CObj*>* _pBulletList) { m_pBulletList = _pBulletList; }
+	void Set_ShieldList(list<CObj*>* _pShieldList) { m_pShieldList = _pShieldList; }
 
-	void Set_Angle();
+	void Calc_Angle();
+	void Set_Angle_Mouse();
+	void Set_AimPos();
+	void Calc_DirVector();
 
 	float Get_Angle() const { return m_fAngle; }
 
-	float RadianToDegree(float fRadian);
-
-	float  DegreeToRadian(float fDegree);
-
-	void Set_AimPos();
-	void Set_DirVector();
+	void Create_Shield();
 };
 

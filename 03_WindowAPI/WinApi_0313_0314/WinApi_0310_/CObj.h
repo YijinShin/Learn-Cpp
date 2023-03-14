@@ -13,6 +13,8 @@ protected:
 	bool		m_bDead;
 
 	float		m_fAngle;
+	pair<float, float> m_DirVector;
+	pair<float, float> m_RightDirVector;
 
 public:
 	CObj();
@@ -33,7 +35,11 @@ public:
 		m_tInfo.fX = _fX;
 		m_tInfo.fY = _fY;
 	}
-
+	void		Set_DirVector(pair<float, float> _DirVector) {
+		m_DirVector = _DirVector; 
+		m_RightDirVector = pair<float, float>(-m_DirVector.second, m_DirVector.first);
+	}
 	RECT GetRect() const { return m_tRect; }
+	INFO GetInfo() { return m_tInfo; }
 };
 

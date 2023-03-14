@@ -25,29 +25,32 @@ int CBullet::Update()
 	switch (m_eDir)
 	{
 	case DIR_UP:
-		m_tInfo.fY -= m_fSpeed;
+		m_tInfo.fX += m_DirVector.first * m_fSpeed;
+		m_tInfo.fY += m_DirVector.second * m_fSpeed;
 		break;
 	case DIR_DOWN:
-		m_tInfo.fY += m_fSpeed;
+		m_tInfo.fX -= m_DirVector.first * m_fSpeed;
+		m_tInfo.fY -= m_DirVector.second * m_fSpeed;
 		break;
 	case DIR_LEFT:
-		m_tInfo.fX -= m_fSpeed;
+		m_tInfo.fX -= m_RightDirVector.first * m_fSpeed;
+		m_tInfo.fY -= m_RightDirVector.second * m_fSpeed;
 		break;
 	case DIR_RIGHT:
-		m_tInfo.fX += m_fSpeed;
+		m_tInfo.fX += m_RightDirVector.first * m_fSpeed;
+		m_tInfo.fY += m_RightDirVector.second * m_fSpeed;
 		break;
 	case DIR_LU:
-		m_tInfo.fY -= m_fSpeed;
-		m_tInfo.fX -= m_fSpeed;
+		m_tInfo.fX += (m_DirVector.first + m_RightDirVector.first) * m_fSpeed;
+		m_tInfo.fY += (m_DirVector.second + m_RightDirVector.second) * m_fSpeed;
 		break;
 	case DIR_RU:
-		m_tInfo.fY -= m_fSpeed;
-		m_tInfo.fX += m_fSpeed;
+		m_tInfo.fX += (m_DirVector.first - m_RightDirVector.first) * m_fSpeed;
+		m_tInfo.fY += (m_DirVector.second - m_RightDirVector.second) * m_fSpeed;
 		break;
 	default:
 		break;
 	}
-
 	__super::Set_Rect();
 
 	return OBJ_NOEVENT;

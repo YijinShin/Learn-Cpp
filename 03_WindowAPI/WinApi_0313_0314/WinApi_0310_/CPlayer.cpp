@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "CPlayer.h"
 #include "CBullet.h"
+#include "CShield.h"
 #include "AbstractFactory.h"
 
-CPlayer::CPlayer() :m_pBulletList(nullptr), m_AimPos(pair<float, float>(0, 0)), m_fAimLength(100.f)
+CPlayer::CPlayer() :m_pBulletList(nullptr), m_pShieldList(nullptr), m_AimPos(pair<float, float>(0, 0)), m_fAimLength(100.f)
 {
 }
 
@@ -36,11 +37,16 @@ int CPlayer::Update()
 
 
 	// 포신 위치 업데이트하기 
-	Set_Angle();	// 각도 업데이트
-	Set_DirVector();// 각도를 기반으로 방향 백터 업데이트
+	//Calc_Angle();	// 각도 업데이트
+	Set_Angle_Mouse();
+	//Calc_DirVector();// 각도를 기반으로 방향 백터 업데이트
 	Set_AimPos();	// 방향 백터를 기반으로 에임 좌표 업데이트
 
-
+	// 쉴드에게 플레이어 좌표 넘겨주기 
+	for (auto iter : (*m_pShieldList)) {
+		dynamic_cast<CShield*>(iter)->Set_PlayerInfo(&m_tInfo);
+	}
+	
 	return OBJ_NOEVENT;
 }
 
@@ -63,6 +69,13 @@ void CPlayer::Render(HDC hDC)
 	Ellipse(hDC,
 		(float)ptMouse.x - 5.f, (float)ptMouse.y - 5.f,
 		(float)ptMouse.x + 5.f, (float)ptMouse.y + 5.f);
+
+	// 문자열 (총알 개수) 출력
+	TCHAR	szBuff[100] = L"";
+	swprintf_s(szBuff, L"fx, fy: %f, %f", m_tInfo.fX, m_tInfo.fY);
+	TextOut(hDC, 50, 100, szBuff, lstrlen(szBuff));
+	//swprintf_s(szBuff, L"RightDirVector: %f, %f", -m_DirVector.second, m_DirVector.first);
+	//TextOut(hDC, 50, 150, szBuff, lstrlen(szBuff));
 }
 
 void CPlayer::Release()
@@ -74,93 +87,98 @@ void CPlayer::Release()
 
 void CPlayer::Key_Input()
 {
-	if (GetAsyncKeyState(VK_UP)) {
-		//m_tInfo.fY -= m_fSpeed;
+	if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('W')) {
 		m_tInfo.fX += m_DirVector.first*m_fSpeed;
 		m_tInfo.fY += m_DirVector.second * m_fSpeed;
 	}
-	if (GetAsyncKeyState(VK_DOWN)) {
-		//m_tInfo.fY += m_fSpeed;
+	if (GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('S')) {
 		m_tInfo.fX -= m_DirVector.first * m_fSpeed;
 		m_tInfo.fY -= m_DirVector.second * m_fSpeed;
 	}
-	if (GetAsyncKeyState(VK_LEFT)) {
-		if ( 0<= m_fAngle <= 180) {
-			m_tInfo.fX -= m_DirVector.first * m_fSpeed;
-			m_tInfo.fY += m_DirVector.second * m_fSpeed;
-		}
-		else {
-			m_tInfo.fX += m_DirVector.first * m_fSpeed;
-			m_tInfo.fY += m_DirVector.second * m_fSpeed;
-		}
+	if (GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('A')) {
+		m_tInfo.fX -= m_RightDirVector.first * m_fSpeed;
+		m_tInfo.fY -= m_RightDirVector.second * m_fSpeed;
+	}
+	if (GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('D')) {
+		m_tInfo.fX += m_RightDirVector.first * m_fSpeed;
+		m_tInfo.fY += m_RightDirVector.second * m_fSpeed;
+	}
+	/*
+	if (GetAsyncKeyState(VK_SPACE) || GetAsyncKeyState('W')) {
 		
 	}
-	if (GetAsyncKeyState(VK_RIGHT)) {
-		if (0 <= m_fAngle <= 180) {
-			m_tInfo.fX += m_DirVector.first * m_fSpeed;
-			m_tInfo.fY -= m_DirVector.second * m_fSpeed;
-		}
-		else {
-			m_tInfo.fX -= m_DirVector.first * m_fSpeed;
-			m_tInfo.fY -= m_DirVector.second * m_fSpeed;
-		}
-	}
-	if (GetAsyncKeyState(VK_SPACE)) {
-		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_UP));
-		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_LU));
-		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_RU));
-	}
 	if (GetAsyncKeyState('W')) {
-		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_UP));
+		//m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_UP, m_DirVector));
 	}
 	if (GetAsyncKeyState('A')) {
-		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_LEFT));
+		//m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_LEFT, m_DirVector));
 	}
 	if (GetAsyncKeyState('S')) {
-		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_DOWN));
+		//m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_DOWN, m_DirVector));
 	}
 	if (GetAsyncKeyState('D')) {
-		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_RIGHT));
+		//m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_RIGHT, m_DirVector));
 	}
+	*/
 	if (GetAsyncKeyState('Q')) {
-		m_fAngle += 5.f;
-		//if (m_fAngle <= 0.f) m_fAngle += 360.f;
+		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_UP, m_DirVector));
+		//m_fAngle += 5.f;
 	}
 	if (GetAsyncKeyState('E')) {
-		m_fAngle -= 5.f;
-		//if (m_fAngle >= 360.f) m_fAngle -= 360.f;
+		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_UP, m_DirVector));
+		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_LU, m_DirVector));
+		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_RU, m_DirVector));
+		//m_fAngle -= 5.f;
+	}
+	if (GetAsyncKeyState('R')) {
+		m_pShieldList->push_back(CAbstractFactory<CShield>::Create(m_tInfo.fX, m_tInfo.fY));
+	}
+	if (GetAsyncKeyState('T')) {
+		Create_Shield();
 	}
 }
 
-void CPlayer::Set_Angle()
+void CPlayer::Mouse_Input()
 {
-	/*
-	GetCursorPos(&ptMouse);
-	ScreenToClient(g_hWnd, &ptMouse);
+	// 마우스 클릭시 
+	// 총알 정면발사 
+}
 
-	float fXDist = abs((float)ptMouse.x - m_tInfo.fX);
-	float fYDist = abs((float)ptMouse.y - m_tInfo.fY);
-
-	m_fAngle = RadianToDegree(atan2(fYDist, fXDist));
-	*/
+void CPlayer::Calc_Angle()
+{
 	// 0~ 360 으로 바꾸기 
 	if (m_fAngle >= 360.f) m_fAngle -= 360.f;
 	if (m_fAngle <= 0.f) m_fAngle += 360.f;
 }
 
-float  CPlayer::RadianToDegree(float fRadian) {
-	return (180.f/ PI) * fRadian;
+void CPlayer::Set_Angle_Mouse()
+{
+	GetCursorPos(&ptMouse);
+	ScreenToClient(g_hWnd, &ptMouse);
+	
+	pair<float, float> vector;
+	vector.first = ptMouse.x - m_tInfo.fX;
+	vector.second = ptMouse.y - m_tInfo.fY;
+	float h = sqrt( pow(vector.first,2) + pow(vector.second,2) );
+
+	m_DirVector.first = vector.first / h;
+	m_DirVector.second = vector.second / h;
 }
 
-float  CPlayer::DegreeToRadian(float fDegree) {
-	return (PI / 180.f) * fDegree;
-}
-
-void CPlayer::Set_DirVector()
+void CPlayer::Calc_DirVector()
 {
 	// 원점 백터에 각도 추가 
 	m_DirVector.first = (float)sin(m_fAngle * (PI / 180.f));
 	m_DirVector.second = (float)cos(m_fAngle * (PI / 180.f));
+
+	m_RightDirVector.first = -m_DirVector.second;
+	m_RightDirVector.second = m_DirVector.first;
+}
+
+void CPlayer::Create_Shield()
+{
+	m_pShieldList->push_back(CAbstractFactory<CShield>::Create(m_tInfo.fX, m_tInfo.fY));
+	dynamic_cast<CShield*>(m_pShieldList->back())->Set_PlayerInfo(&m_tInfo);
 }
 
 void CPlayer::Set_AimPos()
