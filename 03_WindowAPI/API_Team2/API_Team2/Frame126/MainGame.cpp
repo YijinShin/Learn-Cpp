@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include "MainGame.h"
 #include "Player.h"
+#include "Monster.h"
 #include "AbstractFactory.h"
+
 
 // Player
 #include "Player_SYJ.h"
@@ -10,7 +12,7 @@
 
 // Bullet
 
-CMainGame::CMainGame(): m_iStage(1)
+CMainGame::CMainGame(): m_iStage(0)
 {
 }
 
@@ -86,10 +88,19 @@ void CMainGame::Release(void)
 
 void CMainGame::Set_ObjList()
 {
-	// 스테이지 SYJ
-	if (m_iStage == 1) {
+	// 스테이지 기본
+	if (m_iStage == 0) {
 		// Player
-		m_objList[OBJ_PLAYER].push_back(CAbstractFactory<CPlayer_SYJ>::Create(WINCX / 2.f, WINCY / 1.5f));
+		m_objList[OBJ_PLAYER].push_back(CAbstractFactory<CPlayer>::Create(WINCX / 2.f, WINCY / 1.5f));
+		dynamic_cast<CPlayer*>(m_objList[OBJ_PLAYER].front())->Set_BulletList(&m_objList[OBJ_BULLET]);
+		// Monster
+		//m_objList[OBJ_PLAYER].push_back(CAbstractFactory<CMonster>::Create(WINCX / 3.f, WINCY / 4.f));
+		//dynamic_cast<CPlayer*>(m_objList[OBJ_PLAYER].front())->Set_BulletList(&m_objList[OBJ_BULLET]);
+	}
+	// 스테이지 SYJ
+	else if (m_iStage == 0) {
+		// Player
+	
 		// Monster
 
 	}

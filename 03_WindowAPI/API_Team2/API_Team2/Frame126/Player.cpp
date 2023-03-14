@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "Bullet.h"
+#include "AbstractFactory.h"
 
 CPlayer::CPlayer()
 {
@@ -59,6 +61,11 @@ void CPlayer::Release(void)
 	
 }
 
+void CPlayer::Create_Bullet()
+{
+	m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY));
+}
+
 void CPlayer::Key_Input(void)
 {
 	if (GetAsyncKeyState(VK_LEFT))
@@ -78,6 +85,7 @@ void CPlayer::Key_Input(void)
 
 	if (GetAsyncKeyState('E'))
 		m_fDegree += m_fRotateSpeed;
-	
-	// GetKeyState()
+	if (GetAsyncKeyState(VK_SPACE)) {
+		Create_Bullet();
+	}
 }

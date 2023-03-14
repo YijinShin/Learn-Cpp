@@ -22,15 +22,6 @@ public:
 		return pObj;
 	}
 
-	// 시작 크기 
-	static CObj* Create(float _fCX, float _fCY) {
-		CObj* pObj = new T;
-		pObj->Initialize();
-		pObj->Set_SIze(_fCX, _fCY);
-
-		return pObj;
-	}
-
 	// 시작 위치, 크기 
 	static CObj* Create(INFO _tInfo) {
 		CObj* pObj = new T;
