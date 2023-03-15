@@ -40,6 +40,9 @@
     <Filter Include="Obj\Bullet\CBullet_Chase">
       <UniqueIdentifier>{e936888a-30ff-45fe-9e41-19b99dd55fff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Obj\Bullet\CBullet_Screw">
+      <UniqueIdentifier>{749ad481-2796-428f-84ec-4893ba1440bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -99,6 +102,9 @@
     <ClInclude Include="CBullet_Chase.h">
       <Filter>Obj\Bullet\CBullet_Chase</Filter>
     </ClInclude>
+    <ClInclude Include="CBullet_Screw.h">
+      <Filter>Obj\Bullet\CBullet_Screw</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinApi_0310_.cpp">
@@ -130,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="CBullet_Chase.cpp">
       <Filter>Obj\Bullet\CBullet_Chase</Filter>
+    </ClCompile>
+    <ClCompile Include="CBullet_Screw.cpp">
+      <Filter>Obj\Bullet\CBullet_Screw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

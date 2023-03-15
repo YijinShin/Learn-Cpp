@@ -175,9 +175,14 @@ void CPlayer::Create_Bullet()
 
 void CPlayer::Create_BulletChase()
 {
-	m_pBulletList->push_back(CAbstractFactory<CBullet_Chase>::Create(m_tInfo.fX, m_tInfo.fY));
-	dynamic_cast<CBullet_Chase*>(m_pBulletList->back())->Set_MonsterList(m_pMonsterList);
-	dynamic_cast<CBullet_Chase*>(m_pBulletList->back())->FindTarget();
+	// 몬스터가 있으면 유도탄 쏘기 
+	if(!m_pMonsterList->empty()){
+		m_pBulletList->push_back(CAbstractFactory<CBullet_Chase>::Create(m_tInfo.fX, m_tInfo.fY));
+		dynamic_cast<CBullet_Chase*>(m_pBulletList->back())->Set_MonsterList(m_pMonsterList);
+		dynamic_cast<CBullet_Chase*>(m_pBulletList->back())->FindTarget();
+	}
+	// 몬스터가 없으면 일반 총알 쏘기 
+	else m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_UP, m_DirVector));
 }
 
 void CPlayer::Set_AimPos()

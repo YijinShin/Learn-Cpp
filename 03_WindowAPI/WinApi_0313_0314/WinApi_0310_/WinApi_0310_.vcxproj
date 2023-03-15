@@ -132,6 +132,7 @@
     <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="CBullet.h" />
     <ClInclude Include="CBullet_Chase.h" />
+    <ClInclude Include="CBullet_Screw.h" />
     <ClInclude Include="CMainGame.h" />
     <ClInclude Include="CMonster_type1.h" />
     <ClInclude Include="CObj.h" />
@@ -152,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="CBullet.cpp" />
     <ClCompile Include="CBullet_Chase.cpp" />
+    <ClCompile Include="CBullet_Screw.cpp" />
     <ClCompile Include="CMainGame.cpp" />
     <ClCompile Include="CMonster_type1.cpp" />
     <ClCompile Include="CObj.cpp" />

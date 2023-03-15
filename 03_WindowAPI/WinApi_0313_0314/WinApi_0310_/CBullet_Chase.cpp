@@ -16,8 +16,6 @@ void CBullet_Chase::Initialize()
 	m_tInfo.fCY = 25.f;
 	// ÃÑ¾Ë ¼Óµµ ¼³Á¤
 	m_fSpeed = 10.f;
-	// ÃÑ¾Ë Å¸°Ù ¼³Á¤ 
-	//FindTarget();
 }
 
 int CBullet_Chase::Update()
