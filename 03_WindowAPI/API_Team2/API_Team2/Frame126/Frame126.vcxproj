@@ -153,6 +153,7 @@
     <ClInclude Include="Include.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="Monster_SYJ_01.h" />
     <ClInclude Include="Obj.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Player_AJS.h" />
@@ -170,9 +171,11 @@
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CollisionMng.cpp" />
+    <ClCompile Include="Define.cpp" />
     <ClCompile Include="Frame126.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Monster_SYJ_01.cpp" />
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player_AJS.cpp" />

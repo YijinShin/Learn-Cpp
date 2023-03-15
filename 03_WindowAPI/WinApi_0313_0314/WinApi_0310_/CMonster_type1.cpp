@@ -64,22 +64,6 @@ void CMonster_type1::Calc_Dir()
 		vector.first = (m_tPlayerInfo.fX - m_tInfo.fX);
 		vector.second = (m_tPlayerInfo.fY - m_tInfo.fY);
 
-	/*	if (m_tInfo.fX <= m_tPlayerInfo.fX && m_tInfo.fY <= m_tPlayerInfo.fY) {
-			vector.x = (m_tPlayerInfo.fX - m_tInfo.fX);
-			vector.second = (m_tPlayerInfo.fY - m_tInfo.fY);
-		}
-		else if (m_tInfo.fX <= m_tPlayerInfo.fX && m_tInfo.fY >= m_tPlayerInfo.fY) {
-			vector.x = (m_tPlayerInfo.fX - m_tInfo.fX);
-			vector.second = (m_tInfo.fY - m_tPlayerInfo.fY );
-		}
-		else if (m_tInfo.fX >= m_tPlayerInfo.fX && m_tInfo.fY <= m_tPlayerInfo.fY) {
-			vector.x = (m_tPlayerInfo.fX - m_tInfo.fX);
-			vector.second = (m_tPlayerInfo.fY - m_tInfo.fY);
-		}
-		else if (m_tInfo.fX >= m_tPlayerInfo.fX && m_tInfo.fY >= m_tPlayerInfo.fY) {
-			vector.x = (m_tPlayerInfo.fX - m_tInfo.fX);
-			vector.second = (m_tInfo.fY - m_tPlayerInfo.fY);
-		}*/
 
 		fH = sqrt(pow(vector.first, 2) + pow(vector.second, 2));
 

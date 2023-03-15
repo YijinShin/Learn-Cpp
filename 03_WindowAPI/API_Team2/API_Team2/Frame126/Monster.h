@@ -3,7 +3,7 @@
 
 class CMonster: public CObj
 {
-private:
+protected:
 	int m_iBulletTimer;			// 총알을 몇초마다 쏠 것인지 결정하는 타이머 
 
 	list<CObj*>* m_pBulletList;

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CPlayer.h"
 #include "CBullet.h"
+#include "CBullet_Chase.h"
 #include "CShield.h"
 #include "AbstractFactory.h"
 
@@ -103,26 +104,11 @@ void CPlayer::Key_Input()
 		m_tInfo.fX += m_RightDirVector.first * m_fSpeed;
 		m_tInfo.fY += m_RightDirVector.second * m_fSpeed;
 	}
-	/*
-	if (GetAsyncKeyState(VK_SPACE) || GetAsyncKeyState('W')) {
-		
-	}
-	if (GetAsyncKeyState('W')) {
-		//m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_UP, m_DirVector));
-	}
-	if (GetAsyncKeyState('A')) {
-		//m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_LEFT, m_DirVector));
-	}
-	if (GetAsyncKeyState('S')) {
-		//m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_DOWN, m_DirVector));
-	}
-	if (GetAsyncKeyState('D')) {
-		//m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_RIGHT, m_DirVector));
-	}
-	*/
+	
 	if (GetAsyncKeyState('Q')) {
-		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_UP, m_DirVector));
-		//m_fAngle += 5.f;
+		//m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_UP, m_DirVector));
+		Create_BulletChase();
+
 	}
 	if (GetAsyncKeyState('E')) {
 		m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY, DIR_UP, m_DirVector));
@@ -179,6 +165,19 @@ void CPlayer::Create_Shield()
 {
 	m_pShieldList->push_back(CAbstractFactory<CShield>::Create(m_tInfo.fX, m_tInfo.fY));
 	dynamic_cast<CShield*>(m_pShieldList->back())->Set_PlayerInfo(&m_tInfo);
+}
+
+void CPlayer::Create_Bullet()
+{
+
+}
+
+
+void CPlayer::Create_BulletChase()
+{
+	m_pBulletList->push_back(CAbstractFactory<CBullet_Chase>::Create(m_tInfo.fX, m_tInfo.fY));
+	dynamic_cast<CBullet_Chase*>(m_pBulletList->back())->Set_MonsterList(m_pMonsterList);
+	dynamic_cast<CBullet_Chase*>(m_pBulletList->back())->FindTarget();
 }
 
 void CPlayer::Set_AimPos()

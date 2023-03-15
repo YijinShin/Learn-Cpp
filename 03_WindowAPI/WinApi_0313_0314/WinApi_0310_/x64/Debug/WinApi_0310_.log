@@ -1,3 +1,1 @@
-﻿  CMonster_type1.cpp
-C:\GitHub\Learn-Cpp\03_WindowAPI\WinApi_0313_0314\WinApi_0310_\CMonster_type1.cpp(84,12): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  WinApi_0310_.vcxproj -> C:\GitHub\Learn-Cpp\03_WindowAPI\WinApi_0313_0314\x64\Debug\WinApi_0310_.exe
+﻿  WinApi_0310_.vcxproj -> C:\GitHub\Learn-Cpp\03_WindowAPI\WinApi_0313_0314\x64\Debug\WinApi_0310_.exe

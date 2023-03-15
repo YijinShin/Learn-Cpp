@@ -10,10 +10,11 @@
 #include "Player_SYJ.h"
 
 // Monster
+#include "Monster_SYJ_01.h"
 
 // Bullet
 
-CMainGame::CMainGame(): m_iStage(0)
+CMainGame::CMainGame(): m_iStage(1)
 {
 }
 
@@ -107,11 +108,13 @@ void CMainGame::Set_ObjList()
 		dynamic_cast<CMonster*>(m_objList[OBJ_MONSTER].back())->Set_BulletList(&m_objList[OBJ_MONSTERBULLET]);
 	}
 	// 스테이지 SYJ
-	else if (m_iStage == 0) {
+	else if (m_iStage == 1) {
 		// Player
-	
+		m_objList[OBJ_PLAYER].push_back(CAbstractFactory<CPlayer_SYJ>::Create(WINCX / 2.f, WINCY / 1.5f));
+		dynamic_cast<CPlayer_SYJ*>(m_objList[OBJ_PLAYER].front())->Set_BulletList(&m_objList[OBJ_BULLET]);
 		// Monster
-
+		m_objList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster_SYJ_01>::Create(WINCX / 3.f, WINCY / 4.f));
+		dynamic_cast<CMonster_SYJ_01*>(m_objList[OBJ_MONSTER].back())->Set_BulletList(&m_objList[OBJ_MONSTERBULLET]);
 	}
 	else if (m_iStage == 2) {
 		// Player

@@ -52,6 +52,9 @@
     <Filter Include="01. Obj\Monster\Monster_boss">
       <UniqueIdentifier>{f5f04212-59d5-40da-9b68-321fe7f1d508}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\Monster\Monster_SYJ">
+      <UniqueIdentifier>{d35ae6ae-9488-48e9-b6f8-bf4b6fe59107}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -120,6 +123,9 @@
     <ClInclude Include="CollisionMng.h">
       <Filter>CollisionMng</Filter>
     </ClInclude>
+    <ClInclude Include="Monster_SYJ_01.h">
+      <Filter>01. Obj\Monster\Monster_SYJ</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -160,6 +166,12 @@
     </ClCompile>
     <ClCompile Include="CollisionMng.cpp">
       <Filter>CollisionMng</Filter>
+    </ClCompile>
+    <ClCompile Include="Define.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_SYJ_01.cpp">
+      <Filter>01. Obj\Monster\Monster_SYJ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

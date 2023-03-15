@@ -15,8 +15,8 @@ public:
 
 	virtual void Set_BulletList(list<CObj*>* _pBulletList) { m_pBulletList = _pBulletList; }
 	virtual void Create_Bullet();
-
-private:
+	
+protected:
 	void		Key_Input(void);
 
 	list<CObj*>* m_pBulletList;

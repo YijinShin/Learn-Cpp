@@ -28,6 +28,18 @@ public:
 	INFO			Get_Info() const { return m_tInfo; }
 	RECT			Get_Rect() const { return m_tRect; }
 
+
+	Vector2	LookAt(INFO	_inSource, INFO _inTarget) {
+		Vector2 newVector(_inTarget.fX - _inSource.fX, _inTarget.fY - _inSource.fY);
+		return	newVector.GetNormalize();
+	}
+
+	Vector2	LookAt(INFO	_inSource, POINT _inTarget) {
+		Vector2 newVector(_inTarget.x - _inSource.fX, _inTarget.y - _inSource.fY);
+		return	newVector.GetNormalize();
+	}
+
+
 protected:
 	INFO			m_tInfo;
 	RECT			m_tRect;

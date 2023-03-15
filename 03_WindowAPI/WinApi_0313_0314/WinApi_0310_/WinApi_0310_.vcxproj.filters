@@ -37,6 +37,9 @@
     <Filter Include="Obj\Monster\Monster_type1">
       <UniqueIdentifier>{32f5647c-332f-4282-aa8a-f12b32729770}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Obj\Bullet\CBullet_Chase">
+      <UniqueIdentifier>{e936888a-30ff-45fe-9e41-19b99dd55fff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -93,6 +96,9 @@
     <ClInclude Include="CMonster_type1.h">
       <Filter>Obj\Monster\Monster_type1</Filter>
     </ClInclude>
+    <ClInclude Include="CBullet_Chase.h">
+      <Filter>Obj\Bullet\CBullet_Chase</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinApi_0310_.cpp">
@@ -121,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="CMonster_type1.cpp">
       <Filter>Obj\Monster\Monster_type1</Filter>
+    </ClCompile>
+    <ClCompile Include="CBullet_Chase.cpp">
+      <Filter>Obj\Bullet\CBullet_Chase</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

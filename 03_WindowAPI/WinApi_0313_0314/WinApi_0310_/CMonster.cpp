@@ -23,7 +23,7 @@ int CMonster::Update()
 {
     if (m_bDead) return OBJ_DEAD;
     
-    m_tInfo.fX += m_fSpeed;
+    //m_tInfo.fX += m_fSpeed;
 
     __super::Set_Rect();
 
@@ -46,4 +46,5 @@ void CMonster::Render(HDC hDC)
 
 void CMonster::Release()
 {
+
 }
