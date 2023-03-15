@@ -65,5 +65,6 @@ void CMonster::Calc_Center()
 }
 
 void CMonster::Create_Bullet() {
-	m_pBulletList->push_back(CAbstractFactory<CBullet>::Create( m_tInfo.fX, m_tInfo.fY));
+	//m_pBulletList->push_back(CAbstractFactory<CBullet>::Create( m_tInfo.fX, m_tInfo.fY));
+	m_pBulletList->push_back(CAbstractFactory<CBullet>::Create(m_tInfo));
 }

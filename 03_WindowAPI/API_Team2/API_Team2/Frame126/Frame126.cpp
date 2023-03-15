@@ -79,6 +79,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,			// 메모리에 할당되는 실체, 즉 
 			if (dwOldTime + 10 < GetTickCount())
 			{
 				MainGame.Update();
+				MainGame.LateUpdate();
 				MainGame.Render();
 
 				dwOldTime = GetTickCount();

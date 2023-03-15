@@ -21,11 +21,16 @@ public:
 	void			Set_Pos(float _fX, float _fY) { m_tInfo.fX = _fX; m_tInfo.fY = _fY; }
 	void			Set_Size(float _fCX, float _fCY) { m_tInfo.fCX = _fCX; m_tInfo.fCY = _fCY; }
 	void			Set_Degree(float _fDegree) { m_fDegree = _fDegree; }
+	void			Set_Dead() { m_isDead = true; }
+	void			Set_Vector2(Vector2 _fVec2) { m_tInfo.Dir = _fVec2; };
+
+
+	INFO			Get_Info() const { return m_tInfo; }
+	RECT			Get_Rect() const { return m_tRect; }
 
 protected:
 	INFO			m_tInfo;
 	RECT			m_tRect;
-	Vector2			m_direction;
 
 	float			m_fSpeed;
 	float			m_fRotateSpeed;

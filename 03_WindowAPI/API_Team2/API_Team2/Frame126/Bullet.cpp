@@ -38,9 +38,11 @@ void CBullet::Render(HDC hDC)
 
 void CBullet::Release(void)
 {
+
 }
 
 void CBullet::Calc_Center()
 {
-	m_tInfo.fY += m_fSpeed;
+	m_tInfo.fY += m_tInfo.Dir.y * m_fSpeed;
+	m_tInfo.fX += m_tInfo.Dir.x * m_fSpeed;
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include "Vector2.h"
 
 typedef struct tagInfo
 {
@@ -6,5 +7,6 @@ typedef struct tagInfo
 	float		fY;
 	float		fCX;
 	float		fCY;
+	Vector2		Dir;
 
 }INFO;

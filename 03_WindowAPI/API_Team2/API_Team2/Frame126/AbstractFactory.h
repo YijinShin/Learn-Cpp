@@ -22,16 +22,6 @@ public:
 		return pObj;
 	}
 
-	// 시작 위치, 크기 
-	static CObj* Create(INFO _tInfo) {
-		CObj* pObj = new T;
-		pObj->Initialize();
-		pObj->Set_Pos(_tInfo.fX, _tInfo.fY);
-		pObj->Set_Pos(_tInfo.fCX, _tInfo.fCY);
-
-		return pObj;
-	}
-
 	// 시작 위치, 크기, 각도 
 	static CObj* Create(INFO _tInfo, float _fDegree) {
 		CObj* pObj = new T;
@@ -42,6 +32,14 @@ public:
 		return pObj;
 	}
 
+	// 시작 위치, 크기, 각도 
+	static CObj* Create(INFO _tInfo) {
+		CObj* pObj = new T;
+		pObj->Initialize();
+		pObj->Set_Pos(_tInfo.fX, _tInfo.fY);
+		pObj->Set_Vector2(_tInfo.Dir);
+		return pObj;
+	}
 
 	// 안진서 ====================================================
 

@@ -6,12 +6,14 @@ CObj::CObj()
 {
 	ZeroMemory(&m_tInfo, sizeof(INFO));
 	ZeroMemory(&m_tRect, sizeof(RECT));
-	ZeroMemory(&m_direction, sizeof(Vector2));
 
 	m_fSpeed = 0.f;
 	m_fRotateSpeed = 0.f;
 	m_fDegree = 0.f;
 	m_isDead = false;
+
+	m_tInfo.Dir.x = 0.f;
+	m_tInfo.Dir.y = 1.f;
 }
 
 
