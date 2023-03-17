@@ -27,12 +27,13 @@ void CMainGame::Initialize()
 	dynamic_cast<CPlayer*>(m_ObjList[OBJ_PLAYER].front())->Set_MonsterList(&m_ObjList[OBJ_MONSTER]);
 
 	// 몬스터 생성
+	/*
 	m_ObjList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster>::Create( WINCX / 4.f, 150.f));
 	m_ObjList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster>::Create( 470.f, 400.f));
 	m_ObjList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster>::Create(WINCX / 2.f, WINCY / 5.f));
-
-	//m_ObjList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster_type1>::Create(WINCX / 2.f, WINCY / 3.f));
-	//dynamic_cast<CMonster_type1*>(m_ObjList[OBJ_MONSTER].front())->Set_TargetList(&m_ObjList[OBJ_PLAYER]);
+	*/
+	m_ObjList[OBJ_MONSTER].push_back(CAbstractFactory<CMonster_type1>::Create(WINCX / 2.f, WINCY / 3.f));
+	dynamic_cast<CMonster_type1*>(m_ObjList[OBJ_MONSTER].front())->Set_TargetList(&m_ObjList[OBJ_PLAYER]);
 	
 	// 총알은 플레이어에서 생성함. 
 }
