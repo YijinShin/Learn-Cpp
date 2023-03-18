@@ -43,6 +43,12 @@
     <Filter Include="Header\Vector">
       <UniqueIdentifier>{f5ac7cb0-8d18-46b7-8bbf-a556710cfa8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Design\LineMgr %28for Singleton%29">
+      <UniqueIdentifier>{6aa3b56b-8de2-43c6-b766-976960ea45b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Line">
+      <UniqueIdentifier>{430b9eb5-c397-44f0-bfe6-1561f6dba95e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -99,6 +105,12 @@
     <ClInclude Include="Vector2.h">
       <Filter>Header\Vector</Filter>
     </ClInclude>
+    <ClInclude Include="CLineMgr.h">
+      <Filter>Design\LineMgr %28for Singleton%29</Filter>
+    </ClInclude>
+    <ClInclude Include="CLine.h">
+      <Filter>Line</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WindowProject_0317_0319.cpp">
@@ -127,6 +139,12 @@
     </ClCompile>
     <ClCompile Include="Vector2.cpp">
       <Filter>Header\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="CLineMgr.cpp">
+      <Filter>Design\LineMgr %28for Singleton%29</Filter>
+    </ClCompile>
+    <ClCompile Include="CLine.cpp">
+      <Filter>Line</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

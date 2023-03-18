@@ -1,11 +1,10 @@
 #pragma once
-
 #include "Include.h"
 
 class CMainGame
 {
 private:
-
+	HDC		m_hDC;
 public:
 	CMainGame();
 	~CMainGame();

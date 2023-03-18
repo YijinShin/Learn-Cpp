@@ -1,9 +1,4 @@
-﻿  WindowProject_0317_0319.cpp
+﻿  CLineMgr.cpp
+  CMainGame.cpp
   stdafx.cpp
-WindowProject_0317_0319.obj : error LNK2019: "public: __cdecl CMainGame::CMainGame(void)" (??0CMainGame@@QEAA@XZ)wWinMain 함수에서 참조되는 확인할 수 없는 외부 기호
-WindowProject_0317_0319.obj : error LNK2019: "public: __cdecl CMainGame::~CMainGame(void)" (??1CMainGame@@QEAA@XZ)wWinMain 함수에서 참조되는 확인할 수 없는 외부 기호
-WindowProject_0317_0319.obj : error LNK2019: "public: void __cdecl CMainGame::Initialize(void)" (?Initialize@CMainGame@@QEAAXXZ)wWinMain 함수에서 참조되는 확인할 수 없는 외부 기호
-WindowProject_0317_0319.obj : error LNK2019: "public: void __cdecl CMainGame::Update(void)" (?Update@CMainGame@@QEAAXXZ)wWinMain 함수에서 참조되는 확인할 수 없는 외부 기호
-WindowProject_0317_0319.obj : error LNK2019: "public: void __cdecl CMainGame::Late_Update(void)" (?Late_Update@CMainGame@@QEAAXXZ)wWinMain 함수에서 참조되는 확인할 수 없는 외부 기호
-WindowProject_0317_0319.obj : error LNK2019: "public: void __cdecl CMainGame::Render(void)" (?Render@CMainGame@@QEAAXXZ)wWinMain 함수에서 참조되는 확인할 수 없는 외부 기호
-C:\GitHub\Learn-Cpp\03_WindowAPI\WindowProject_0317_0319\x64\Debug\WindowProject_0317_0319.exe : fatal error LNK1120: 6개의 확인할 수 없는 외부 참조입니다.
+  WindowProject_0317_0319.vcxproj -> C:\GitHub\Learn-Cpp\03_WindowAPI\WindowProject_0317_0319\x64\Debug\WindowProject_0317_0319.exe

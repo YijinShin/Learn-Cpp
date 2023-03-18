@@ -1,7 +1,7 @@
 #pragma once
 class CVector2
 {
-private:
+public:
 	float	x;
 	float	y;
 
@@ -9,4 +9,5 @@ public:
 	CVector2();
 	~CVector2();
 
+	void		Normalize();
 };
