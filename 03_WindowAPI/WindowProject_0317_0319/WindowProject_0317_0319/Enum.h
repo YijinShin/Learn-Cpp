@@ -1,0 +1,12 @@
+#pragma once
+
+enum OBJID
+{
+	OBJ_MONSTER,
+	OBJ_PLAYER,
+	OBJ_BULLET,
+	OBJ_MONSTERBULLET,
+	OBJ_SHIELD,
+	OBJ_END
+};
+
