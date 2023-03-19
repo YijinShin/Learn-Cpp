@@ -17,6 +17,8 @@ public:
 	void		Render(HDC hDC);
 	void		Release();
 
+	list<CLine*>*		Get_LineList() { return &m_LineList; }
+
 public:
 	static CLineMgr*	Get_Instance() {
 		if (!m_pInstance)

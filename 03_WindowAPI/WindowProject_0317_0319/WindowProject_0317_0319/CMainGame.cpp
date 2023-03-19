@@ -24,7 +24,9 @@ void CMainGame::Initialize()
 	// Line 持失
 	CLineMgr::Get_Instance()->Initialize();
 	// player 持失
-	CObjMgr::Get_Instance()->Add_Object( OBJ_PLAYER, CAbstractFactory<CPlayer>::Create(WINCX/2.f, WINCY/1.5f ));
+	CObj* pObj = CAbstractFactory<CPlayer>::Create(100.f, 450.f);
+	//dynamic_cast<CPlayer*>(pObj)->Set_LineList();
+	CObjMgr::Get_Instance()->Add_Object( OBJ_PLAYER, CAbstractFactory<CPlayer>::Create(100.f, 450.f ));
 }
 
 void CMainGame::Update()

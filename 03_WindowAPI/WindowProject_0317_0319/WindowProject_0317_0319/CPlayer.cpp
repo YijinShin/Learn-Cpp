@@ -4,8 +4,10 @@
 
 #include "AbstractFactory.h"
 #include "CObjMgr.h"
+#include "CLineMgr.h"
 
-CPlayer::CPlayer():m_iBulletCoolTime(GetTickCount64())
+CPlayer::CPlayer():m_iBulletCoolTime(GetTickCount64()), m_pLineList(nullptr), 
+		m_fJumpForce(0.f), m_fJumpTime(0.f), m_fJumpHight(0.f), m_bIsJump(false)
 {
 }
 
@@ -20,6 +22,10 @@ void CPlayer::Initialize()
 	m_tInfo.fCY = 90.f;
 	m_iHP = 10;							// 체력
 	m_fSpeed = 10.f;					// 속도 
+
+	m_fJumpForce = 4.f;
+
+	m_pLineList = CLineMgr::Get_Instance() -> Get_LineList();		// line 가져오기 ( 플에이어가 발디디는 땅)
 }
 
 int CPlayer::Update()
@@ -27,7 +33,12 @@ int CPlayer::Update()
 	if (m_iHP <= 0) return OBJ_DEAD;	// 사망 처리 
 
 	Update_Dir();						// 방향 백터 업데이트
-	Key_Input();						// 입력 처리 (Info 업데이트)	
+
+	if (m_bIsJump) {					// 점프 처리 
+		Jump();
+	}
+	else Key_Input();					// 입력 처리 (Info 업데이트)	
+
 	__super::Update_Rect();				// RECT 업데이트
 
 	return OBJ_NOEVENT;
@@ -61,20 +72,24 @@ void CPlayer::Key_Input()
 {
 	// 이동 (상하좌우)
 	if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('W')) {
-		m_tInfo.fX += m_tInfo.Dir.x * m_fSpeed;
-		m_tInfo.fY += m_tInfo.Dir.y * m_fSpeed;
 	}
 	if (GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('S')) {
-		m_tInfo.fX -= m_tInfo.Dir.x * m_fSpeed;
-		m_tInfo.fY -= m_tInfo.Dir.y * m_fSpeed;
 	}
 	if (GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('A')) {
-		m_tInfo.fX += m_tInfo.Dir.y * m_fSpeed;
-		m_tInfo.fY -= m_tInfo.Dir.x * m_fSpeed;
+		// 왼쪽에 길이 더 있는지 체크 
+		auto	iter = m_pLineList->begin();
+		if (m_tRect.left <= (*iter)->Get_Line().tLpoint.fX)
+			return;
+		m_tInfo.fX -= m_fSpeed;
+		Move();
 	}
 	if (GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('D')) {
-		m_tInfo.fX -= m_tInfo.Dir.y * m_fSpeed;
-		m_tInfo.fY += m_tInfo.Dir.x * m_fSpeed;
+		// 오른쪽에 길이 더 있는지 체크 
+		auto	iter = m_pLineList->begin();
+		if (m_tRect.right >= m_pLineList->back()->Get_Line().tRpoint.fX)
+			return;
+		m_tInfo.fX += m_fSpeed;
+		Move();
 	}
 
 	// 공격 (좌클릭)
@@ -87,7 +102,11 @@ void CPlayer::Key_Input()
 
 	// 점프 
 	if (GetAsyncKeyState(VK_SPACE)) {
-
+		// 점프 방향 백터 설정
+		m_cJumpDir.x = 0;
+		m_cJumpDir.y = -1;
+		// 점프 
+		m_bIsJump = true;
 	}
 }
 
@@ -108,3 +127,27 @@ void CPlayer::Create_Bullet()
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BULLET, pObj);
 }
 
+void CPlayer::Jump()
+{
+}
+
+void CPlayer::Move()
+{
+	auto	iter = m_pLineList->begin();
+	LINE	line{};
+
+	while ( iter != m_pLineList->end()) {
+
+		line = (*iter)->Get_Line();
+
+		if (line.tLpoint.fX <= m_tInfo.fX && m_tInfo.fX <= line.tRpoint.fX) {
+
+			float	m = (line.tRpoint.fY - line.tLpoint.fY) / (line.tRpoint.fX - line.tLpoint.fX);  // 기울기 
+			float   n = line.tLpoint.fY - m * line.tLpoint.fX;										// y절편  
+
+			m_tInfo.fY = m * m_tInfo.fX + n;					// 직선 방정식 따라 물체의 중점 y좌표 구하기  
+			break;
+		}
+		iter++;
+	}
+}
