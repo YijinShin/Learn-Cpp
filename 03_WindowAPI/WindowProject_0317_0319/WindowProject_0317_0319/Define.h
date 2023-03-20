@@ -8,6 +8,11 @@
 
 #define		PURE		=0;
 
-#define		G			9.8f			
+#define		G			9.8f	
+
+#define		PI			3.14f
+
+#define		RadianToDegree		(180/PI)
+#define		DegreeToRadian		(PI/180)
 
 extern		HWND	g_hWnd;
