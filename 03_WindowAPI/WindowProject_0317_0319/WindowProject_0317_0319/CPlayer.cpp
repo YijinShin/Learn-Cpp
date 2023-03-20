@@ -6,8 +6,9 @@
 #include "CObjMgr.h"
 #include "CLineMgr.h"
 
-CPlayer::CPlayer():m_iBulletCoolTime(GetTickCount64()), m_pLineList(nullptr), 
-		m_fJumpForce(0.f), m_fJumpTime(0.f), m_fJumpHight(0.f), m_bIsJump(false)
+CPlayer::CPlayer():m_iBulletCoolTime(GetTickCount64()), 
+		m_fJumpForce(0.f), m_fJumpTime(0.f), m_fJumpHight(0.f), m_bIsJump(false),
+		m_fMaxHightTime(0.f), m_iMaxHightPauseTime(0)
 {
 }
 
@@ -24,8 +25,6 @@ void CPlayer::Initialize()
 	m_fSpeed = 10.f;					// 속도 
 
 	m_fJumpForce = 20.f;
-
-	m_pLineList = CLineMgr::Get_Instance() -> Get_LineList();		// line 가져오기 ( 플에이어가 발디디는 땅)
 }
 
 int CPlayer::Update()
@@ -70,26 +69,34 @@ void CPlayer::Release()
 
 void CPlayer::Key_Input()
 {
+	float fCalcY(0.f);
+	
 	// 이동 (상하좌우)
-	if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('W')) {
-	}
-	if (GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('S')) {
-	}
 	if (GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('A')) {
-		// 왼쪽에 길이 더 있는지 체크 
-		auto	iter = m_pLineList->begin();
-		if (m_tRect.left <= (*iter)->Get_Line().tLpoint.fX)
-			return;
+
+		// 중점 이동 
 		m_tInfo.fX -= m_fSpeed;
-		m_tInfo.fY = Calc_yPos();
+		if (CLineMgr::Get_Instance()->Collision_Line(m_tInfo.fX, m_tInfo.fY, &fCalcY)) {
+			m_tInfo.fY = fCalcY;
+		}
+		else {
+			// 길이 없는 경우 x좌표 원상복구
+			m_tInfo.fX += m_fSpeed;
+		}
+	
+
 	}
 	if (GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('D')) {
-		// 오른쪽에 길이 더 있는지 체크 
-		auto	iter = m_pLineList->begin();
-		if (m_tRect.right >= m_pLineList->back()->Get_Line().tRpoint.fX)
-			return;
+		// 중점이동 
 		m_tInfo.fX += m_fSpeed;
-		m_tInfo.fY = Calc_yPos();
+		if (CLineMgr::Get_Instance()->Collision_Line(m_tInfo.fX, m_tInfo.fY, &fCalcY)) {
+			m_tInfo.fY = fCalcY;
+		}
+		else {
+			// 길이 없는 경우 x좌표 원상복구
+			m_tInfo.fX -= m_fSpeed;
+		}
+
 	}
 
 	// 공격 (좌클릭)
@@ -132,48 +139,18 @@ void CPlayer::Create_Bullet()
 void CPlayer::Jump()
 {	
 	// 시간 계산
-	m_fJumpTime ++;
+	m_fJumpTime++;
 	float fT = m_fJumpTime / 5.f;
 
 	// x, y좌표 계산
-		// x: V0 * cosθ * t
-		// y: V0 * sinθ * t - 1/2 * g * t^2
- 	m_tInfo.fX += m_fJumpForce * m_cJumpDir.x * fT;
-	m_tInfo.fY -= (m_fJumpForce * m_cJumpDir.y * fT) - ((G * fT * fT)/2.f); 
+	m_tInfo.fX += m_fJumpForce * m_cJumpDir.x * fT;								// x: V0 * cosθ * t
+	m_tInfo.fY -= (m_fJumpForce * m_cJumpDir.y * fT) - ((G * fT * fT)/2.f);		// y: V0 * sinθ * t - 1/2 * g * t^2
 
-	/*	// 화면 상단으로 벗어나지 않도록 
-	if (m_tRect.top <= 0) {
-		m_cJumpDir.y = -1;
-	}
-	*/
-
-	// y좌표로 점프 끝났는지 확인하기
-	float fYPos = Calc_yPos();
-
-	if (m_tInfo.fY >= fYPos ){
-		m_tInfo.fY = fYPos;						// x좌표 기준으로 y값 보정하기 
+	// 하강중에  y좌표로 점프 끝났는지 확인하기
+	float fCalcY(0.f);
+	CLineMgr::Get_Instance()->Collision_Line(m_tInfo.fX, m_tInfo.fY, &fCalcY);
+	if (m_tInfo.fY >= fCalcY){
+		m_tInfo.fY = fCalcY;						// x좌표 기준으로 y값 보정하기 
 		m_bIsJump = false;						
 	}
-}
-
-float CPlayer::Calc_yPos()
-{
-	auto	iter = m_pLineList->begin();
-	LINE	line{};
-	float	fYPos(0.f);
-
-	while ( iter != m_pLineList->end()) {
-
-		line = (*iter)->Get_Line();
-
-		if (line.tLpoint.fX <= m_tInfo.fX && m_tInfo.fX <= line.tRpoint.fX) {
-
-			float	m = (line.tRpoint.fY - line.tLpoint.fY) / (line.tRpoint.fX - line.tLpoint.fX);  // 기울기 
-			float   n = line.tLpoint.fY - m * line.tLpoint.fX;										// y절편  
-			fYPos = m * m_tInfo.fX + n;
-			break;
-		}
-		iter++;
-	}
-	return fYPos;
 }

@@ -13,6 +13,6 @@ public:
 	
 	void	Render(HDC hDC);
 
-	LINE	Get_Line() { return m_tLine; }
+	LINE&	Get_Line() { return m_tLine; }
 };
 

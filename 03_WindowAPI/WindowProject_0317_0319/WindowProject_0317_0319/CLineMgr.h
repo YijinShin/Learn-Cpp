@@ -17,7 +17,8 @@ public:
 	void		Render(HDC hDC);
 	void		Release();
 
-	list<CLine*>*		Get_LineList() { return &m_LineList; }
+	bool		Collision_Line(float _fX, float _fY, float* pCalcY);
+	bool		Check_LineExist(float _fX);
 
 public:
 	static CLineMgr*	Get_Instance() {
