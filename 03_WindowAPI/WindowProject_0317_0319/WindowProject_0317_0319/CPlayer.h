@@ -9,14 +9,17 @@ private:
 
 	CVector2		m_cJumpDir;						// 점프하는 방향 단위 백터
 	float			m_fJumpForce;					// 점프 하는 힘
-	float			m_fJumpTime;					// 점프에 대입할 시간 t
+	float			m_fJumpTime;	
+	float			m_fJumpTime2;
 	float			m_fJumpHight;					// 점프 높이 
 	float			m_fMaxHightTime;				// 최고점에서의 시간
 	int				m_iMaxHightPauseTime;			// 최고점에서 멈추는 시간
+	float			m_fStartJumpYPos;
 
 	bool			m_bIsJump;						// 점프 중인지 확인 
 	bool			m_bIsLeft;						// 왼쪽 키 누르는 중인지 확인
 	bool			m_bIsRight;						// 오른쪽 키 누르는 중인지 확인 
+	bool			m_bIsDown;			
 
 public:
 	CPlayer();
@@ -39,6 +42,7 @@ protected:
 
 	virtual void	Create_Bullet();				// 총알 생성 
 	
-	virtual void	Jump();							// 점프 
+	virtual void	Jump();		
+	virtual void	Jump2();		// 점프 
 };
 

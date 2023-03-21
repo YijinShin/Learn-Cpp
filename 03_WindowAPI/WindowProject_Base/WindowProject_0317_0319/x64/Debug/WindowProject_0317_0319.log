@@ -1,13 +1,9 @@
-﻿  CBullet.cpp
-  CLine.cpp
-  CMainGame.cpp
-  CMonster.cpp
-  CObj.cpp
-  CPlayer.cpp
-C:\GitHub\Learn-Cpp\03_WindowAPI\WindowProject_0317_0319\WindowProject_0317_0319\CPlayer.cpp(8,37): warning C4244: '초기화 중': 'ULONGLONG'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  CObjMgr.cpp
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: 중간 디렉터리(x64\Debug\)에 다른 프로젝트(WindowProject_0317_0319.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
   CLineMgr.cpp
-  Vector2.cpp
-  WindowProject_0317_0319.cpp
+C:\GitHub\Learn-Cpp\03_WindowAPI\WindowProject_Base\WindowProject_0317_0319\Include.h(1,1): warning C4828: 파일에 0xaa 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+C:\GitHub\Learn-Cpp\03_WindowAPI\WindowProject_Base\WindowProject_0317_0319\Define.h(1,1): warning C4828: 파일에 0xe1 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+C:\GitHub\Learn-Cpp\03_WindowAPI\WindowProject_Base\WindowProject_0317_0319\Enum.h(1,1): warning C4828: 파일에 0x176 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+C:\GitHub\Learn-Cpp\03_WindowAPI\WindowProject_Base\WindowProject_0317_0319\Struct.h(1,1): warning C4828: 파일에 0x2f9 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+C:\GitHub\Learn-Cpp\03_WindowAPI\WindowProject_Base\WindowProject_0317_0319\Functor.h(1,1): warning C4828: 파일에 0x121 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
   stdafx.cpp
-  WindowProject_0317_0319.vcxproj -> C:\GitHub\Learn-Cpp\03_WindowAPI\WindowProject_0317_0319\x64\Debug\WindowProject_0317_0319.exe
+  WindowProject_0317_0319.vcxproj -> C:\GitHub\Learn-Cpp\03_WindowAPI\WindowProject_Base\x64\Debug\WindowProject_FrameWork.exe

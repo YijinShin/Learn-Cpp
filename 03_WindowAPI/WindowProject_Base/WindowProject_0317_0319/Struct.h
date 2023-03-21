@@ -29,3 +29,6 @@ typedef struct tagLine {
 	tagLine(LINEPOINT _tLpoint, LINEPOINT _tRpoint) :
 		tLpoint(_tLpoint), tRpoint(_tRpoint) {}
 }LINE;
+
+
+// TODO : 프로그램에 필요한 코드를 추가하세요

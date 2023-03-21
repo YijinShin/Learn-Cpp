@@ -1,5 +1,14 @@
 #pragma once
 
+enum STAGEID {
+	STAGE_START,
+	STAGE_AJS,
+	STAGE_PIS,
+	STAGE_SHH,
+	STAGE_SYJ,
+	STAGE_END
+};
+
 enum OBJID
 {
 	OBJ_MONSTER,
@@ -10,3 +19,15 @@ enum OBJID
 	OBJ_END
 };
 
+enum LINEPOINTS { 
+	LPOINT,
+	RPOINT,
+	END 
+};
+
+enum GAMEMODE {
+	MODE_EDITOR,
+	MODE_GAME
+};
+
+// TODO : 프로그램에 필요한 코드를 추가하세요

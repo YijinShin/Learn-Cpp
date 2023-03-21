@@ -37,23 +37,32 @@
     <Filter Include="Obj\Player">
       <UniqueIdentifier>{4271b1b6-e908-47fe-849a-0554909e30c4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Design\ObjMgr %28for Singleton%29">
-      <UniqueIdentifier>{b7f95b18-31bc-46e9-b0ec-ccaa9b939ada}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header\Vector">
       <UniqueIdentifier>{f5ac7cb0-8d18-46b7-8bbf-a556710cfa8e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Design\LineMgr %28for Singleton%29">
+    <Filter Include="Design\LineMgr">
       <UniqueIdentifier>{6aa3b56b-8de2-43c6-b766-976960ea45b7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Line">
+    <Filter Include="Design\ObjMgr">
+      <UniqueIdentifier>{b7f95b18-31bc-46e9-b0ec-ccaa9b939ada}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CollisionMgr">
+      <UniqueIdentifier>{4d4330ae-9df7-4f56-9d30-f664514b6b81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Design\KeyMgr">
+      <UniqueIdentifier>{dca5df29-dee4-455d-8687-70b697b95e67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Design\StageMgr">
+      <UniqueIdentifier>{1431258a-f539-4298-a597-bae4a243e077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Design\LineMgr\Line">
       <UniqueIdentifier>{430b9eb5-c397-44f0-bfe6-1561f6dba95e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Design\EditorMgr">
+      <UniqueIdentifier>{c1f40742-9fac-4cd3-96fe-5024354340c1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -100,16 +109,31 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="CObjMgr.h">
-      <Filter>Design\ObjMgr %28for Singleton%29</Filter>
+      <Filter>Design\ObjMgr</Filter>
     </ClInclude>
     <ClInclude Include="Vector2.h">
       <Filter>Header\Vector</Filter>
     </ClInclude>
     <ClInclude Include="CLineMgr.h">
-      <Filter>Design\LineMgr %28for Singleton%29</Filter>
+      <Filter>Design\LineMgr</Filter>
     </ClInclude>
     <ClInclude Include="CLine.h">
-      <Filter>Line</Filter>
+      <Filter>Design\LineMgr\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="CStageMgr.h">
+      <Filter>Design\StageMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CCollisionMgr.h">
+      <Filter>CollisionMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CKeyMgr.h">
+      <Filter>Design\KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CEditorMgr.h">
+      <Filter>Design\EditorMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -135,16 +159,28 @@
       <Filter>PCH</Filter>
     </ClCompile>
     <ClCompile Include="CObjMgr.cpp">
-      <Filter>Design\ObjMgr %28for Singleton%29</Filter>
+      <Filter>Design\ObjMgr</Filter>
     </ClCompile>
     <ClCompile Include="Vector2.cpp">
       <Filter>Header\Vector</Filter>
     </ClCompile>
     <ClCompile Include="CLineMgr.cpp">
-      <Filter>Design\LineMgr %28for Singleton%29</Filter>
+      <Filter>Design\LineMgr</Filter>
     </ClCompile>
     <ClCompile Include="CLine.cpp">
-      <Filter>Line</Filter>
+      <Filter>Design\LineMgr\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="CStageMgr.cpp">
+      <Filter>Design\StageMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollisionMgr.cpp">
+      <Filter>CollisionMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CKeyMgr.cpp">
+      <Filter>Design\KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CEditorMgr.cpp">
+      <Filter>Design\EditorMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

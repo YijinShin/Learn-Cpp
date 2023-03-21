@@ -5,6 +5,7 @@ class CMainGame
 {
 private:
 	HDC		m_hDC;
+	int		m_GameMode;
 public:
 	CMainGame();
 	~CMainGame();

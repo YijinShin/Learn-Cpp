@@ -1,14 +1,14 @@
 #include "stdafx.h"
 #include "CMainGame.h"
-// Desing
-#include "AbstractFactory.h"
-#include "CObjMgr.h"
-#include "CLineMgr.h"
-// Object
-#include "CPlayer.h"
+
+// desing
+#include "CStageMgr.h"
+#include "CEditorMgr.h"
+#include "CKeyMgr.h"
 
 
-CMainGame::CMainGame()
+
+CMainGame::CMainGame(): m_GameMode(MODE_GAME)
 {
 }
 
@@ -19,34 +19,58 @@ CMainGame::~CMainGame()
 
 void CMainGame::Initialize()
 {
-	// HDC 설정
 	m_hDC = GetDC(g_hWnd);
-	// Line 생성
-	CLineMgr::Get_Instance()->Initialize();
-	// player 생성
-	CObjMgr::Get_Instance()->Add_Object( OBJ_PLAYER, CAbstractFactory<CPlayer>::Create(WINCX/2.f, WINCY/1.5f ));
+	
+	if(m_GameMode == MODE_GAME)
+		CStageMgr::Initialize();
+
 }
 
 void CMainGame::Update()
 {
-	CObjMgr::Get_Instance()->Update();
+	// 모드 바꾸기 (게임 <-> 에디터)
+	if (CKeyMgr::Get_Instance()->Key_Down('M')) {
+		if (m_GameMode == MODE_GAME) {
+			m_GameMode = MODE_EDITOR;
+			CStageMgr::Release();
+			CEditorMgr::Initialize();
+		}
+		else if (m_GameMode == MODE_EDITOR) {
+			m_GameMode = MODE_GAME;
+			CEditorMgr::Release();
+			CStageMgr::Initialize();
+		}
+	}
+
+	if (m_GameMode == MODE_GAME)
+		CStageMgr::Update();
+	else if (m_GameMode == MODE_EDITOR) {
+		CEditorMgr::Update();
+	}
 }
 
 void CMainGame::Late_Update()
 {
-	CObjMgr::Get_Instance()->Late_Update();
+	if (m_GameMode == MODE_GAME) {
+		if (CStageMgr::Late_Update()) {
+			CStageMgr::GoNextStage();
+		}
+	}
 }
 
 void CMainGame::Render()
 {
 	Rectangle(m_hDC, 0, 0, WINCX, WINCY);
-
-	CLineMgr::Get_Instance()->Render(m_hDC);
-	CObjMgr::Get_Instance()->Render(m_hDC);
+	
+	if (m_GameMode == MODE_GAME)
+		CStageMgr::Render(m_hDC);
+	if (m_GameMode == MODE_EDITOR) 
+		CEditorMgr::Render(m_hDC);
+	
 }
 
 void CMainGame::Release()
 {
-	CLineMgr::Get_Instance()->Release();
-	CObjMgr::Get_Instance()->Release();
+	if (m_GameMode == MODE_GAME)
+		CStageMgr::Release();
 }

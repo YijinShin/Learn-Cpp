@@ -24,6 +24,7 @@
     <ProjectGuid>{ee560ccd-ab19-4625-a2b1-9faf13de33f2}</ProjectGuid>
     <RootNamespace>WindowProject03170319</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>WindowProject_FrameWork</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -131,11 +132,14 @@
   <ItemGroup>
     <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="CBullet.h" />
+    <ClInclude Include="CCollisionMgr.h" />
+    <ClInclude Include="CEditorMgr.h" />
     <ClInclude Include="CLine.h" />
     <ClInclude Include="CMainGame.h" />
     <ClInclude Include="CMonster.h" />
     <ClInclude Include="CObj.h" />
     <ClInclude Include="CPlayer.h" />
+    <ClInclude Include="CStageMgr.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="framework.h" />
@@ -143,6 +147,7 @@
     <ClInclude Include="Include.h" />
     <ClInclude Include="CObjMgr.h" />
     <ClInclude Include="CLineMgr.h" />
+    <ClInclude Include="CKeyMgr.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Struct.h" />
@@ -152,6 +157,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CBullet.cpp" />
+    <ClCompile Include="CCollisionMgr.cpp" />
+    <ClCompile Include="CEditorMgr.cpp" />
     <ClCompile Include="CLine.cpp" />
     <ClCompile Include="CMainGame.cpp" />
     <ClCompile Include="CMonster.cpp" />
@@ -159,6 +166,8 @@
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="CObjMgr.cpp" />
     <ClCompile Include="CLineMgr.cpp" />
+    <ClCompile Include="CStageMgr.cpp" />
+    <ClCompile Include="CKeyMgr.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>

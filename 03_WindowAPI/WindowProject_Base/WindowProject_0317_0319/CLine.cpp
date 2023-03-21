@@ -10,6 +10,10 @@ CLine::CLine(LINEPOINT _tLpoint, LINEPOINT _tRpoint): m_tLine(_tLpoint, _tRpoint
 {
 }
 
+CLine::CLine(LINE& _tLine): m_tLine(_tLine)
+{
+}
+
 CLine::~CLine()
 {
 }
