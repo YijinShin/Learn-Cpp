@@ -17,8 +17,6 @@ public:
 	void		Render(HDC hDC);
 	void		Release();
 
-	bool		Collision_Line(float _fX, float _fY, float* pCalcY);
-
 public:
 	static CLineMgr*	Get_Instance() {
 		if (!m_pInstance)
@@ -34,5 +32,8 @@ public:
 		}
 	}
 
+// TODO 추가된 함수 
+public:
+	bool		SYJ_Collision_Line(float _fX, float _fY, float* pCalcY);
 };
 

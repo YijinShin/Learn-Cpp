@@ -41,6 +41,11 @@ void CLineMgr::Release()
 	m_LineList.clear();
 }
 
+bool CLineMgr::SYJ_Collision_Line(float _fX, float _fY, float* pCalcY)
+{
+	return false;
+}
+
 bool CLineMgr::Collision_Line(float _fX, float _fY, float* pCalcY)
 {
 	float Height(0.f);
