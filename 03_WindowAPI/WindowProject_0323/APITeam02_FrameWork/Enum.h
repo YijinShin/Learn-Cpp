@@ -53,3 +53,13 @@ enum SCENEID {
 
 	SC_END
 };
+
+enum STATEID {
+	ST_IDLE,
+	ST_WALK,
+	ST_ATTCK,
+	ST_HIT,
+	ST_DEAD,
+
+	ST_END
+};

@@ -7,10 +7,10 @@
 #include "CObjMgr.h"
 #include "AbstractFactory.h"
 #include "CScrollMgr.h"
+#include "CBmpMgr.h"
 
 //Object
 #include "CBullet.h"
-
 
 
 CPlayer_SYJ::CPlayer_SYJ(): 
@@ -24,12 +24,32 @@ CPlayer_SYJ::~CPlayer_SYJ()
 
 void CPlayer_SYJ::Initialize()
 {
-	m_tInfo.fCX = 25.f;					// 크기 
-	m_tInfo.fCY = 25.f;
+	m_tInfo.fCX = 200.f;					// 크기 
+	m_tInfo.fCY = 200.f;
 	m_iHP = 10;							// 체력
 	m_fSpeed = 10.f;					// 속도 
 
 	m_fJumpForce = 50.f;
+
+	// Frame 정보 초기화 
+	m_pFrameKey =const_cast<TCHAR*>( L"Player_RIGHT" );
+
+	m_tFrame.iFrameStart = 0;
+	m_tFrame.iFrameEnd= 3;
+	m_tFrame.iMotion = 0;
+	m_tFrame.dwSpeed = 200;
+	m_tFrame.dwTime = GetTickCount();
+
+	// 필요한 이미지 
+	CBmpMgr::Get_Instance()->Insert_MyBmp(L"../Image/Player/Player_DOWN.bmp", L"Player_DOWN");
+	CBmpMgr::Get_Instance()->Insert_MyBmp(L"../Image/Player/Player_UP.bmp", L"Player_UP");
+	CBmpMgr::Get_Instance()->Insert_MyBmp(L"../Image/Player/Player_LEFT.bmp", L"Player_LEFT");
+	CBmpMgr::Get_Instance()->Insert_MyBmp(L"../Image/Player/Player_RIGHT.bmp", L"Player_RIGHT");
+
+	CBmpMgr::Get_Instance()->Insert_MyBmp(L"../Image/Player/Player_LU.bmp", L"Player_LU");
+	CBmpMgr::Get_Instance()->Insert_MyBmp(L"../Image/Player/Player_LD.bmp", L"Player_LD");
+	CBmpMgr::Get_Instance()->Insert_MyBmp(L"../Image/Player/Player_RD.bmp", L"Player_RD");
+	CBmpMgr::Get_Instance()->Insert_MyBmp(L"../Image/Player/Player_RU.bmp", L"Player_RU");
 
 }
 
@@ -45,10 +65,11 @@ int CPlayer_SYJ::Update()
 
 void CPlayer_SYJ::Late_Update()
 {
-	
 	Jump();
 	OffSet();
-
+	Change_Motion();
+	
+	__super::Move_Frame();
 }
 
 void CPlayer_SYJ::Render(HDC hDC)
@@ -59,10 +80,25 @@ void CPlayer_SYJ::Render(HDC hDC)
 	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 	int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
-	Ellipse(hDC,
+	/*Ellipse(hDC,
 		m_tRect.left+ iScrollX, m_tRect.top+ iScrollY,
-		m_tRect.right+ iScrollX, m_tRect.bottom+ iScrollY);
+		m_tRect.right+ iScrollX, m_tRect.bottom+ iScrollY);*/
 
+	// 스프라이트
+	HDC	hMemDC = CBmpMgr::Get_Instance()->Find_MyBmp(m_pFrameKey);
+
+	GdiTransparentBlt(hDC,
+					(int)m_tRect.left + iScrollX,
+					(int)m_tRect.top + iScrollY,
+					(int)m_tInfo.fCX,
+					(int)m_tInfo.fCY,
+					hMemDC,
+					m_tFrame.iFrameStart * (int)m_tInfo.fCX,
+					m_tFrame.iMotion * (int)m_tInfo.fCY,
+					(int)m_tInfo.fCX,
+					(int)m_tInfo.fCY,
+					RGB(0,0,0));
+	
 	SelectObject(hDC, OldPen);
 	DeleteObject(MyPen);
 }
@@ -76,7 +112,6 @@ void CPlayer_SYJ::Create_Bullet()
 	CObj* pObj = CAbstractFactory<CBullet>::Create(m_tInfo.fX, m_tInfo.fY);
 	pObj->Set_Dir(m_tInfo.Dir);
 	CObjMgr::Get_Instance()->Add_Object(OBJ_BULLET, pObj);
-
 }
 
 void CPlayer_SYJ::Key_Input()
@@ -88,11 +123,19 @@ void CPlayer_SYJ::Key_Input()
 		|| CKeyMgr::Get_Instance()->Key_Pressing(VK_RIGHT)) 
 	{
 		m_tInfo.fX += m_fSpeed;
+		m_pFrameKey = const_cast<TCHAR*>(L"Player_RIGHT");
+		m_eCurrState = ST_WALK;
 	}
-	if (CKeyMgr::Get_Instance()->Key_Pressing('A')
+	else if (CKeyMgr::Get_Instance()->Key_Pressing('A')
 		|| CKeyMgr::Get_Instance()->Key_Pressing(VK_LEFT))
 	{
 		m_tInfo.fX -= m_fSpeed;
+		m_pFrameKey = const_cast<TCHAR*>(L"Player_LEFT");
+		m_eCurrState = ST_WALK;
+	}
+	else 
+	{
+		m_eCurrState = ST_IDLE;
 	}
 
 	// 위로 점프 
@@ -110,7 +153,6 @@ void CPlayer_SYJ::Key_Input()
 		m_bIsJump = true;
 		// 점프 최고 높이 
 		m_fOldJumpHight = m_tInfo.fY;
-		
 	}
 
 	// 공격
@@ -138,23 +180,23 @@ void CPlayer_SYJ::Jump()
 		// 낭떠러지로 낙하중인지 확인
 			// [문제점] 점프후 낙하하면 낙하 처리가 안됨..
 		if (m_tInfo.fY >= 1000.f) {
+
 			// 낙하중이라면 리스폰 지점으로 이동시킴
 			m_tInfo.fX = 400.f;
 			m_tInfo.fY = 300.f;
+			
 			// 무적 도입시키기 
 		}
 	}
 
 	// 점프중인경우
 	else{
-
 		m_fJumpTime++;
 		float fT = m_fJumpTime / 2.f;
 
 		m_tInfo.fX += m_cJumpDir.x * m_fJumpForce * fT;
 		m_tInfo.fY = m_cPosBeforJump.y - ((m_cJumpDir.y * m_fJumpForce * fT) - ((fT * fT * G) / 2.f));
 
-		
 		if ( m_fOldJumpHight < m_tInfo.fY)
 			m_bIsDown = true;
 
@@ -167,10 +209,8 @@ void CPlayer_SYJ::Jump()
 				m_bIsJump = false;
 			}
 		}
-		
 	}
 }
-
 
 void CPlayer_SYJ::OffSet()
 {
@@ -192,3 +232,44 @@ void CPlayer_SYJ::OffSet()
 	if (fOffsetMaxY < m_tInfo.fY + iScrollY)
 		CScrollMgr::Get_Instance()->Set_ScrollY(-m_fSpeed);
 }
+
+void CPlayer_SYJ::Change_Motion()
+{
+	if(m_ePreState != m_eCurrState){
+		switch (m_tFrame.iMotion)
+		{
+		case ST_IDLE:
+			m_tFrame.iFrameStart = 0;
+			m_tFrame.iFrameEnd = 3;
+			m_tFrame.iMotion = 0;
+			m_tFrame.dwSpeed = 200;
+			m_tFrame.dwTime = GetTickCount();
+			break;
+		case ST_WALK:
+			m_tFrame.iFrameStart = 0;
+			m_tFrame.iFrameEnd = 5;
+			m_tFrame.iMotion = 1;
+			m_tFrame.dwSpeed = 200;
+			m_tFrame.dwTime = GetTickCount();
+			break;
+		case ST_ATTCK:
+			m_tFrame.iFrameStart = 0;
+			m_tFrame.iFrameEnd = 5;
+			m_tFrame.iMotion = 2;
+			m_tFrame.dwSpeed = 200;
+			m_tFrame.dwTime = GetTickCount();
+			break;
+		case ST_HIT:
+
+			break;
+		case ST_DEAD:
+
+			break;
+		default:
+			break;
+		}
+
+		m_ePreState = m_eCurrState;
+	}
+}
+

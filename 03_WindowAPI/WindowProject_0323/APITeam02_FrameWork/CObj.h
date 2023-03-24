@@ -14,11 +14,13 @@ protected:
 	
 	TCHAR* m_pFrameKey;
 
+	FRAME		m_tFrame;
+	STATEID		m_ePreState;
+	STATEID		m_eCurrState;
+
 	// for color
 	HPEN	 MyPen;
 	HPEN	OldPen;
-	
-
 
 	// function
 
@@ -57,6 +59,7 @@ public:
 	virtual	void	Update_Rect();
 	void			LookAt(POINT ptDistPos);		// Obj가 DistPos 를 바라보는 방향 단위 백터 계산하는 함수 
 
+	void			Move_Frame();
 
 };
 

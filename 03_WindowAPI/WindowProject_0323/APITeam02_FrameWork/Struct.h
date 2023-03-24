@@ -32,3 +32,11 @@ typedef struct tagLine {
 
 
 // TODO : 프로그램에 필요한 코드를 추가하세요
+
+typedef struct tagFrame {
+	int		iFrameStart;
+	int		iFrameEnd;
+	int		iMotion;
+	DWORD	dwSpeed;
+	DWORD	dwTime;
+}FRAME;

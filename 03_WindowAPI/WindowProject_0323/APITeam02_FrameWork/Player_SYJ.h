@@ -34,4 +34,6 @@ public:
 	void			Jump();					// 포물선점프	
 
 	void			OffSet();
+
+	void			Change_Motion();
 };
