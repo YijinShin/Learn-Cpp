@@ -8,6 +8,8 @@
 #include "CBmpMgr.h"
 #include "CLineMgr.h"
 #include "CScrollMgr.h"
+#include "CTileMgr.h"
+
 
 #include "Player_SYJ.h"
 #include "CFlag.h"
@@ -23,7 +25,9 @@ CStage_SYJ::~CStage_SYJ()
 void CStage_SYJ::Initialize()
 {
 	m_eStageID = SC_STAGE_SYJ;
-
+	
+	CTileMgr::Get_Instance()->Load_TileData();
+	
 	CLineMgr::Get_Instance()->Initialize(m_eStageID);
 	CObjMgr::Get_Instance()->Initialize(m_eStageID);
 
@@ -52,6 +56,7 @@ void CStage_SYJ::Late_Update()
 void CStage_SYJ::Render(HDC hDC)
 {
 	// 그라운드DC 가져오기 
+	
 	HDC hGroundDC = CBmpMgr::Get_Instance()->Find_MyBmp(L"Ground");
 
 	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
@@ -64,8 +69,9 @@ void CStage_SYJ::Render(HDC hDC)
 		0,
 		0,
 		SRCCOPY);
-
+	
 	// 모든 객체는 백버퍼DC에 그리기 
+	CTileMgr::Get_Instance()->Render(hDC);
 	CLineMgr::Get_Instance()->Render(hDC);
 	CObjMgr::Get_Instance()->Render(hDC);
 }

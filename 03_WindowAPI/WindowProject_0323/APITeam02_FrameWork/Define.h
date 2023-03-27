@@ -14,6 +14,14 @@
 
 #define		G			9.8f
 
+// 타일 하나의 크기
+#define			TILECX		64
+#define			TILECY		64
+// 깔 타일의 개수 
+#define			TILEX		30
+#define			TILEY		20
+
+
 extern		HWND	g_hWnd;
 
 

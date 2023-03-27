@@ -121,6 +121,12 @@
     <Filter Include="Obj\Button">
       <UniqueIdentifier>{17573b7b-1df0-400d-adfc-87dfc007a2d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Desing\TileMgr">
+      <UniqueIdentifier>{1307f663-0ad8-40d9-927c-a79cca086de9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Obj\Tile">
+      <UniqueIdentifier>{5533db93-703d-4233-b235-e1e391484fa7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -234,6 +240,12 @@
     <ClInclude Include="CButton.h">
       <Filter>Obj\Button</Filter>
     </ClInclude>
+    <ClInclude Include="CTile.h">
+      <Filter>Obj\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="CTileMgr.h">
+      <Filter>Desing\TileMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="APITeam02_FrameWork.cpp">
@@ -319,6 +331,12 @@
     </ClCompile>
     <ClCompile Include="CButton.cpp">
       <Filter>Obj\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="CTile.cpp">
+      <Filter>Obj\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="CTileMgr.cpp">
+      <Filter>Desing\TileMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

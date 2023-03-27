@@ -18,6 +18,19 @@ void	Safe_Array_Delete(T& temp) {
 
 // TODO : 프로그램에 필요한 코드를 추가하세요
 
+class CDeleteObj
+{
+public:
+	template<typename T>
+	void		operator()(T& Temp)
+	{
+		if (Temp)
+		{
+			delete Temp;
+			Temp = nullptr;
+		}
+	}
+};
 
 class CDeleteMap
 {

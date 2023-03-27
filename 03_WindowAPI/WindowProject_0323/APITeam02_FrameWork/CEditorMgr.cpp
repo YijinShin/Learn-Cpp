@@ -69,16 +69,5 @@ void CEditorMgr::Key_Input()
 		CScrollMgr::Get_Instance()->Set_ScrollY(-10.f);
 	}
 
-	// 몬스터 그리기 
-	if (CKeyMgr::Get_Instance()->Key_Pressing('M') 
-		|| CKeyMgr::Get_Instance()->Key_Down(VK_LEFT)) {
-		//CObjMgr::Get_Instance()->Draw_Monster();
-	}
-
-	// 장애물 그리기 
-	if (CKeyMgr::Get_Instance()->Key_Pressing('O')
-		|| CKeyMgr::Get_Instance()->Key_Down(VK_LEFT)) {
-		//CObjMgr::Get_Instance()->Draw_Obstacle();
-	}
 }
 

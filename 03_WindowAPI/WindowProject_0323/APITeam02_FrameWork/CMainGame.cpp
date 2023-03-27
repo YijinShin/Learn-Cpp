@@ -96,7 +96,7 @@ void CMainGame::Key_Input()
 
 		// 스테이지씬으로 변경 (스테이지 1부터 시작)
 		if (CKeyMgr::Get_Instance()->Key_Down('M')) {
-			CSceneMgr::Get_Instance()->Change_Scene(SC_STAGE_AJS);
+			CSceneMgr::Get_Instance()->Change_Scene(SC_STAGE_SYJ);
 		}
 
 		// 스테이지씬인 경우에만 허용 
